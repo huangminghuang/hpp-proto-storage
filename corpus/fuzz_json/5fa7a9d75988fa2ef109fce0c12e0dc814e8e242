@@ -1,0 +1,2 @@
+{"mapInt32Float":{"0":0,"1":1},"mapInt64Int64":{"0":"0","1":"1"},"mapInt32Double":{
+"0":0,"1":21474836471},"mapBoolBool":{"false":false,"true":true},"mapStringString":{"":"M","1":"MAP_ENUM_BAZ"},"mapInt32ForeignMessage":{"0":{"c":0},"1":{"c":1}}}

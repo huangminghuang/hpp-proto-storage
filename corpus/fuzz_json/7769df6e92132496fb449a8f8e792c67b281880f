@@ -1,0 +1,1 @@
+{"optionalLazyMessage":{"bb":44},"repeatedInt32":[10],"repeatedNestedEnum":["BAZ" ],"repeatedLazyMessage": [{"bb":12}],"oneofString":"t4Inst"}1
