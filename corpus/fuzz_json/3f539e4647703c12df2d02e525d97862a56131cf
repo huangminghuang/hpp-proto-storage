@@ -1,1 +1,0 @@
-{"optionalInt32":100,"optionalString":"asdf","repeatedBytes":["amtsOw=="],"repeatedNestedMessage":[ {  "bb":46}],"repeatedLazyMessage": [{"bb":49}],"oneofString":"teÿst"}1

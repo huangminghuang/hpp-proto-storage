@@ -1,2 +1,0 @@
-{"optionalInt32":100,"optionalString":"BAZ","optionalForeignEnum":"FOREIGN_BAZ","optionalLazyMessage":{"bb":45},"repeatedInt32":[100],"repeatedLazyMessage"                                       :[{"bb":49
- }],"oneofString":"testlForei"}1

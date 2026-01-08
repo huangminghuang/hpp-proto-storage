@@ -1,1 +1,0 @@
-{"optionalInt32":10,"repeatedForeignMessage":[{"c":407}],"repeatedNestedEnum":["BAZ"],"repeatedForeignEnum":["FOREIGN_BAZ"],"repeatedLazyMessage":[{                                                                                                                             "bb": 0}],"oneofString":"test"}ú

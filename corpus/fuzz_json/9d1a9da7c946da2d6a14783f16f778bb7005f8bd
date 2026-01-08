@@ -1,1 +1,0 @@
-{"optionalInt32":100,"optionalString":"ÿÿÿÿÿÿÿÿÿÿÿÿÿ","repeatedString":["f"],"repeatedForeignMessage":[{"c":47}],"repeatedNestedEnum":["BAZ"],"repeatedForeignEnum":["FOREIGN_BAZ"],"repeatedLazyMessage": [{"bb"									:49}],"oneofString":"teÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ"}0

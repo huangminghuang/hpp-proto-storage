@@ -1,1 +1,0 @@
-{"optionalInt32":10,"optionalString":"asOREIGN_BAZ","optionalLazyMessage":{"bb":22},"repeatedInt32":[100],"repeatedString":["asdf"],"repeatedBytes":["amtsOw=="],"repeatedNestedMessage":[{"bb":46}],"repeatedForeignMessage":[{"c":47}],"repeatedNestedEnum":["BAZ"],"repeatedForeignEnum":["FOREIGN_BAZ"],"repeatedLazyMessage" :[{"bb":49}],"oneofString":"testrepeatedUint64"}0

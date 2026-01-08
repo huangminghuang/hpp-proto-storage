@@ -1,2 +1,0 @@
-{"optionalInt32":100,"optionalString":"AZ","optionalLazyMessage":{"bb":22},"repeatedInt32":[100],"repeatedString":["asdf"],"repeatedBytes":["amtsOw=="],"repeatedNestedMessage"
-:[{"bb":46}],"repeatedForeignMessage":[{"c":46}],"repeatedNestedEnum":["BAZ"],"repeatedForeignEnum":["FOREIGN_BAZ"],"repeatedLazyMessage": [{"bb":12}],"oneofString":"terepdInt64ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿaÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿAÿÿÿÿÿst"}1{"optionalInt32" ::
