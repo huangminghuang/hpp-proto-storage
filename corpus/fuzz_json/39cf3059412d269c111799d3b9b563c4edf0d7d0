@@ -1,0 +1,1 @@
+{"optionalString":"N_BAZ","optionalLazyMessage":{"bb":45},"repeatedInt32":[100],"repeatedNestedMessage":[{"bb":46}],"repeatedForeignMessage":[{"c":47}],"repeatedNestedEnum":["BAZ"],"repeatedForeignEnum":["FOREIGN_BAZ"],"repeatedLazyMessage": [{"bb"									:49}],"oneofString":"teÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ"}1
