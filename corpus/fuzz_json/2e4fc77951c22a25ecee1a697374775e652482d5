@@ -1,1 +1,0 @@
-{"optionalSint32":105,"optionalSint64":"106","optionalFixed32":1,"optionalNestedMessage":{"bb":118},"optionalForeignMessage":{"c":119},"optionalImportEnum":"IMPORT_BAZ","optionalPublicImportMessage":{"e"  :125},"defaultImportEnum":"IMPORT_FOO","oneofBytes":"NjA0"}

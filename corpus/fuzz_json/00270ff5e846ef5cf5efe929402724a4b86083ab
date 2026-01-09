@@ -1,1 +1,0 @@
-{"optionalInt32" :100,"optionalBytes":"amtsOw==","optionalNestedMessage":  {"bb":42},"optionalForeignEnum":"FOREIGN_BAZ","optionalLazyMessage":{"bb":45},"repeatedLazyMessage":[{"bb":49}],"oneofString":"tes\"t"}0
