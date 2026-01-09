@@ -1,0 +1,1 @@
+{            "repeatedStringPiece":[  "ÿÿoooo\u0000Ó"],"repeatedNestedEnum":["BAZ"],"repeatedForeignEnum":["FOREIGN_BAZ"],"repeatedLazyMessage":[{"bb":32}],"oneofString":"test"}iMessa
