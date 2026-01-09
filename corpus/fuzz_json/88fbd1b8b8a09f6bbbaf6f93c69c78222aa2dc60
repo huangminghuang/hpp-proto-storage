@@ -1,0 +1,15 @@
+{"optionalInt32":101,"optionalBool":true,"optionalString":"0ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿûÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ15","optionalBytes":"MTE2","optionalgroup":{"a":117},"optionalNestedMessage":{"bb":118},"repeatedInt32":[201,30],"defaultInt32":401,"defaultInt64":"402","defaultUint32":403,"defaultUint64":"404","defaultSint32":405,"defaultSint64":"406","defaultFixed32":407,"defaultFixed64":"408","defaultSfixed32":409,"defaultSfixed64":"410","defaultFloat":411,"defaultDouble":412,"defaultBool":false,"defaultString":"415","defaultBytes":"NDE2","defaultNestedEnum":"FOO","defaultForeignEnum":
+
+
+
+
+
+
+
+
+
+
+
+
+
+"FOREIGN_FOO","defaultImportEnum":"IMPORT_FOO","oneofBytes":"NjA0"}
