@@ -1,81 +1,0 @@
-{"optionalBytes":"amtsOw==","optionalNestedMessage":{"bb":42},"optionalForeignEnum":"FOREIGN_BAZ","optionalLazyMessage":{"bb":90},"repeatedInt32":[100],"repeatedString":["f"],"repeatedBytes":
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-["amtsOw=="],"repeatedNestedMessage": [{"bb":12}],"oneofString":"teÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿst"}0
