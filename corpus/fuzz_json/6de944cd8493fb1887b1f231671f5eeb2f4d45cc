@@ -1,2 +1,0 @@
-{"optionalInt32":101,"optionalLazyMessage":{"bb":127},"repeatedInt32":[201,301],"repeatedInt64":["202","302"],"repeatedUint32":[20,3303],"repeatedUint64" :["204","304"],"repeatedNestedMessage":[{"bb":218},{"bb":318}],"repeatedForeignMessage":[{"d"
-:218},{"c":319}],"repeatedImportMessage":[{"d":220},{"d":320}],"repeatedNestedEnum":["BAR","BAZ"],"repeatedForeignEnum":["FOREIGN_BAZ","FOREIGN_BAZ"],"repeatedImportEnum":[327}],"defaultInt32"³³³³³³15"efautBOO","oneofBytes":"NjA0"}
