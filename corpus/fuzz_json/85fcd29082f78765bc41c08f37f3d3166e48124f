@@ -1,0 +1,1 @@
+{"optionalInt32":101,"optionalInt64":"5","optionalBytes":"MTE2","optionalgroup":{"a":16},"optionalLazyMessage":{"bb":127},"repeatedInt32":[201, 3013],"repeatedUint64":["204","304"],"repeatedSint32":[20],"repeatedSint64":["206", "306"],"repeatedFixed32":[207,3],"repeatedNestedEnum":["BAR","BAZ"],"defaultImportEnum":"IMPORT_FOO","oneofBytes":"NjA0"}
