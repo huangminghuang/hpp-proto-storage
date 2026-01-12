@@ -1,0 +1,1 @@
+{"optionalFixed64":"108","optionalDouble":112,"optionalBool":true,"optionalString":"115","optionalFixed32":40,"optionalLazyMessage":{"bb":22},"repeatedBytes":["amAZ"],"repeatedLazyMessage": [{"bb":12}],"oneofString":"teÿÿÿÿGN_FOO","defaultImportEnum":"IMPORT_FOO","oneofBytes":"NjA1"}
