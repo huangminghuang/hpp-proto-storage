@@ -1,0 +1,3 @@
+{"optionalInt32":101,"optionalLazyMessage":{"bb":127},"repeatedInt32":[303],"repeatedUint64" :["204","304"],"repeatedNestedMessage":[{"bb":218},{"bb":318}],"repeatedForeignMessage":[{"d"
+:218},{"c":319}],"repeatedImportMessage":[{"d":220},{"d":320}],"repeatedNestedEnum":["BAR","BAZ"],"repeatedForeignEnum":[],"repeatedForeignMessage":[{"d"
+:218},{"c":319}],"repeatedImportMessage":[{"d":220},{"d":320}],"repeatedNestedEnum":["BAR","BAZ"],"repeatedForeignEnum":["FOREIGN_BAZ","FOREIGN_BAZ"],"repeatedImportEnum":[327}],"BAZ"],"repet32":{"atedImportEnum":[0":1327}],"defaultInt32"³³³³³³15"efautB}OO","on}eofBytes":"SNjA0"}
