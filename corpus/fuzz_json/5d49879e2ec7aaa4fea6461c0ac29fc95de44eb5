@@ -1,2 +1,0 @@
-{"optionalInt32":101,"optionalNestedMessage":{"bb":118},"optionalForeignMessage":{"c":119},"optionalImportEnum":"IMPORT_BAZ","optionalPublicImportMessage":{"e"  :
-127},"repeatedInt32":[211],"repeatedDouble":[212,312],"repeatedBool":[true,false],"repeatedString":["215","315"],"repeatedBytes":["MjE2","MzE2"],"defaultString":"415","defaultBytes":"NjA0"}
