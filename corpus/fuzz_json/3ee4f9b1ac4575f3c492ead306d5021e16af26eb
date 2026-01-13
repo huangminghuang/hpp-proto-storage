@@ -1,1 +1,0 @@
-{"optionalInt32":1,"optionalNestedMessage":{"bb":30},"optionalLazyMessage":{"bb":45},"repeatedInt32":[100],"repeatedString":["f"],"repeatedForeignMessage":[     {   "c"								:49}],"oneofString":"tÿÿÿÿÿÿÿþÿst"}1

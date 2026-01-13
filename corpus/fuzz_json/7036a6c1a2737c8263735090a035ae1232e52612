@@ -1,1 +1,0 @@
-{"optionalInt32":100,"optionalString":"asdf","defaultString":"aN_BAZ","repeatedNestedEnum":["BAZ"],"repeatedForeignEnum":["FOREIGN_BAZ"],"repeatedLazyMessage": [{"bb":12}],"oneofString":"teÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ"}1
