@@ -1,7 +1,0 @@
-{"optionalInt32":100,"optionalString":"asdf","optionalBytes":"amtsOw==","optionalNestedMessage":{"bb":42},"optionalForeignEnum":"FOREIGN_BAZ","optionalLazyMessage":{"bb":90},"repeatedInt32":[100],"repeatedString":["f"],"repeatedBytes":["amtsOw=="],"repeatedNestedMessage":[{"bb":46}],"repeatedForeignMessage":[{"c":47}],"repeatedNestedEnum":["BAZ"],"repeatedForeignEnum":["FOREIGN_BAZ"],"repeatedLazyMessage": [{"bb":49}],"oneofString":"teÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ","optionalLazyMessage":{"bb":90},"repeatedInt32":[100],"repeatedString":["f"],"repeatedBytes":["amtsOw=="],"repeatedNestedMessage":[{"bb":46}],"repeatedForeignMessage":[{"c":47}],"repeatedNestedEnum":["BAZ"],"repeatedForeignEnum":["FOREIGN_BAZ"],"repeatedLazyMessage": [{"bb":49}],"oneofString":"teÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿFO0\\\\\\\\\\Z","optionalLazyMessage":{"bb":90},"repeatedInt32":[100],"repeatedString":["f"],"repeatedBytes":["amtsOw=="],"repeatedNestedMessage":[{"bb":46}],"repeatedForeignMessage"
-
-
-
-
-
-  :[]   }":["FOREIG{"optionalInt64":"11e0eatedLdStazy

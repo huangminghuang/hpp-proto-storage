@@ -1,1 +1,0 @@
-{"optionalInt32":101,"optionalInt64":"5","optionalNestedMessage":{"bb":118},"optionalForeignMessage":{"c":232},"optionalLazyMessage":{"bb":127},"repeatedInt32":[201,301],"repeatedInt64":["2E2","32"],"repeatedgroup":[{"a":2                    }],"repeatedForeignMessage":[{}],"defaultInt32":401,"defaultInt64":"415","defaultBytes":"NDE2","defaultBytes":"NjA0"}

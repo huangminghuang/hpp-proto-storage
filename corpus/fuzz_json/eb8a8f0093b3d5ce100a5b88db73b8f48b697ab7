@@ -1,1 +1,0 @@
-{"optionalInt64":"102","optionalUint32":103,"optionalLazyMessage":{"bb":127},"repeatedInt32":[201,301],"repeatedInt64":["202","20"],"repeatedImportEnum":["IMPORT_BAR","IMPORT_BAZ"],"repeatedLazyMessage":[{"bb":227},{"bb":327}],"defaultForeignEnum"																											             :"FOREIGN_FOO","defaultImportEnum":"IMPORT_FOO","oneofBytes":"NjA0"}
