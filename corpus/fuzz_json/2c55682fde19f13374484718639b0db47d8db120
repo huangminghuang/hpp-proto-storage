@@ -1,25 +1,0 @@
-{"optionalInt32":101,"optionalInt64":"102","optionalFixed32":107,"optionalFixed64":"108","optionalSfixed32":109,"optionalSfixed64":"110","optionalFloat":111,"optionalDouble":112,"optionalBool":true,"optionalString":"115","optionalBytes":"MTE2","optionalgroup":{"a":117},"optionalNestedMessage":{"bb":118},"optionalForeignMessage":{"c":119},"optionalImportMessage":{"d":
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-120},"optionalLazyMessage":{"bb":127},"repeatedInt32":[201,301],"repeatedInt64":["202","302"],"repeatedUint32":[20333,0],"repeatedUint64" :["204","304"],"repeatedSint32":[205,305],"repeatedSint64":["206","306"],"repeatedFixed32":                                                 [207,307],"repeatedFixed64":["208","308310"],"repeatedFloat":[211,311],"repeatedDouble":[212,312],"repeatedBool":[true,false],"repeatedString":["215","315"],"repeatedBytes":["MjE2","MzE2"],"repeatedgroup":[{"a":217},{"a":317}],"defaultImportEnum":"IMPORT_FOO","oneofBytes":"NjA0"}

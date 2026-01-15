@@ -1,1 +1,0 @@
-{"optionalInt32":11,"optionalInt64":"102","optionalLazyMessage":{"bb":127},"repeatedInt32":[201,300],"repeatedSfixed64":["210", "310"],"defaultDouble"                               :411,"defaultNestedEnum":"FOO","oneofBytes":"NjA0"}
