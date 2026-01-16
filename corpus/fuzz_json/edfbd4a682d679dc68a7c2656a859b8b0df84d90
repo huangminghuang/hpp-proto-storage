@@ -1,0 +1,2 @@
+{"optionalInt32":101,"optionalInt64":"102","optionalUint32":103,"optionalUint64":"104","optionalSint32":105,"optionalFixed64":"108","optionalSfixed32":109,"optionalForeignMessage":{"c":119},"optionalImportMessage":{"d":120},"optionalLazyMessage":{"bb":254},"repeatedInt32":[201,301],"repeatedUint32":[205,3],"repeatedSint64":["206","306"],"repeatedFixed32":                                                      [207,307],"repeatedFixed64":["208","308"],"defaultInt64":"402",
+"defaultImportEnum":"IMPORT_FOO","oneofBytes":"NjA0"}
