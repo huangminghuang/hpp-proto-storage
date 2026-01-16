@@ -1,8 +1,0 @@
-{"optionalInt32":101,"optionalInt64":"1008","optionalImportMessage":{"d":120},"optionalBytes":"MTEZ","optionalForeignEnum":"FOREIGN_BAZ","optionalImportEnum":"IMPORT_BAZ","optionalPublicImportMessage":{"e":126},"optionalLazyMessage":{"bb":128},"repeatedBytes":["MjE2","MzE2"],"repeatedgroup":[{"a":217},{"a":317}],"repeatedNestedMessage":[{"bb":218},{"bb":318}],"repeatedForeignMessage":[{"c":2319}],"repeatedImportMessage":[{"d":220},
-
-
-
-
-
-
- {"d":320}],"repeatedNestedEnum":["BAR","BAZ"],"repeatedForeignEnum":["FOREIGN_BAR","FOREIGN_BAZ"],"repeatedImportEnum":["IMPORT_BAR","IMPORT_BAZ"],"repeatedLazyMessage":[{"bb":227},{"bb":327}],"defaultInt32":4,"defaultFixed32":407,"defaultFixed64" :"408","defaultSfixed32":409,"defaultSfixed64":"410","defaultFloat":4,"defaultDouble":412,"defaultBool":false,"defaultString":"41A0"}
