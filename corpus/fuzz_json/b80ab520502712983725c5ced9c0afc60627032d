@@ -1,0 +1,1 @@
+{"optionalInt32":101,"repeatedString":["215","315"],"repeatedBytes":["MjE2","MzE2"],"repeatedgroup":[{"a":217 },              {   "a":317}],"repeatedNestedMessage":[{"bb":20}],"defaultDouble":412,"defaultBool":false,"defaultString":   "FOO","defaultForeignEnum":"FOREIGN_FOO","defaultImportEnum":"IMPORT_FOO","oneofBytes":"NjA0"}
