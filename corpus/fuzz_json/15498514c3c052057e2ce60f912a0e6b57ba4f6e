@@ -1,0 +1,1 @@
+{"optionalInt32":101,"optionalInt64":"102","optionalUint32":103,"optionalUint64":"104","optionalSint32":10512,"optionalBool":true,"optionalString":"115iÿÿÿñ","optionalBytes":"MTE2","optionalgroup":{"a":17},"optionalNestedMessage":{"bb":118},"optionalForeignMessage":{"c":119},"optionalImportEnum":"IMPORT_BAZ","optionalPublicImportMessage":{"e" :126},"oneofBytes":"NjA0"}

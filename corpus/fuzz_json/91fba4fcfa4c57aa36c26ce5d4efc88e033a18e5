@@ -1,0 +1,20 @@
+{"optionalInt32":100,"optionalString":"asdf","optionalBytes":"amtsOw==","optionalForeignEnum":"FOREIGN_BAZ","optionalLazyMessage":{"bb":90},"repeatedInt32":[],"repeatedString":["f"],"repeatedBytes":["amtsOw=="],"repeatedNestedMessage":[{"bb":46}],"repeatedForeignMessage":[{"c":47}],"repeatedNestedEnum":["BAZ"],"repeatedForeignEnum":["FOREIGN_BAZ"],"repeatedLazyMessage": [{"bb":49}],"repeatedNestedEnum":["BAZ"],"repeatedForeignEnum":["FOREIGN_BAZ"],"repeatedLazyMessage": [{"bb":49}],"oneofString":"teÿÿÿÿÿÿÿÿÿÿÿÿÿÿREIG²¢BARÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿIGN_BAZ","optionalLazyMessage":{"bb":45},"repeatedInt32":[100],"repeatedString":["as\rdf"],"repeatedBytes":["amtsOw=="],"repeatedNestedMessage":[{"bb":46}],"repeatedForeignMessage":[{"c":47}],"repeatedNestedEnum":["BAZ"],"repeatedForeignEnum":["FOREIGN_BAZ"],"repeatedLazyMessage": [{"bb":12}],"oneofString":"teÿÿÿÿÿÿ_BAZ","optionalLazyMessage":{"bb":45},"repeatedInt32":[100],"repeatedString":["as\rdf"],"repeatedBytes":["amtsOw=="],"repeatedNestedMessage":[{"bb":46}],"repeatedForeignMessage":[{"c":47}],"repeatedNestedEnum":["BAZ"],"repeatedForeignEnum"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  :[]   }":["FOREÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿst"}0
