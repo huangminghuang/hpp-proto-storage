@@ -1,0 +1,1 @@
+{"optionalInt32":101,"optionalInt64":"5","optionalBytes":"MTE2","optionalgroup":{"a":11},"optionalNestedMessage":{"bb":11},"optionalForeignMessage" :{"c":119},"optionalImportEnum":"IMPORT_BAZ","optionalPublicImportMessage":{"e":126},"optionalLazyMessage":{"bb":27},"repeatedUint32": [0}],"
