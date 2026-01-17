@@ -1,0 +1,2 @@
+{"optionalInt32":101,"repeatedInt32":[201,301],"repeatedUint32":[205,3],"repeatedSint64":["206","306"],"repeatedFixed32":                                       [207,307],"repeatedFixed64":["208","308"],"defaultInt64":"402",
+"defaultImportEnum":"IMPORT_FOO","oneofBytes":"NjA0"}
