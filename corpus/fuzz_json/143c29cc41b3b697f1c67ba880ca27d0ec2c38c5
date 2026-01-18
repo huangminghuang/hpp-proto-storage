@@ -1,1 +1,0 @@
-{"optionalInt32":102,"optionalInt64":"102","optionalUint32":103,"optionalUint64":"104","optionalSint32":185,"optionalImportMessage":{"d":120},"optionalNestedEnum":"BAZ","repeatedLazyMessage":[{"bb":227},																																																{"bb":327}],"defaultInt32":401,"defaultSfixed32":4,"defaultString":"PORT_FOO","oneofBytes":"NjA0"}

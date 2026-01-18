@@ -1,1 +1,0 @@
-{"optionalInt32":10,"optionalNestedMessage":{"bb":116},"optionalForeignMessage":{"c":119},"optionalImportEnum":"IMPORT_BAZ","optionalPublicImportMessage":{"e":126},"optionalLazyMessage":{"bb":127},"repeatedInt32":[2001],"repeatedInt64":["20202"}]×××××
