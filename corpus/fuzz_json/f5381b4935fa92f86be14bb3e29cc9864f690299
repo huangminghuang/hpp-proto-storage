@@ -1,0 +1,1 @@
+{"optionalForeignEnum":"FOREIGN_BAZ","optionalLazyMessage":{"bb":45},"repeatedInt32":[100],"repeatedString":["f"],"repeatedBytes":["amtsOw==" ],"repeatedBytes":["amtsOw==" ],"repeatedNestedMessage":[{"bb":77}],"repeatedInt32":[100],"repeatedString":["f"],"repeatedBytes":["amtsOw==" ],"repeatedNestedMessage":[{"bb":73}],"repeatedLazyMessage": [{"bb":49}],"oneofString":"teÿÿÿÿÿ"}1
