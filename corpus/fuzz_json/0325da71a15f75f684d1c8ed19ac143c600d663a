@@ -1,0 +1,1 @@
+{"optionalInt32":101,"optionalForeignEnum":"FOREIGN_BAZ","optionalImportEnum":"IMPORT_BAZ","optionalPublicImportMessage":{"e":126},"optionalLazyMessage":{"bb":127},"repeatedInt32":[2001,31],"repeatedgroup":[{"a":217},{"a":317}],"repeatedImportMessage":[{"d":220},{"d":320}],"defaultSint64"   :"4"}
