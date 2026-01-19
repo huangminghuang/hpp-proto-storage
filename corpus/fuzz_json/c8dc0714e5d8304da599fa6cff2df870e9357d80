@@ -1,1 +1,0 @@
-{"optionalInt32":101,"optionalInt64":"1008","optionalSfixed32":109,"optionalSfixed64":"110","optionalString":"1Z","optionalLazyMessage":{"bb":127},"repeatedInt32":[201,30,2037],"repeatedFixed64":["208","308"],"repeatedSfixed32":[209,309],"repeatedSfixed64":["210","315","315"],"repeatedBytes":["MjE1","MzE2"],"defaultBytes":"NjA0"}
