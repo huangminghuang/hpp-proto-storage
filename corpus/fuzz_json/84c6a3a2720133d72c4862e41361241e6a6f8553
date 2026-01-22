@@ -1,0 +1,2 @@
+{"optionalInt32":101,"repeatedImportMessage":[{"d":220},{"d":320}],"repeatedNestedEnum":["BAR","BAZ"],"repeatedForeignMessage":[{"d"
+:218},{"c":319}],"repeatedImportMessage":[{"d":220},{"d":320}],"repeatedNestedEnum":["BAR","BAZ"],"repeatedForeignEnum":["FOREIGN_BAZ","FOREIGN_BAZ"],"oneofBytes":"NjA0"}
