@@ -1,2 +1,0 @@
-{"optionalInt32":101,"optionalForeignEnum":"FOREIGN_BAZ","optionalImportEnum":"IMPORT_BAZ","optionalPublicImportMessage":{"e":126},"optionalLazyMessage":{"bb":127},"repeatedInt64":["202","364708"],"repeatedForeignEnum":["FOREIGN_BAR","FOREIGN_BAZ"],"repeatedImportEnum":[
-"IMPORT_BAR","IMPORT_BAZ"],"repeatedLazyMessage":[{"bb":227}, {"bb":327}],"defaultSfixed64":"410","defaultFloat":4,"oneofBytes":"NjA0"}
