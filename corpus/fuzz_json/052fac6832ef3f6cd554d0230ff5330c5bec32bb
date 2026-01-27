@@ -1,1 +1,0 @@
-{"optionalInt32":100,"repeatedString":["f"],"repeatedBytes":["amts"],"repeatedNestedMessage":[{"bb":467}],"repeatedLazyMessage": [{"bb":49}],"defaultCord":"teÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿamtsOZ","repeatedNestedMessage":[{"bb":46}],"repeatedNestedEnum":["BAZ"],"repeatedForeignEnum":["FOREIGN_BAZ"],"repeatedLazyMessage": [{"bb":49}],"defaultCord":"teÿÿÿst"}1

@@ -1,1 +1,0 @@
-{"optionalInt32":100,"optionalString":"ÿÿÿÿÿÿÿÿÿIÿGN_BAZ","optionalLazyMessage":{"bb":90},"repeatedInt32":[],"repeatedBytes":["amtsOw=="],"repeatedStringPiece":["FOREIGN_B=="],"repeatedNestedMessage":[{"bb":46}],"repeatedForeignMessage":[{"c":47}],"repeatedNestedEnum":["BAZ"],"repeatedStringPiece":["_BAZ"],"repeatedLazyMessage": [{"bb":49}],"oneofString":"tet"}1
