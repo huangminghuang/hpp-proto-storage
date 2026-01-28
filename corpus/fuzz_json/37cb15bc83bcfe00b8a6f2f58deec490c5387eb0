@@ -1,0 +1,1 @@
+{"optionalInt32":10,"repeatedNestedEnum":["BAR","BAR"],"repeatedLazyMessage":[{"bb":327}],"defaultForeignEnum"    :"FOREIGN_FOO","defaultImportEnum":"IMPORT_BAR","oneofBytes":"NjA0"}
