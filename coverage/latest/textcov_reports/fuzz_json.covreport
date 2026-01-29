@@ -84,142 +84,142 @@ LLVMFuzzerInitialize:
    39|      2|}
 
 _Z20set_variant_by_indexIJN15proto3_unittest12TestAllTypesIN3hpp5proto17non_owning_traitsEEEN17protobuf_unittest12TestAllTypesIS4_EENS6_7TestMapIS4_EEN15proto2_unittest18TestWellKnownTypesIS4_EEEEvRNSt3__17variantIJDpT_EEEm:
-   15|  29.6k|void set_variant_by_index(std::variant<Ts...> &v, size_t index) {
+   15|  18.7k|void set_variant_by_index(std::variant<Ts...> &v, size_t index) {
    16|       |  // 1. Define the Variant type for clarity
-   17|  29.6k|  using VariantType = std::variant<Ts...>;
-   18|  29.6k|  constexpr size_t Size = sizeof...(Ts);
+   17|  18.7k|  using VariantType = std::variant<Ts...>;
+   18|  18.7k|  constexpr size_t Size = sizeof...(Ts);
    19|       |
    20|       |  // 2. Create a static table of function pointers
-   21|  29.6k|  static constexpr auto table = []<size_t... Is>(std::index_sequence<Is...>) {
-   22|  29.6k|    return std::array<void (*)(VariantType &), Size>{// Expand a lambda for every index I
-   23|  29.6k|                                                     [](VariantType &var) { var.template emplace<Is>(); }...};
-   24|  29.6k|  }(std::make_index_sequence<Size>{});
-   25|  29.6k|  table[index](v); // NOLINT(cppcoreguidelines-pro-bounds-constant-array-index)
-   26|  29.6k|}
+   21|  18.7k|  static constexpr auto table = []<size_t... Is>(std::index_sequence<Is...>) {
+   22|  18.7k|    return std::array<void (*)(VariantType &), Size>{// Expand a lambda for every index I
+   23|  18.7k|                                                     [](VariantType &var) { var.template emplace<Is>(); }...};
+   24|  18.7k|  }(std::make_index_sequence<Size>{});
+   25|  18.7k|  table[index](v); // NOLINT(cppcoreguidelines-pro-bounds-constant-array-index)
+   26|  18.7k|}
 _ZZZ20set_variant_by_indexIJN15proto3_unittest12TestAllTypesIN3hpp5proto17non_owning_traitsEEEN17protobuf_unittest12TestAllTypesIS4_EENS6_7TestMapIS4_EEN15proto2_unittest18TestWellKnownTypesIS4_EEEEvRNSt3__17variantIJDpT_EEEmENKUlTpTnmNSE_16integer_sequenceImJXspT_EEEEE_clIJLm0ELm1ELm2ELm3EEEEDaSL_ENKUlRNSF_IJS5_S8_SA_SD_EEEE_clESP_:
-   23|  8.84k|                                                     [](VariantType &var) { var.template emplace<Is>(); }...};
+   23|  5.57k|                                                     [](VariantType &var) { var.template emplace<Is>(); }...};
 _ZZZ20set_variant_by_indexIJN15proto3_unittest12TestAllTypesIN3hpp5proto17non_owning_traitsEEEN17protobuf_unittest12TestAllTypesIS4_EENS6_7TestMapIS4_EEN15proto2_unittest18TestWellKnownTypesIS4_EEEEvRNSt3__17variantIJDpT_EEEmENKUlTpTnmNSE_16integer_sequenceImJXspT_EEEEE_clIJLm0ELm1ELm2ELm3EEEEDaSL_ENKUlRNSF_IJS5_S8_SA_SD_EEEE0_clESP_:
-   23|  9.35k|                                                     [](VariantType &var) { var.template emplace<Is>(); }...};
+   23|  5.82k|                                                     [](VariantType &var) { var.template emplace<Is>(); }...};
 _ZZZ20set_variant_by_indexIJN15proto3_unittest12TestAllTypesIN3hpp5proto17non_owning_traitsEEEN17protobuf_unittest12TestAllTypesIS4_EENS6_7TestMapIS4_EEN15proto2_unittest18TestWellKnownTypesIS4_EEEEvRNSt3__17variantIJDpT_EEEmENKUlTpTnmNSE_16integer_sequenceImJXspT_EEEEE_clIJLm0ELm1ELm2ELm3EEEEDaSL_ENKUlRNSF_IJS5_S8_SA_SD_EEEE1_clESP_:
-   23|  10.3k|                                                     [](VariantType &var) { var.template emplace<Is>(); }...};
+   23|  6.79k|                                                     [](VariantType &var) { var.template emplace<Is>(); }...};
 _ZZZ20set_variant_by_indexIJN15proto3_unittest12TestAllTypesIN3hpp5proto17non_owning_traitsEEEN17protobuf_unittest12TestAllTypesIS4_EENS6_7TestMapIS4_EEN15proto2_unittest18TestWellKnownTypesIS4_EEEEvRNSt3__17variantIJDpT_EEEmENKUlTpTnmNSE_16integer_sequenceImJXspT_EEEEE_clIJLm0ELm1ELm2ELm3EEEEDaSL_ENKUlRNSF_IJS5_S8_SA_SD_EEEE2_clESP_:
-   23|  1.04k|                                                     [](VariantType &var) { var.template emplace<Is>(); }...};
+   23|    540|                                                     [](VariantType &var) { var.template emplace<Is>(); }...};
 
 LLVMFuzzerTestOneInput:
-   34|  29.6k|extern "C" __attribute__((visibility("default"))) int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
-   35|  29.6k|  FuzzedDataProvider provider(data, size);
+   34|  18.7k|extern "C" __attribute__((visibility("default"))) int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
+   35|  18.7k|  FuzzedDataProvider provider(data, size);
    36|       |
    37|       |  // choice_options encodes message type and whether to split input.
    38|       |  // Maximum choice_options will be (std::variant_size_v<message_variant_t> - 1).
    39|       |  // Using uint8_t will consume 1 byte for this option.
-   40|  29.6k|  constexpr auto kVariantCount = std::variant_size_v<message_variant_t>;
-   41|  29.6k|  static_assert(kVariantCount > 0);
-   42|  29.6k|  auto choice_options = provider.ConsumeIntegralInRange<uint8_t>(0, static_cast<uint8_t>(kVariantCount - 1));
+   40|  18.7k|  constexpr auto kVariantCount = std::variant_size_v<message_variant_t>;
+   41|  18.7k|  static_assert(kVariantCount > 0);
+   42|  18.7k|  auto choice_options = provider.ConsumeIntegralInRange<uint8_t>(0, static_cast<uint8_t>(kVariantCount - 1));
    43|       |
-   44|  29.6k|  std::pmr::monotonic_buffer_resource mr; // Needs to be alive during read_binpb
-   45|  29.6k|  message_variant_t message_variant;      // Holds the deserialized message
+   44|  18.7k|  std::pmr::monotonic_buffer_resource mr; // Needs to be alive during read_binpb
+   45|  18.7k|  message_variant_t message_variant;      // Holds the deserialized message
    46|       |
-   47|  29.6k|  auto message_type_index = choice_options % std::variant_size_v<message_variant_t>;
+   47|  18.7k|  auto message_type_index = choice_options % std::variant_size_v<message_variant_t>;
    48|       |
-   49|  29.6k|  set_variant_by_index(message_variant, message_type_index);
+   49|  18.7k|  set_variant_by_index(message_variant, message_type_index);
    50|       |
-   51|  29.6k|  auto do_read = [&](std::string_view input) {
-   52|  29.6k|    return std::visit(
-   53|  29.6k|        [&](auto &non_owning_message) -> int {
-   54|  29.6k|          using non_owning_message_t = std::remove_reference_t<decltype(non_owning_message)>;
-   55|  29.6k|          using owning_message_t = decltype(hpp::proto::rebind_traits(non_owning_message));
-   56|  29.6k|          std::string_view msg_name = message_name(non_owning_message);
-   57|  29.6k|          owning_message_t owning_message;
-   58|  29.6k|          hpp::proto::message_value_mref dyn_message = factory.get_message(msg_name, mr).value();
+   51|  18.7k|  auto do_read = [&](std::string_view input) {
+   52|  18.7k|    return std::visit(
+   53|  18.7k|        [&](auto &non_owning_message) -> int {
+   54|  18.7k|          using non_owning_message_t = std::remove_reference_t<decltype(non_owning_message)>;
+   55|  18.7k|          using owning_message_t = decltype(hpp::proto::rebind_traits(non_owning_message));
+   56|  18.7k|          std::string_view msg_name = message_name(non_owning_message);
+   57|  18.7k|          owning_message_t owning_message;
+   58|  18.7k|          hpp::proto::message_value_mref dyn_message = factory.get_message(msg_name, mr).value();
    59|       |
-   60|  29.6k|          auto non_owning_read_status = util::read_json(non_owning_message, input, hpp::proto::alloc_from{mr});
-   61|  29.6k|          auto owning_read_status = util::read_json(owning_message, input, hpp::proto::alloc_from{mr});
-   62|  29.6k|          auto dyn_read_status = util::read_json(dyn_message, input, hpp::proto::alloc_from{mr});
+   60|  18.7k|          auto non_owning_read_status = util::read_json(non_owning_message, input, hpp::proto::alloc_from{mr});
+   61|  18.7k|          auto owning_read_status = util::read_json(owning_message, input, hpp::proto::alloc_from{mr});
+   62|  18.7k|          auto dyn_read_status = util::read_json(dyn_message, input, hpp::proto::alloc_from{mr});
    63|       |
-   64|  29.6k|          bool all_status_same = (non_owning_read_status.ok() == owning_read_status.ok() &&
-   65|  29.6k|                                  owning_read_status.ok() == dyn_read_status.ok());
-   66|  29.6k|          if (!all_status_same) {
-   67|  29.6k|            auto print_error = [&input](std::string_view name, auto status) {
-   68|  29.6k|              if (!status.ok()) {
-   69|  29.6k|                std::cerr << name << " failed:" << status.message(input) << "\n";
-   70|  29.6k|              }
-   71|  29.6k|            };
-   72|  29.6k|            print_error("non-owning", non_owning_read_status);
-   73|  29.6k|            print_error("owning", owning_read_status);
-   74|  29.6k|            print_error("dyn", dyn_read_status);
-   75|  29.6k|          }
-   76|  29.6k|          assert(all_status_same);
-   77|  29.6k|          if (dyn_read_status.ok()) {
-   78|  29.6k|            round_trip_test(non_owning_message, non_owning_message_t{});
-   79|  29.6k|            round_trip_test(owning_message, owning_message_t{});
-   80|  29.6k|            round_trip_test(dyn_message, factory.get_message(msg_name, mr).value());
-   81|  29.6k|          }
-   82|  29.6k|          return dyn_read_status.ok() ? 0 : -1;
-   83|  29.6k|        },
-   84|  29.6k|        message_variant);
-   85|  29.6k|  };
-   86|  29.6k|  auto remaining = provider.ConsumeRemainingBytes<char>();
-   87|  29.6k|  return do_read({remaining.begin(), remaining.end()});
-   88|  29.6k|}
+   64|  18.7k|          bool all_status_same = (non_owning_read_status.ok() == owning_read_status.ok() &&
+   65|  18.7k|                                  owning_read_status.ok() == dyn_read_status.ok());
+   66|  18.7k|          if (!all_status_same) {
+   67|  18.7k|            auto print_error = [&input](std::string_view name, auto status) {
+   68|  18.7k|              if (!status.ok()) {
+   69|  18.7k|                std::cerr << name << " failed:" << status.message(input) << "\n";
+   70|  18.7k|              }
+   71|  18.7k|            };
+   72|  18.7k|            print_error("non-owning", non_owning_read_status);
+   73|  18.7k|            print_error("owning", owning_read_status);
+   74|  18.7k|            print_error("dyn", dyn_read_status);
+   75|  18.7k|          }
+   76|  18.7k|          assert(all_status_same);
+   77|  18.7k|          if (dyn_read_status.ok()) {
+   78|  18.7k|            round_trip_test(non_owning_message, non_owning_message_t{});
+   79|  18.7k|            round_trip_test(owning_message, owning_message_t{});
+   80|  18.7k|            round_trip_test(dyn_message, factory.get_message(msg_name, mr).value());
+   81|  18.7k|          }
+   82|  18.7k|          return dyn_read_status.ok() ? 0 : -1;
+   83|  18.7k|        },
+   84|  18.7k|        message_variant);
+   85|  18.7k|  };
+   86|  18.7k|  auto remaining = provider.ConsumeRemainingBytes<char>();
+   87|  18.7k|  return do_read({remaining.begin(), remaining.end()});
+   88|  18.7k|}
 fuzz_json.cpp:_ZZ22LLVMFuzzerTestOneInputENK3$_0clENSt3__117basic_string_viewIcNS0_11char_traitsIcEEEE:
-   51|  29.6k|  auto do_read = [&](std::string_view input) {
-   52|  29.6k|    return std::visit(
-   53|  29.6k|        [&](auto &non_owning_message) -> int {
-   54|  29.6k|          using non_owning_message_t = std::remove_reference_t<decltype(non_owning_message)>;
-   55|  29.6k|          using owning_message_t = decltype(hpp::proto::rebind_traits(non_owning_message));
-   56|  29.6k|          std::string_view msg_name = message_name(non_owning_message);
-   57|  29.6k|          owning_message_t owning_message;
-   58|  29.6k|          hpp::proto::message_value_mref dyn_message = factory.get_message(msg_name, mr).value();
+   51|  18.7k|  auto do_read = [&](std::string_view input) {
+   52|  18.7k|    return std::visit(
+   53|  18.7k|        [&](auto &non_owning_message) -> int {
+   54|  18.7k|          using non_owning_message_t = std::remove_reference_t<decltype(non_owning_message)>;
+   55|  18.7k|          using owning_message_t = decltype(hpp::proto::rebind_traits(non_owning_message));
+   56|  18.7k|          std::string_view msg_name = message_name(non_owning_message);
+   57|  18.7k|          owning_message_t owning_message;
+   58|  18.7k|          hpp::proto::message_value_mref dyn_message = factory.get_message(msg_name, mr).value();
    59|       |
-   60|  29.6k|          auto non_owning_read_status = util::read_json(non_owning_message, input, hpp::proto::alloc_from{mr});
-   61|  29.6k|          auto owning_read_status = util::read_json(owning_message, input, hpp::proto::alloc_from{mr});
-   62|  29.6k|          auto dyn_read_status = util::read_json(dyn_message, input, hpp::proto::alloc_from{mr});
+   60|  18.7k|          auto non_owning_read_status = util::read_json(non_owning_message, input, hpp::proto::alloc_from{mr});
+   61|  18.7k|          auto owning_read_status = util::read_json(owning_message, input, hpp::proto::alloc_from{mr});
+   62|  18.7k|          auto dyn_read_status = util::read_json(dyn_message, input, hpp::proto::alloc_from{mr});
    63|       |
-   64|  29.6k|          bool all_status_same = (non_owning_read_status.ok() == owning_read_status.ok() &&
-   65|  29.6k|                                  owning_read_status.ok() == dyn_read_status.ok());
-   66|  29.6k|          if (!all_status_same) {
-   67|  29.6k|            auto print_error = [&input](std::string_view name, auto status) {
-   68|  29.6k|              if (!status.ok()) {
-   69|  29.6k|                std::cerr << name << " failed:" << status.message(input) << "\n";
-   70|  29.6k|              }
-   71|  29.6k|            };
-   72|  29.6k|            print_error("non-owning", non_owning_read_status);
-   73|  29.6k|            print_error("owning", owning_read_status);
-   74|  29.6k|            print_error("dyn", dyn_read_status);
-   75|  29.6k|          }
-   76|  29.6k|          assert(all_status_same);
-   77|  29.6k|          if (dyn_read_status.ok()) {
-   78|  29.6k|            round_trip_test(non_owning_message, non_owning_message_t{});
-   79|  29.6k|            round_trip_test(owning_message, owning_message_t{});
-   80|  29.6k|            round_trip_test(dyn_message, factory.get_message(msg_name, mr).value());
-   81|  29.6k|          }
-   82|  29.6k|          return dyn_read_status.ok() ? 0 : -1;
-   83|  29.6k|        },
-   84|  29.6k|        message_variant);
-   85|  29.6k|  };
+   64|  18.7k|          bool all_status_same = (non_owning_read_status.ok() == owning_read_status.ok() &&
+   65|  18.7k|                                  owning_read_status.ok() == dyn_read_status.ok());
+   66|  18.7k|          if (!all_status_same) {
+   67|  18.7k|            auto print_error = [&input](std::string_view name, auto status) {
+   68|  18.7k|              if (!status.ok()) {
+   69|  18.7k|                std::cerr << name << " failed:" << status.message(input) << "\n";
+   70|  18.7k|              }
+   71|  18.7k|            };
+   72|  18.7k|            print_error("non-owning", non_owning_read_status);
+   73|  18.7k|            print_error("owning", owning_read_status);
+   74|  18.7k|            print_error("dyn", dyn_read_status);
+   75|  18.7k|          }
+   76|  18.7k|          assert(all_status_same);
+   77|  18.7k|          if (dyn_read_status.ok()) {
+   78|  18.7k|            round_trip_test(non_owning_message, non_owning_message_t{});
+   79|  18.7k|            round_trip_test(owning_message, owning_message_t{});
+   80|  18.7k|            round_trip_test(dyn_message, factory.get_message(msg_name, mr).value());
+   81|  18.7k|          }
+   82|  18.7k|          return dyn_read_status.ok() ? 0 : -1;
+   83|  18.7k|        },
+   84|  18.7k|        message_variant);
+   85|  18.7k|  };
 fuzz_json.cpp:_ZZZ22LLVMFuzzerTestOneInputENK3$_0clENSt3__117basic_string_viewIcNS0_11char_traitsIcEEEEENKUlRT_E_clIN15proto3_unittest12TestAllTypesIN3hpp5proto17non_owning_traitsEEEEEiS6_:
-   53|  8.84k|        [&](auto &non_owning_message) -> int {
-   54|  8.84k|          using non_owning_message_t = std::remove_reference_t<decltype(non_owning_message)>;
-   55|  8.84k|          using owning_message_t = decltype(hpp::proto::rebind_traits(non_owning_message));
-   56|  8.84k|          std::string_view msg_name = message_name(non_owning_message);
-   57|  8.84k|          owning_message_t owning_message;
-   58|  8.84k|          hpp::proto::message_value_mref dyn_message = factory.get_message(msg_name, mr).value();
+   53|  5.57k|        [&](auto &non_owning_message) -> int {
+   54|  5.57k|          using non_owning_message_t = std::remove_reference_t<decltype(non_owning_message)>;
+   55|  5.57k|          using owning_message_t = decltype(hpp::proto::rebind_traits(non_owning_message));
+   56|  5.57k|          std::string_view msg_name = message_name(non_owning_message);
+   57|  5.57k|          owning_message_t owning_message;
+   58|  5.57k|          hpp::proto::message_value_mref dyn_message = factory.get_message(msg_name, mr).value();
    59|       |
-   60|  8.84k|          auto non_owning_read_status = util::read_json(non_owning_message, input, hpp::proto::alloc_from{mr});
-   61|  8.84k|          auto owning_read_status = util::read_json(owning_message, input, hpp::proto::alloc_from{mr});
-   62|  8.84k|          auto dyn_read_status = util::read_json(dyn_message, input, hpp::proto::alloc_from{mr});
+   60|  5.57k|          auto non_owning_read_status = util::read_json(non_owning_message, input, hpp::proto::alloc_from{mr});
+   61|  5.57k|          auto owning_read_status = util::read_json(owning_message, input, hpp::proto::alloc_from{mr});
+   62|  5.57k|          auto dyn_read_status = util::read_json(dyn_message, input, hpp::proto::alloc_from{mr});
    63|       |
-   64|  8.84k|          bool all_status_same = (non_owning_read_status.ok() == owning_read_status.ok() &&
+   64|  5.57k|          bool all_status_same = (non_owning_read_status.ok() == owning_read_status.ok() &&
   ------------------
-  |  Branch (64:35): [True: 8.84k, False: 0]
+  |  Branch (64:35): [True: 5.57k, False: 0]
   ------------------
-   65|  8.84k|                                  owning_read_status.ok() == dyn_read_status.ok());
+   65|  5.57k|                                  owning_read_status.ok() == dyn_read_status.ok());
   ------------------
-  |  Branch (65:35): [True: 8.84k, False: 0]
+  |  Branch (65:35): [True: 5.57k, False: 0]
   ------------------
-   66|  8.84k|          if (!all_status_same) {
+   66|  5.57k|          if (!all_status_same) {
   ------------------
-  |  Branch (66:15): [True: 0, False: 8.84k]
+  |  Branch (66:15): [True: 0, False: 5.57k]
   ------------------
    67|      0|            auto print_error = [&input](std::string_view name, auto status) {
    68|      0|              if (!status.ok()) {
@@ -230,54 +230,54 @@ fuzz_json.cpp:_ZZZ22LLVMFuzzerTestOneInputENK3$_0clENSt3__117basic_string_viewIc
    73|      0|            print_error("owning", owning_read_status);
    74|      0|            print_error("dyn", dyn_read_status);
    75|      0|          }
-   76|  8.84k|          assert(all_status_same);
+   76|  5.57k|          assert(all_status_same);
   ------------------
-  |  Branch (76:11): [True: 8.84k, False: 0]
+  |  Branch (76:11): [True: 5.57k, False: 0]
   ------------------
-   77|  8.84k|          if (dyn_read_status.ok()) {
+   77|  5.57k|          if (dyn_read_status.ok()) {
   ------------------
-  |  Branch (77:15): [True: 7.74k, False: 1.10k]
+  |  Branch (77:15): [True: 4.65k, False: 919]
   ------------------
-   78|  7.74k|            round_trip_test(non_owning_message, non_owning_message_t{});
-   79|  7.74k|            round_trip_test(owning_message, owning_message_t{});
-   80|  7.74k|            round_trip_test(dyn_message, factory.get_message(msg_name, mr).value());
-   81|  7.74k|          }
-   82|  8.84k|          return dyn_read_status.ok() ? 0 : -1;
+   78|  4.65k|            round_trip_test(non_owning_message, non_owning_message_t{});
+   79|  4.65k|            round_trip_test(owning_message, owning_message_t{});
+   80|  4.65k|            round_trip_test(dyn_message, factory.get_message(msg_name, mr).value());
+   81|  4.65k|          }
+   82|  5.57k|          return dyn_read_status.ok() ? 0 : -1;
   ------------------
-  |  Branch (82:18): [True: 7.74k, False: 1.10k]
+  |  Branch (82:18): [True: 4.65k, False: 919]
   ------------------
-   83|  8.84k|        },
+   83|  5.57k|        },
 _Z15round_trip_testIN15proto3_unittest12TestAllTypesIN3hpp5proto17non_owning_traitsEEEEvRKT_OS6_:
-   10|  7.74k|void round_trip_test(const T &in_message, T &&out_message) { // NOLINT(cppcoreguidelines-missing-std-forward)
-   11|  7.74k|  std::string buffer1;
-   12|  7.74k|  std::string buffer2;
-   13|  7.74k|  assert(util::write_json(in_message, buffer1).ok());
+   10|  4.65k|void round_trip_test(const T &in_message, T &&out_message) { // NOLINT(cppcoreguidelines-missing-std-forward)
+   11|  4.65k|  std::string buffer1;
+   12|  4.65k|  std::string buffer2;
+   13|  4.65k|  assert(util::write_json(in_message, buffer1).ok());
   ------------------
-  |  Branch (13:3): [True: 7.74k, False: 0]
+  |  Branch (13:3): [True: 4.65k, False: 0]
   ------------------
    14|       |  // Skip comparing the serialized buffer to the raw input because unknown fields are dropped on parse.
    15|       |  // Skip structural comparison of messages; NaN payloads make equality fail even when bitwise identical.
-   16|  7.74k|  std::pmr::monotonic_buffer_resource mr;
-   17|  7.74k|  hpp::proto::json_status status;
-   18|  7.74k|  status = util::read_json(out_message, std::string_view{buffer1}, hpp::proto::alloc_from(mr));
+   16|  4.65k|  std::pmr::monotonic_buffer_resource mr;
+   17|  4.65k|  hpp::proto::json_status status;
+   18|  4.65k|  status = util::read_json(out_message, std::string_view{buffer1}, hpp::proto::alloc_from(mr));
    19|       |
-   20|  7.74k|  if (!status.ok()) {
+   20|  4.65k|  if (!status.ok()) {
   ------------------
-  |  Branch (20:7): [True: 0, False: 7.74k]
+  |  Branch (20:7): [True: 0, False: 4.65k]
   ------------------
    21|      0|    std::cerr << "roundtrip read failed:" << status.message(buffer1) << "\n";
    22|      0|  }
-   23|  7.74k|  assert(status.ok());
+   23|  4.65k|  assert(status.ok());
   ------------------
-  |  Branch (23:3): [True: 7.74k, False: 0]
+  |  Branch (23:3): [True: 4.65k, False: 0]
   ------------------
-   24|  7.74k|  assert(util::write_json(out_message, buffer2).ok());
+   24|  4.65k|  assert(util::write_json(out_message, buffer2).ok());
   ------------------
-  |  Branch (24:3): [True: 7.74k, False: 0]
+  |  Branch (24:3): [True: 4.65k, False: 0]
   ------------------
-   25|  7.74k|  if (buffer1 != buffer2) {
+   25|  4.65k|  if (buffer1 != buffer2) {
   ------------------
-  |  Branch (25:7): [True: 0, False: 7.74k]
+  |  Branch (25:7): [True: 0, False: 4.65k]
   ------------------
    26|      0|    auto [it1, it2] = std::ranges::mismatch(buffer1, buffer2);
    27|      0|    auto sw1 = std::string_view{it1 - 20, buffer1.end()};
@@ -288,38 +288,38 @@ _Z15round_trip_testIN15proto3_unittest12TestAllTypesIN3hpp5proto17non_owning_tra
   |  Branch (30:5): [Folded, False: 0]
   ------------------
    31|      0|  }
-   32|  7.74k|}
+   32|  4.65k|}
 _Z15round_trip_testIN15proto3_unittest12TestAllTypesIN3hpp5proto20basic_default_traitsINSt3__19allocatorEEEEEEvRKT_OS9_:
-   10|  7.74k|void round_trip_test(const T &in_message, T &&out_message) { // NOLINT(cppcoreguidelines-missing-std-forward)
-   11|  7.74k|  std::string buffer1;
-   12|  7.74k|  std::string buffer2;
-   13|  7.74k|  assert(util::write_json(in_message, buffer1).ok());
+   10|  4.65k|void round_trip_test(const T &in_message, T &&out_message) { // NOLINT(cppcoreguidelines-missing-std-forward)
+   11|  4.65k|  std::string buffer1;
+   12|  4.65k|  std::string buffer2;
+   13|  4.65k|  assert(util::write_json(in_message, buffer1).ok());
   ------------------
-  |  Branch (13:3): [True: 7.74k, False: 0]
+  |  Branch (13:3): [True: 4.65k, False: 0]
   ------------------
    14|       |  // Skip comparing the serialized buffer to the raw input because unknown fields are dropped on parse.
    15|       |  // Skip structural comparison of messages; NaN payloads make equality fail even when bitwise identical.
-   16|  7.74k|  std::pmr::monotonic_buffer_resource mr;
-   17|  7.74k|  hpp::proto::json_status status;
-   18|  7.74k|  status = util::read_json(out_message, std::string_view{buffer1}, hpp::proto::alloc_from(mr));
+   16|  4.65k|  std::pmr::monotonic_buffer_resource mr;
+   17|  4.65k|  hpp::proto::json_status status;
+   18|  4.65k|  status = util::read_json(out_message, std::string_view{buffer1}, hpp::proto::alloc_from(mr));
    19|       |
-   20|  7.74k|  if (!status.ok()) {
+   20|  4.65k|  if (!status.ok()) {
   ------------------
-  |  Branch (20:7): [True: 0, False: 7.74k]
+  |  Branch (20:7): [True: 0, False: 4.65k]
   ------------------
    21|      0|    std::cerr << "roundtrip read failed:" << status.message(buffer1) << "\n";
    22|      0|  }
-   23|  7.74k|  assert(status.ok());
+   23|  4.65k|  assert(status.ok());
   ------------------
-  |  Branch (23:3): [True: 7.74k, False: 0]
+  |  Branch (23:3): [True: 4.65k, False: 0]
   ------------------
-   24|  7.74k|  assert(util::write_json(out_message, buffer2).ok());
+   24|  4.65k|  assert(util::write_json(out_message, buffer2).ok());
   ------------------
-  |  Branch (24:3): [True: 7.74k, False: 0]
+  |  Branch (24:3): [True: 4.65k, False: 0]
   ------------------
-   25|  7.74k|  if (buffer1 != buffer2) {
+   25|  4.65k|  if (buffer1 != buffer2) {
   ------------------
-  |  Branch (25:7): [True: 0, False: 7.74k]
+  |  Branch (25:7): [True: 0, False: 4.65k]
   ------------------
    26|      0|    auto [it1, it2] = std::ranges::mismatch(buffer1, buffer2);
    27|      0|    auto sw1 = std::string_view{it1 - 20, buffer1.end()};
@@ -330,38 +330,38 @@ _Z15round_trip_testIN15proto3_unittest12TestAllTypesIN3hpp5proto20basic_default_
   |  Branch (30:5): [Folded, False: 0]
   ------------------
    31|      0|  }
-   32|  7.74k|}
+   32|  4.65k|}
 _Z15round_trip_testIN3hpp5proto18message_value_mrefEEvRKT_OS3_:
-   10|  26.8k|void round_trip_test(const T &in_message, T &&out_message) { // NOLINT(cppcoreguidelines-missing-std-forward)
-   11|  26.8k|  std::string buffer1;
-   12|  26.8k|  std::string buffer2;
-   13|  26.8k|  assert(util::write_json(in_message, buffer1).ok());
+   10|  16.4k|void round_trip_test(const T &in_message, T &&out_message) { // NOLINT(cppcoreguidelines-missing-std-forward)
+   11|  16.4k|  std::string buffer1;
+   12|  16.4k|  std::string buffer2;
+   13|  16.4k|  assert(util::write_json(in_message, buffer1).ok());
   ------------------
-  |  Branch (13:3): [True: 26.8k, False: 0]
+  |  Branch (13:3): [True: 16.4k, False: 0]
   ------------------
    14|       |  // Skip comparing the serialized buffer to the raw input because unknown fields are dropped on parse.
    15|       |  // Skip structural comparison of messages; NaN payloads make equality fail even when bitwise identical.
-   16|  26.8k|  std::pmr::monotonic_buffer_resource mr;
-   17|  26.8k|  hpp::proto::json_status status;
-   18|  26.8k|  status = util::read_json(out_message, std::string_view{buffer1}, hpp::proto::alloc_from(mr));
+   16|  16.4k|  std::pmr::monotonic_buffer_resource mr;
+   17|  16.4k|  hpp::proto::json_status status;
+   18|  16.4k|  status = util::read_json(out_message, std::string_view{buffer1}, hpp::proto::alloc_from(mr));
    19|       |
-   20|  26.8k|  if (!status.ok()) {
+   20|  16.4k|  if (!status.ok()) {
   ------------------
-  |  Branch (20:7): [True: 0, False: 26.8k]
+  |  Branch (20:7): [True: 0, False: 16.4k]
   ------------------
    21|      0|    std::cerr << "roundtrip read failed:" << status.message(buffer1) << "\n";
    22|      0|  }
-   23|  26.8k|  assert(status.ok());
+   23|  16.4k|  assert(status.ok());
   ------------------
-  |  Branch (23:3): [True: 26.8k, False: 0]
+  |  Branch (23:3): [True: 16.4k, False: 0]
   ------------------
-   24|  26.8k|  assert(util::write_json(out_message, buffer2).ok());
+   24|  16.4k|  assert(util::write_json(out_message, buffer2).ok());
   ------------------
-  |  Branch (24:3): [True: 26.8k, False: 0]
+  |  Branch (24:3): [True: 16.4k, False: 0]
   ------------------
-   25|  26.8k|  if (buffer1 != buffer2) {
+   25|  16.4k|  if (buffer1 != buffer2) {
   ------------------
-  |  Branch (25:7): [True: 0, False: 26.8k]
+  |  Branch (25:7): [True: 0, False: 16.4k]
   ------------------
    26|      0|    auto [it1, it2] = std::ranges::mismatch(buffer1, buffer2);
    27|      0|    auto sw1 = std::string_view{it1 - 20, buffer1.end()};
@@ -372,30 +372,30 @@ _Z15round_trip_testIN3hpp5proto18message_value_mrefEEvRKT_OS3_:
   |  Branch (30:5): [Folded, False: 0]
   ------------------
    31|      0|  }
-   32|  26.8k|}
+   32|  16.4k|}
 fuzz_json.cpp:_ZZZ22LLVMFuzzerTestOneInputENK3$_0clENSt3__117basic_string_viewIcNS0_11char_traitsIcEEEEENKUlRT_E_clIN17protobuf_unittest12TestAllTypesIN3hpp5proto17non_owning_traitsEEEEEiS6_:
-   53|  9.35k|        [&](auto &non_owning_message) -> int {
-   54|  9.35k|          using non_owning_message_t = std::remove_reference_t<decltype(non_owning_message)>;
-   55|  9.35k|          using owning_message_t = decltype(hpp::proto::rebind_traits(non_owning_message));
-   56|  9.35k|          std::string_view msg_name = message_name(non_owning_message);
-   57|  9.35k|          owning_message_t owning_message;
-   58|  9.35k|          hpp::proto::message_value_mref dyn_message = factory.get_message(msg_name, mr).value();
+   53|  5.82k|        [&](auto &non_owning_message) -> int {
+   54|  5.82k|          using non_owning_message_t = std::remove_reference_t<decltype(non_owning_message)>;
+   55|  5.82k|          using owning_message_t = decltype(hpp::proto::rebind_traits(non_owning_message));
+   56|  5.82k|          std::string_view msg_name = message_name(non_owning_message);
+   57|  5.82k|          owning_message_t owning_message;
+   58|  5.82k|          hpp::proto::message_value_mref dyn_message = factory.get_message(msg_name, mr).value();
    59|       |
-   60|  9.35k|          auto non_owning_read_status = util::read_json(non_owning_message, input, hpp::proto::alloc_from{mr});
-   61|  9.35k|          auto owning_read_status = util::read_json(owning_message, input, hpp::proto::alloc_from{mr});
-   62|  9.35k|          auto dyn_read_status = util::read_json(dyn_message, input, hpp::proto::alloc_from{mr});
+   60|  5.82k|          auto non_owning_read_status = util::read_json(non_owning_message, input, hpp::proto::alloc_from{mr});
+   61|  5.82k|          auto owning_read_status = util::read_json(owning_message, input, hpp::proto::alloc_from{mr});
+   62|  5.82k|          auto dyn_read_status = util::read_json(dyn_message, input, hpp::proto::alloc_from{mr});
    63|       |
-   64|  9.35k|          bool all_status_same = (non_owning_read_status.ok() == owning_read_status.ok() &&
+   64|  5.82k|          bool all_status_same = (non_owning_read_status.ok() == owning_read_status.ok() &&
   ------------------
-  |  Branch (64:35): [True: 9.35k, False: 0]
+  |  Branch (64:35): [True: 5.82k, False: 0]
   ------------------
-   65|  9.35k|                                  owning_read_status.ok() == dyn_read_status.ok());
+   65|  5.82k|                                  owning_read_status.ok() == dyn_read_status.ok());
   ------------------
-  |  Branch (65:35): [True: 9.35k, False: 0]
+  |  Branch (65:35): [True: 5.82k, False: 0]
   ------------------
-   66|  9.35k|          if (!all_status_same) {
+   66|  5.82k|          if (!all_status_same) {
   ------------------
-  |  Branch (66:15): [True: 0, False: 9.35k]
+  |  Branch (66:15): [True: 0, False: 5.82k]
   ------------------
    67|      0|            auto print_error = [&input](std::string_view name, auto status) {
    68|      0|              if (!status.ok()) {
@@ -406,54 +406,54 @@ fuzz_json.cpp:_ZZZ22LLVMFuzzerTestOneInputENK3$_0clENSt3__117basic_string_viewIc
    73|      0|            print_error("owning", owning_read_status);
    74|      0|            print_error("dyn", dyn_read_status);
    75|      0|          }
-   76|  9.35k|          assert(all_status_same);
+   76|  5.82k|          assert(all_status_same);
   ------------------
-  |  Branch (76:11): [True: 9.35k, False: 0]
+  |  Branch (76:11): [True: 5.82k, False: 0]
   ------------------
-   77|  9.35k|          if (dyn_read_status.ok()) {
+   77|  5.82k|          if (dyn_read_status.ok()) {
   ------------------
-  |  Branch (77:15): [True: 8.47k, False: 878]
+  |  Branch (77:15): [True: 5.09k, False: 726]
   ------------------
-   78|  8.47k|            round_trip_test(non_owning_message, non_owning_message_t{});
-   79|  8.47k|            round_trip_test(owning_message, owning_message_t{});
-   80|  8.47k|            round_trip_test(dyn_message, factory.get_message(msg_name, mr).value());
-   81|  8.47k|          }
-   82|  9.35k|          return dyn_read_status.ok() ? 0 : -1;
+   78|  5.09k|            round_trip_test(non_owning_message, non_owning_message_t{});
+   79|  5.09k|            round_trip_test(owning_message, owning_message_t{});
+   80|  5.09k|            round_trip_test(dyn_message, factory.get_message(msg_name, mr).value());
+   81|  5.09k|          }
+   82|  5.82k|          return dyn_read_status.ok() ? 0 : -1;
   ------------------
-  |  Branch (82:18): [True: 8.47k, False: 878]
+  |  Branch (82:18): [True: 5.09k, False: 726]
   ------------------
-   83|  9.35k|        },
+   83|  5.82k|        },
 _Z15round_trip_testIN17protobuf_unittest12TestAllTypesIN3hpp5proto17non_owning_traitsEEEEvRKT_OS6_:
-   10|  8.47k|void round_trip_test(const T &in_message, T &&out_message) { // NOLINT(cppcoreguidelines-missing-std-forward)
-   11|  8.47k|  std::string buffer1;
-   12|  8.47k|  std::string buffer2;
-   13|  8.47k|  assert(util::write_json(in_message, buffer1).ok());
+   10|  5.09k|void round_trip_test(const T &in_message, T &&out_message) { // NOLINT(cppcoreguidelines-missing-std-forward)
+   11|  5.09k|  std::string buffer1;
+   12|  5.09k|  std::string buffer2;
+   13|  5.09k|  assert(util::write_json(in_message, buffer1).ok());
   ------------------
-  |  Branch (13:3): [True: 8.47k, False: 0]
+  |  Branch (13:3): [True: 5.09k, False: 0]
   ------------------
    14|       |  // Skip comparing the serialized buffer to the raw input because unknown fields are dropped on parse.
    15|       |  // Skip structural comparison of messages; NaN payloads make equality fail even when bitwise identical.
-   16|  8.47k|  std::pmr::monotonic_buffer_resource mr;
-   17|  8.47k|  hpp::proto::json_status status;
-   18|  8.47k|  status = util::read_json(out_message, std::string_view{buffer1}, hpp::proto::alloc_from(mr));
+   16|  5.09k|  std::pmr::monotonic_buffer_resource mr;
+   17|  5.09k|  hpp::proto::json_status status;
+   18|  5.09k|  status = util::read_json(out_message, std::string_view{buffer1}, hpp::proto::alloc_from(mr));
    19|       |
-   20|  8.47k|  if (!status.ok()) {
+   20|  5.09k|  if (!status.ok()) {
   ------------------
-  |  Branch (20:7): [True: 0, False: 8.47k]
+  |  Branch (20:7): [True: 0, False: 5.09k]
   ------------------
    21|      0|    std::cerr << "roundtrip read failed:" << status.message(buffer1) << "\n";
    22|      0|  }
-   23|  8.47k|  assert(status.ok());
+   23|  5.09k|  assert(status.ok());
   ------------------
-  |  Branch (23:3): [True: 8.47k, False: 0]
+  |  Branch (23:3): [True: 5.09k, False: 0]
   ------------------
-   24|  8.47k|  assert(util::write_json(out_message, buffer2).ok());
+   24|  5.09k|  assert(util::write_json(out_message, buffer2).ok());
   ------------------
-  |  Branch (24:3): [True: 8.47k, False: 0]
+  |  Branch (24:3): [True: 5.09k, False: 0]
   ------------------
-   25|  8.47k|  if (buffer1 != buffer2) {
+   25|  5.09k|  if (buffer1 != buffer2) {
   ------------------
-  |  Branch (25:7): [True: 0, False: 8.47k]
+  |  Branch (25:7): [True: 0, False: 5.09k]
   ------------------
    26|      0|    auto [it1, it2] = std::ranges::mismatch(buffer1, buffer2);
    27|      0|    auto sw1 = std::string_view{it1 - 20, buffer1.end()};
@@ -464,38 +464,38 @@ _Z15round_trip_testIN17protobuf_unittest12TestAllTypesIN3hpp5proto17non_owning_t
   |  Branch (30:5): [Folded, False: 0]
   ------------------
    31|      0|  }
-   32|  8.47k|}
+   32|  5.09k|}
 _Z15round_trip_testIN17protobuf_unittest12TestAllTypesIN3hpp5proto20basic_default_traitsINSt3__19allocatorEEEEEEvRKT_OS9_:
-   10|  8.47k|void round_trip_test(const T &in_message, T &&out_message) { // NOLINT(cppcoreguidelines-missing-std-forward)
-   11|  8.47k|  std::string buffer1;
-   12|  8.47k|  std::string buffer2;
-   13|  8.47k|  assert(util::write_json(in_message, buffer1).ok());
+   10|  5.09k|void round_trip_test(const T &in_message, T &&out_message) { // NOLINT(cppcoreguidelines-missing-std-forward)
+   11|  5.09k|  std::string buffer1;
+   12|  5.09k|  std::string buffer2;
+   13|  5.09k|  assert(util::write_json(in_message, buffer1).ok());
   ------------------
-  |  Branch (13:3): [True: 8.47k, False: 0]
+  |  Branch (13:3): [True: 5.09k, False: 0]
   ------------------
    14|       |  // Skip comparing the serialized buffer to the raw input because unknown fields are dropped on parse.
    15|       |  // Skip structural comparison of messages; NaN payloads make equality fail even when bitwise identical.
-   16|  8.47k|  std::pmr::monotonic_buffer_resource mr;
-   17|  8.47k|  hpp::proto::json_status status;
-   18|  8.47k|  status = util::read_json(out_message, std::string_view{buffer1}, hpp::proto::alloc_from(mr));
+   16|  5.09k|  std::pmr::monotonic_buffer_resource mr;
+   17|  5.09k|  hpp::proto::json_status status;
+   18|  5.09k|  status = util::read_json(out_message, std::string_view{buffer1}, hpp::proto::alloc_from(mr));
    19|       |
-   20|  8.47k|  if (!status.ok()) {
+   20|  5.09k|  if (!status.ok()) {
   ------------------
-  |  Branch (20:7): [True: 0, False: 8.47k]
+  |  Branch (20:7): [True: 0, False: 5.09k]
   ------------------
    21|      0|    std::cerr << "roundtrip read failed:" << status.message(buffer1) << "\n";
    22|      0|  }
-   23|  8.47k|  assert(status.ok());
+   23|  5.09k|  assert(status.ok());
   ------------------
-  |  Branch (23:3): [True: 8.47k, False: 0]
+  |  Branch (23:3): [True: 5.09k, False: 0]
   ------------------
-   24|  8.47k|  assert(util::write_json(out_message, buffer2).ok());
+   24|  5.09k|  assert(util::write_json(out_message, buffer2).ok());
   ------------------
-  |  Branch (24:3): [True: 8.47k, False: 0]
+  |  Branch (24:3): [True: 5.09k, False: 0]
   ------------------
-   25|  8.47k|  if (buffer1 != buffer2) {
+   25|  5.09k|  if (buffer1 != buffer2) {
   ------------------
-  |  Branch (25:7): [True: 0, False: 8.47k]
+  |  Branch (25:7): [True: 0, False: 5.09k]
   ------------------
    26|      0|    auto [it1, it2] = std::ranges::mismatch(buffer1, buffer2);
    27|      0|    auto sw1 = std::string_view{it1 - 20, buffer1.end()};
@@ -506,30 +506,30 @@ _Z15round_trip_testIN17protobuf_unittest12TestAllTypesIN3hpp5proto20basic_defaul
   |  Branch (30:5): [Folded, False: 0]
   ------------------
    31|      0|  }
-   32|  8.47k|}
+   32|  5.09k|}
 fuzz_json.cpp:_ZZZ22LLVMFuzzerTestOneInputENK3$_0clENSt3__117basic_string_viewIcNS0_11char_traitsIcEEEEENKUlRT_E_clIN17protobuf_unittest7TestMapIN3hpp5proto17non_owning_traitsEEEEEiS6_:
-   53|  10.3k|        [&](auto &non_owning_message) -> int {
-   54|  10.3k|          using non_owning_message_t = std::remove_reference_t<decltype(non_owning_message)>;
-   55|  10.3k|          using owning_message_t = decltype(hpp::proto::rebind_traits(non_owning_message));
-   56|  10.3k|          std::string_view msg_name = message_name(non_owning_message);
-   57|  10.3k|          owning_message_t owning_message;
-   58|  10.3k|          hpp::proto::message_value_mref dyn_message = factory.get_message(msg_name, mr).value();
+   53|  6.79k|        [&](auto &non_owning_message) -> int {
+   54|  6.79k|          using non_owning_message_t = std::remove_reference_t<decltype(non_owning_message)>;
+   55|  6.79k|          using owning_message_t = decltype(hpp::proto::rebind_traits(non_owning_message));
+   56|  6.79k|          std::string_view msg_name = message_name(non_owning_message);
+   57|  6.79k|          owning_message_t owning_message;
+   58|  6.79k|          hpp::proto::message_value_mref dyn_message = factory.get_message(msg_name, mr).value();
    59|       |
-   60|  10.3k|          auto non_owning_read_status = util::read_json(non_owning_message, input, hpp::proto::alloc_from{mr});
-   61|  10.3k|          auto owning_read_status = util::read_json(owning_message, input, hpp::proto::alloc_from{mr});
-   62|  10.3k|          auto dyn_read_status = util::read_json(dyn_message, input, hpp::proto::alloc_from{mr});
+   60|  6.79k|          auto non_owning_read_status = util::read_json(non_owning_message, input, hpp::proto::alloc_from{mr});
+   61|  6.79k|          auto owning_read_status = util::read_json(owning_message, input, hpp::proto::alloc_from{mr});
+   62|  6.79k|          auto dyn_read_status = util::read_json(dyn_message, input, hpp::proto::alloc_from{mr});
    63|       |
-   64|  10.3k|          bool all_status_same = (non_owning_read_status.ok() == owning_read_status.ok() &&
+   64|  6.79k|          bool all_status_same = (non_owning_read_status.ok() == owning_read_status.ok() &&
   ------------------
-  |  Branch (64:35): [True: 10.3k, False: 0]
+  |  Branch (64:35): [True: 6.79k, False: 0]
   ------------------
-   65|  10.3k|                                  owning_read_status.ok() == dyn_read_status.ok());
+   65|  6.79k|                                  owning_read_status.ok() == dyn_read_status.ok());
   ------------------
-  |  Branch (65:35): [True: 10.3k, False: 0]
+  |  Branch (65:35): [True: 6.79k, False: 0]
   ------------------
-   66|  10.3k|          if (!all_status_same) {
+   66|  6.79k|          if (!all_status_same) {
   ------------------
-  |  Branch (66:15): [True: 0, False: 10.3k]
+  |  Branch (66:15): [True: 0, False: 6.79k]
   ------------------
    67|      0|            auto print_error = [&input](std::string_view name, auto status) {
    68|      0|              if (!status.ok()) {
@@ -540,54 +540,54 @@ fuzz_json.cpp:_ZZZ22LLVMFuzzerTestOneInputENK3$_0clENSt3__117basic_string_viewIc
    73|      0|            print_error("owning", owning_read_status);
    74|      0|            print_error("dyn", dyn_read_status);
    75|      0|          }
-   76|  10.3k|          assert(all_status_same);
+   76|  6.79k|          assert(all_status_same);
   ------------------
-  |  Branch (76:11): [True: 10.3k, False: 0]
+  |  Branch (76:11): [True: 6.79k, False: 0]
   ------------------
-   77|  10.3k|          if (dyn_read_status.ok()) {
+   77|  6.79k|          if (dyn_read_status.ok()) {
   ------------------
-  |  Branch (77:15): [True: 9.63k, False: 754]
+  |  Branch (77:15): [True: 6.17k, False: 621]
   ------------------
-   78|  9.63k|            round_trip_test(non_owning_message, non_owning_message_t{});
-   79|  9.63k|            round_trip_test(owning_message, owning_message_t{});
-   80|  9.63k|            round_trip_test(dyn_message, factory.get_message(msg_name, mr).value());
-   81|  9.63k|          }
-   82|  10.3k|          return dyn_read_status.ok() ? 0 : -1;
+   78|  6.17k|            round_trip_test(non_owning_message, non_owning_message_t{});
+   79|  6.17k|            round_trip_test(owning_message, owning_message_t{});
+   80|  6.17k|            round_trip_test(dyn_message, factory.get_message(msg_name, mr).value());
+   81|  6.17k|          }
+   82|  6.79k|          return dyn_read_status.ok() ? 0 : -1;
   ------------------
-  |  Branch (82:18): [True: 9.63k, False: 754]
+  |  Branch (82:18): [True: 6.17k, False: 621]
   ------------------
-   83|  10.3k|        },
+   83|  6.79k|        },
 _Z15round_trip_testIN17protobuf_unittest7TestMapIN3hpp5proto17non_owning_traitsEEEEvRKT_OS6_:
-   10|  9.63k|void round_trip_test(const T &in_message, T &&out_message) { // NOLINT(cppcoreguidelines-missing-std-forward)
-   11|  9.63k|  std::string buffer1;
-   12|  9.63k|  std::string buffer2;
-   13|  9.63k|  assert(util::write_json(in_message, buffer1).ok());
+   10|  6.17k|void round_trip_test(const T &in_message, T &&out_message) { // NOLINT(cppcoreguidelines-missing-std-forward)
+   11|  6.17k|  std::string buffer1;
+   12|  6.17k|  std::string buffer2;
+   13|  6.17k|  assert(util::write_json(in_message, buffer1).ok());
   ------------------
-  |  Branch (13:3): [True: 9.63k, False: 0]
+  |  Branch (13:3): [True: 6.17k, False: 0]
   ------------------
    14|       |  // Skip comparing the serialized buffer to the raw input because unknown fields are dropped on parse.
    15|       |  // Skip structural comparison of messages; NaN payloads make equality fail even when bitwise identical.
-   16|  9.63k|  std::pmr::monotonic_buffer_resource mr;
-   17|  9.63k|  hpp::proto::json_status status;
-   18|  9.63k|  status = util::read_json(out_message, std::string_view{buffer1}, hpp::proto::alloc_from(mr));
+   16|  6.17k|  std::pmr::monotonic_buffer_resource mr;
+   17|  6.17k|  hpp::proto::json_status status;
+   18|  6.17k|  status = util::read_json(out_message, std::string_view{buffer1}, hpp::proto::alloc_from(mr));
    19|       |
-   20|  9.63k|  if (!status.ok()) {
+   20|  6.17k|  if (!status.ok()) {
   ------------------
-  |  Branch (20:7): [True: 0, False: 9.63k]
+  |  Branch (20:7): [True: 0, False: 6.17k]
   ------------------
    21|      0|    std::cerr << "roundtrip read failed:" << status.message(buffer1) << "\n";
    22|      0|  }
-   23|  9.63k|  assert(status.ok());
+   23|  6.17k|  assert(status.ok());
   ------------------
-  |  Branch (23:3): [True: 9.63k, False: 0]
+  |  Branch (23:3): [True: 6.17k, False: 0]
   ------------------
-   24|  9.63k|  assert(util::write_json(out_message, buffer2).ok());
+   24|  6.17k|  assert(util::write_json(out_message, buffer2).ok());
   ------------------
-  |  Branch (24:3): [True: 9.63k, False: 0]
+  |  Branch (24:3): [True: 6.17k, False: 0]
   ------------------
-   25|  9.63k|  if (buffer1 != buffer2) {
+   25|  6.17k|  if (buffer1 != buffer2) {
   ------------------
-  |  Branch (25:7): [True: 0, False: 9.63k]
+  |  Branch (25:7): [True: 0, False: 6.17k]
   ------------------
    26|      0|    auto [it1, it2] = std::ranges::mismatch(buffer1, buffer2);
    27|      0|    auto sw1 = std::string_view{it1 - 20, buffer1.end()};
@@ -598,38 +598,38 @@ _Z15round_trip_testIN17protobuf_unittest7TestMapIN3hpp5proto17non_owning_traitsE
   |  Branch (30:5): [Folded, False: 0]
   ------------------
    31|      0|  }
-   32|  9.63k|}
+   32|  6.17k|}
 _Z15round_trip_testIN17protobuf_unittest7TestMapIN3hpp5proto20basic_default_traitsINSt3__19allocatorEEEEEEvRKT_OS9_:
-   10|  9.63k|void round_trip_test(const T &in_message, T &&out_message) { // NOLINT(cppcoreguidelines-missing-std-forward)
-   11|  9.63k|  std::string buffer1;
-   12|  9.63k|  std::string buffer2;
-   13|  9.63k|  assert(util::write_json(in_message, buffer1).ok());
+   10|  6.17k|void round_trip_test(const T &in_message, T &&out_message) { // NOLINT(cppcoreguidelines-missing-std-forward)
+   11|  6.17k|  std::string buffer1;
+   12|  6.17k|  std::string buffer2;
+   13|  6.17k|  assert(util::write_json(in_message, buffer1).ok());
   ------------------
-  |  Branch (13:3): [True: 9.63k, False: 0]
+  |  Branch (13:3): [True: 6.17k, False: 0]
   ------------------
    14|       |  // Skip comparing the serialized buffer to the raw input because unknown fields are dropped on parse.
    15|       |  // Skip structural comparison of messages; NaN payloads make equality fail even when bitwise identical.
-   16|  9.63k|  std::pmr::monotonic_buffer_resource mr;
-   17|  9.63k|  hpp::proto::json_status status;
-   18|  9.63k|  status = util::read_json(out_message, std::string_view{buffer1}, hpp::proto::alloc_from(mr));
+   16|  6.17k|  std::pmr::monotonic_buffer_resource mr;
+   17|  6.17k|  hpp::proto::json_status status;
+   18|  6.17k|  status = util::read_json(out_message, std::string_view{buffer1}, hpp::proto::alloc_from(mr));
    19|       |
-   20|  9.63k|  if (!status.ok()) {
+   20|  6.17k|  if (!status.ok()) {
   ------------------
-  |  Branch (20:7): [True: 0, False: 9.63k]
+  |  Branch (20:7): [True: 0, False: 6.17k]
   ------------------
    21|      0|    std::cerr << "roundtrip read failed:" << status.message(buffer1) << "\n";
    22|      0|  }
-   23|  9.63k|  assert(status.ok());
+   23|  6.17k|  assert(status.ok());
   ------------------
-  |  Branch (23:3): [True: 9.63k, False: 0]
+  |  Branch (23:3): [True: 6.17k, False: 0]
   ------------------
-   24|  9.63k|  assert(util::write_json(out_message, buffer2).ok());
+   24|  6.17k|  assert(util::write_json(out_message, buffer2).ok());
   ------------------
-  |  Branch (24:3): [True: 9.63k, False: 0]
+  |  Branch (24:3): [True: 6.17k, False: 0]
   ------------------
-   25|  9.63k|  if (buffer1 != buffer2) {
+   25|  6.17k|  if (buffer1 != buffer2) {
   ------------------
-  |  Branch (25:7): [True: 0, False: 9.63k]
+  |  Branch (25:7): [True: 0, False: 6.17k]
   ------------------
    26|      0|    auto [it1, it2] = std::ranges::mismatch(buffer1, buffer2);
    27|      0|    auto sw1 = std::string_view{it1 - 20, buffer1.end()};
@@ -640,30 +640,30 @@ _Z15round_trip_testIN17protobuf_unittest7TestMapIN3hpp5proto20basic_default_trai
   |  Branch (30:5): [Folded, False: 0]
   ------------------
    31|      0|  }
-   32|  9.63k|}
+   32|  6.17k|}
 fuzz_json.cpp:_ZZZ22LLVMFuzzerTestOneInputENK3$_0clENSt3__117basic_string_viewIcNS0_11char_traitsIcEEEEENKUlRT_E_clIN15proto2_unittest18TestWellKnownTypesIN3hpp5proto17non_owning_traitsEEEEEiS6_:
-   53|  1.04k|        [&](auto &non_owning_message) -> int {
-   54|  1.04k|          using non_owning_message_t = std::remove_reference_t<decltype(non_owning_message)>;
-   55|  1.04k|          using owning_message_t = decltype(hpp::proto::rebind_traits(non_owning_message));
-   56|  1.04k|          std::string_view msg_name = message_name(non_owning_message);
-   57|  1.04k|          owning_message_t owning_message;
-   58|  1.04k|          hpp::proto::message_value_mref dyn_message = factory.get_message(msg_name, mr).value();
+   53|    540|        [&](auto &non_owning_message) -> int {
+   54|    540|          using non_owning_message_t = std::remove_reference_t<decltype(non_owning_message)>;
+   55|    540|          using owning_message_t = decltype(hpp::proto::rebind_traits(non_owning_message));
+   56|    540|          std::string_view msg_name = message_name(non_owning_message);
+   57|    540|          owning_message_t owning_message;
+   58|    540|          hpp::proto::message_value_mref dyn_message = factory.get_message(msg_name, mr).value();
    59|       |
-   60|  1.04k|          auto non_owning_read_status = util::read_json(non_owning_message, input, hpp::proto::alloc_from{mr});
-   61|  1.04k|          auto owning_read_status = util::read_json(owning_message, input, hpp::proto::alloc_from{mr});
-   62|  1.04k|          auto dyn_read_status = util::read_json(dyn_message, input, hpp::proto::alloc_from{mr});
+   60|    540|          auto non_owning_read_status = util::read_json(non_owning_message, input, hpp::proto::alloc_from{mr});
+   61|    540|          auto owning_read_status = util::read_json(owning_message, input, hpp::proto::alloc_from{mr});
+   62|    540|          auto dyn_read_status = util::read_json(dyn_message, input, hpp::proto::alloc_from{mr});
    63|       |
-   64|  1.04k|          bool all_status_same = (non_owning_read_status.ok() == owning_read_status.ok() &&
+   64|    540|          bool all_status_same = (non_owning_read_status.ok() == owning_read_status.ok() &&
   ------------------
-  |  Branch (64:35): [True: 1.04k, False: 0]
+  |  Branch (64:35): [True: 540, False: 0]
   ------------------
-   65|  1.04k|                                  owning_read_status.ok() == dyn_read_status.ok());
+   65|    540|                                  owning_read_status.ok() == dyn_read_status.ok());
   ------------------
-  |  Branch (65:35): [True: 1.04k, False: 0]
+  |  Branch (65:35): [True: 540, False: 0]
   ------------------
-   66|  1.04k|          if (!all_status_same) {
+   66|    540|          if (!all_status_same) {
   ------------------
-  |  Branch (66:15): [True: 0, False: 1.04k]
+  |  Branch (66:15): [True: 0, False: 540]
   ------------------
    67|      0|            auto print_error = [&input](std::string_view name, auto status) {
    68|      0|              if (!status.ok()) {
@@ -674,54 +674,54 @@ fuzz_json.cpp:_ZZZ22LLVMFuzzerTestOneInputENK3$_0clENSt3__117basic_string_viewIc
    73|      0|            print_error("owning", owning_read_status);
    74|      0|            print_error("dyn", dyn_read_status);
    75|      0|          }
-   76|  1.04k|          assert(all_status_same);
+   76|    540|          assert(all_status_same);
   ------------------
-  |  Branch (76:11): [True: 1.04k, False: 0]
+  |  Branch (76:11): [True: 540, False: 0]
   ------------------
-   77|  1.04k|          if (dyn_read_status.ok()) {
+   77|    540|          if (dyn_read_status.ok()) {
   ------------------
-  |  Branch (77:15): [True: 988, False: 52]
+  |  Branch (77:15): [True: 516, False: 24]
   ------------------
-   78|    988|            round_trip_test(non_owning_message, non_owning_message_t{});
-   79|    988|            round_trip_test(owning_message, owning_message_t{});
-   80|    988|            round_trip_test(dyn_message, factory.get_message(msg_name, mr).value());
-   81|    988|          }
-   82|  1.04k|          return dyn_read_status.ok() ? 0 : -1;
+   78|    516|            round_trip_test(non_owning_message, non_owning_message_t{});
+   79|    516|            round_trip_test(owning_message, owning_message_t{});
+   80|    516|            round_trip_test(dyn_message, factory.get_message(msg_name, mr).value());
+   81|    516|          }
+   82|    540|          return dyn_read_status.ok() ? 0 : -1;
   ------------------
-  |  Branch (82:18): [True: 988, False: 52]
+  |  Branch (82:18): [True: 516, False: 24]
   ------------------
-   83|  1.04k|        },
+   83|    540|        },
 _Z15round_trip_testIN15proto2_unittest18TestWellKnownTypesIN3hpp5proto17non_owning_traitsEEEEvRKT_OS6_:
-   10|    988|void round_trip_test(const T &in_message, T &&out_message) { // NOLINT(cppcoreguidelines-missing-std-forward)
-   11|    988|  std::string buffer1;
-   12|    988|  std::string buffer2;
-   13|    988|  assert(util::write_json(in_message, buffer1).ok());
+   10|    516|void round_trip_test(const T &in_message, T &&out_message) { // NOLINT(cppcoreguidelines-missing-std-forward)
+   11|    516|  std::string buffer1;
+   12|    516|  std::string buffer2;
+   13|    516|  assert(util::write_json(in_message, buffer1).ok());
   ------------------
-  |  Branch (13:3): [True: 988, False: 0]
+  |  Branch (13:3): [True: 516, False: 0]
   ------------------
    14|       |  // Skip comparing the serialized buffer to the raw input because unknown fields are dropped on parse.
    15|       |  // Skip structural comparison of messages; NaN payloads make equality fail even when bitwise identical.
-   16|    988|  std::pmr::monotonic_buffer_resource mr;
-   17|    988|  hpp::proto::json_status status;
-   18|    988|  status = util::read_json(out_message, std::string_view{buffer1}, hpp::proto::alloc_from(mr));
+   16|    516|  std::pmr::monotonic_buffer_resource mr;
+   17|    516|  hpp::proto::json_status status;
+   18|    516|  status = util::read_json(out_message, std::string_view{buffer1}, hpp::proto::alloc_from(mr));
    19|       |
-   20|    988|  if (!status.ok()) {
+   20|    516|  if (!status.ok()) {
   ------------------
-  |  Branch (20:7): [True: 0, False: 988]
+  |  Branch (20:7): [True: 0, False: 516]
   ------------------
    21|      0|    std::cerr << "roundtrip read failed:" << status.message(buffer1) << "\n";
    22|      0|  }
-   23|    988|  assert(status.ok());
+   23|    516|  assert(status.ok());
   ------------------
-  |  Branch (23:3): [True: 988, False: 0]
+  |  Branch (23:3): [True: 516, False: 0]
   ------------------
-   24|    988|  assert(util::write_json(out_message, buffer2).ok());
+   24|    516|  assert(util::write_json(out_message, buffer2).ok());
   ------------------
-  |  Branch (24:3): [True: 988, False: 0]
+  |  Branch (24:3): [True: 516, False: 0]
   ------------------
-   25|    988|  if (buffer1 != buffer2) {
+   25|    516|  if (buffer1 != buffer2) {
   ------------------
-  |  Branch (25:7): [True: 0, False: 988]
+  |  Branch (25:7): [True: 0, False: 516]
   ------------------
    26|      0|    auto [it1, it2] = std::ranges::mismatch(buffer1, buffer2);
    27|      0|    auto sw1 = std::string_view{it1 - 20, buffer1.end()};
@@ -732,38 +732,38 @@ _Z15round_trip_testIN15proto2_unittest18TestWellKnownTypesIN3hpp5proto17non_owni
   |  Branch (30:5): [Folded, False: 0]
   ------------------
    31|      0|  }
-   32|    988|}
+   32|    516|}
 _Z15round_trip_testIN15proto2_unittest18TestWellKnownTypesIN3hpp5proto20basic_default_traitsINSt3__19allocatorEEEEEEvRKT_OS9_:
-   10|    988|void round_trip_test(const T &in_message, T &&out_message) { // NOLINT(cppcoreguidelines-missing-std-forward)
-   11|    988|  std::string buffer1;
-   12|    988|  std::string buffer2;
-   13|    988|  assert(util::write_json(in_message, buffer1).ok());
+   10|    516|void round_trip_test(const T &in_message, T &&out_message) { // NOLINT(cppcoreguidelines-missing-std-forward)
+   11|    516|  std::string buffer1;
+   12|    516|  std::string buffer2;
+   13|    516|  assert(util::write_json(in_message, buffer1).ok());
   ------------------
-  |  Branch (13:3): [True: 988, False: 0]
+  |  Branch (13:3): [True: 516, False: 0]
   ------------------
    14|       |  // Skip comparing the serialized buffer to the raw input because unknown fields are dropped on parse.
    15|       |  // Skip structural comparison of messages; NaN payloads make equality fail even when bitwise identical.
-   16|    988|  std::pmr::monotonic_buffer_resource mr;
-   17|    988|  hpp::proto::json_status status;
-   18|    988|  status = util::read_json(out_message, std::string_view{buffer1}, hpp::proto::alloc_from(mr));
+   16|    516|  std::pmr::monotonic_buffer_resource mr;
+   17|    516|  hpp::proto::json_status status;
+   18|    516|  status = util::read_json(out_message, std::string_view{buffer1}, hpp::proto::alloc_from(mr));
    19|       |
-   20|    988|  if (!status.ok()) {
+   20|    516|  if (!status.ok()) {
   ------------------
-  |  Branch (20:7): [True: 0, False: 988]
+  |  Branch (20:7): [True: 0, False: 516]
   ------------------
    21|      0|    std::cerr << "roundtrip read failed:" << status.message(buffer1) << "\n";
    22|      0|  }
-   23|    988|  assert(status.ok());
+   23|    516|  assert(status.ok());
   ------------------
-  |  Branch (23:3): [True: 988, False: 0]
+  |  Branch (23:3): [True: 516, False: 0]
   ------------------
-   24|    988|  assert(util::write_json(out_message, buffer2).ok());
+   24|    516|  assert(util::write_json(out_message, buffer2).ok());
   ------------------
-  |  Branch (24:3): [True: 988, False: 0]
+  |  Branch (24:3): [True: 516, False: 0]
   ------------------
-   25|    988|  if (buffer1 != buffer2) {
+   25|    516|  if (buffer1 != buffer2) {
   ------------------
-  |  Branch (25:7): [True: 0, False: 988]
+  |  Branch (25:7): [True: 0, False: 516]
   ------------------
    26|      0|    auto [it1, it2] = std::ranges::mismatch(buffer1, buffer2);
    27|      0|    auto sw1 = std::string_view{it1 - 20, buffer1.end()};
@@ -774,80 +774,80 @@ _Z15round_trip_testIN15proto2_unittest18TestWellKnownTypesIN3hpp5proto20basic_de
   |  Branch (30:5): [Folded, False: 0]
   ------------------
    31|      0|  }
-   32|    988|}
+   32|    516|}
 
 _ZN4util9read_jsonERN15proto3_unittest12TestAllTypesIN3hpp5proto20basic_default_traitsINSt3__19allocatorEEEEENS5_17basic_string_viewIcNS5_11char_traitsIcEEEENS3_10alloc_fromINS5_3pmr25monotonic_buffer_resourceEEE:
-   13|  16.5k|                      hpp::proto::alloc_option_t) {
-   14|  16.5k|  return hpp::proto::read_json(msg, json_view);
-   15|  16.5k|}
+   13|  10.2k|                      hpp::proto::alloc_option_t) {
+   14|  10.2k|  return hpp::proto::read_json(msg, json_view);
+   15|  10.2k|}
 _ZN4util9read_jsonERN15proto3_unittest12TestAllTypesIN3hpp5proto17non_owning_traitsEEENSt3__117basic_string_viewIcNS7_11char_traitsIcEEEENS3_10alloc_fromINS7_3pmr25monotonic_buffer_resourceEEE:
-   18|  16.5k|                      hpp::proto::alloc_option_t option) {
-   19|  16.5k|  return hpp::proto::read_json(msg, json_view, option);
-   20|  16.5k|}
+   18|  10.2k|                      hpp::proto::alloc_option_t option) {
+   19|  10.2k|  return hpp::proto::read_json(msg, json_view, option);
+   20|  10.2k|}
 _ZN4util10write_jsonERKN15proto3_unittest12TestAllTypesIN3hpp5proto20basic_default_traitsINSt3__19allocatorEEEEERNS5_12basic_stringIcNS5_11char_traitsIcEENS6_IcEEEE:
-   22|  15.4k|json_status write_json(const proto3_unittest::TestAllTypes<hpp::proto::default_traits> &msg, std::string &json_buffer) {
-   23|  15.4k|  return hpp::proto::write_json(msg, json_buffer);
-   24|  15.4k|}
+   22|  9.30k|json_status write_json(const proto3_unittest::TestAllTypes<hpp::proto::default_traits> &msg, std::string &json_buffer) {
+   23|  9.30k|  return hpp::proto::write_json(msg, json_buffer);
+   24|  9.30k|}
 _ZN4util10write_jsonERKN15proto3_unittest12TestAllTypesIN3hpp5proto17non_owning_traitsEEERNSt3__112basic_stringIcNS8_11char_traitsIcEENS8_9allocatorIcEEEE:
-   27|  15.4k|                       std::string &json_buffer) {
-   28|  15.4k|  return hpp::proto::write_json(msg, json_buffer);
-   29|  15.4k|}
+   27|  9.30k|                       std::string &json_buffer) {
+   28|  9.30k|  return hpp::proto::write_json(msg, json_buffer);
+   29|  9.30k|}
 _ZN4util9read_jsonERN17protobuf_unittest12TestAllTypesIN3hpp5proto20basic_default_traitsINSt3__19allocatorEEEEENS5_17basic_string_viewIcNS5_11char_traitsIcEEEENS3_10alloc_fromINS5_3pmr25monotonic_buffer_resourceEEE:
-   32|  17.8k|                      hpp::proto::alloc_option_t) {
-   33|  17.8k|  return hpp::proto::read_json(msg, json_view);
-   34|  17.8k|}
+   32|  10.9k|                      hpp::proto::alloc_option_t) {
+   33|  10.9k|  return hpp::proto::read_json(msg, json_view);
+   34|  10.9k|}
 _ZN4util9read_jsonERN17protobuf_unittest12TestAllTypesIN3hpp5proto17non_owning_traitsEEENSt3__117basic_string_viewIcNS7_11char_traitsIcEEEENS3_10alloc_fromINS7_3pmr25monotonic_buffer_resourceEEE:
-   37|  17.8k|                      hpp::proto::alloc_option_t option) {
-   38|  17.8k|  return hpp::proto::read_json(msg, json_view, option);
-   39|  17.8k|}
+   37|  10.9k|                      hpp::proto::alloc_option_t option) {
+   38|  10.9k|  return hpp::proto::read_json(msg, json_view, option);
+   39|  10.9k|}
 _ZN4util10write_jsonERKN17protobuf_unittest12TestAllTypesIN3hpp5proto20basic_default_traitsINSt3__19allocatorEEEEERNS5_12basic_stringIcNS5_11char_traitsIcEENS6_IcEEEE:
-   42|  16.9k|                       std::string &json_buffer) {
-   43|  16.9k|  return hpp::proto::write_json(msg, json_buffer);
-   44|  16.9k|}
+   42|  10.1k|                       std::string &json_buffer) {
+   43|  10.1k|  return hpp::proto::write_json(msg, json_buffer);
+   44|  10.1k|}
 _ZN4util10write_jsonERKN17protobuf_unittest12TestAllTypesIN3hpp5proto17non_owning_traitsEEERNSt3__112basic_stringIcNS8_11char_traitsIcEENS8_9allocatorIcEEEE:
-   47|  16.9k|                       std::string &json_buffer) {
-   48|  16.9k|  return hpp::proto::write_json(msg, json_buffer);
-   49|  16.9k|}
+   47|  10.1k|                       std::string &json_buffer) {
+   48|  10.1k|  return hpp::proto::write_json(msg, json_buffer);
+   49|  10.1k|}
 _ZN4util9read_jsonERN17protobuf_unittest7TestMapIN3hpp5proto20basic_default_traitsINSt3__19allocatorEEEEENS5_17basic_string_viewIcNS5_11char_traitsIcEEEENS3_10alloc_fromINS5_3pmr25monotonic_buffer_resourceEEE:
-   52|  20.0k|                      hpp::proto::alloc_option_t) {
-   53|  20.0k|  return hpp::proto::read_json(msg, json_view);
-   54|  20.0k|}
+   52|  12.9k|                      hpp::proto::alloc_option_t) {
+   53|  12.9k|  return hpp::proto::read_json(msg, json_view);
+   54|  12.9k|}
 _ZN4util9read_jsonERN17protobuf_unittest7TestMapIN3hpp5proto17non_owning_traitsEEENSt3__117basic_string_viewIcNS7_11char_traitsIcEEEENS3_10alloc_fromINS7_3pmr25monotonic_buffer_resourceEEE:
-   57|  20.0k|                      hpp::proto::alloc_option_t option) {
-   58|  20.0k|  return hpp::proto::read_json(msg, json_view, option);
-   59|  20.0k|}
+   57|  12.9k|                      hpp::proto::alloc_option_t option) {
+   58|  12.9k|  return hpp::proto::read_json(msg, json_view, option);
+   59|  12.9k|}
 _ZN4util10write_jsonERKN17protobuf_unittest7TestMapIN3hpp5proto20basic_default_traitsINSt3__19allocatorEEEEERNS5_12basic_stringIcNS5_11char_traitsIcEENS6_IcEEEE:
-   61|  19.2k|json_status write_json(const protobuf_unittest::TestMap<hpp::proto::default_traits> &msg, std::string &json_buffer) {
-   62|  19.2k|  return hpp::proto::write_json(msg, json_buffer);
-   63|  19.2k|}
+   61|  12.3k|json_status write_json(const protobuf_unittest::TestMap<hpp::proto::default_traits> &msg, std::string &json_buffer) {
+   62|  12.3k|  return hpp::proto::write_json(msg, json_buffer);
+   63|  12.3k|}
 _ZN4util10write_jsonERKN17protobuf_unittest7TestMapIN3hpp5proto17non_owning_traitsEEERNSt3__112basic_stringIcNS8_11char_traitsIcEENS8_9allocatorIcEEEE:
-   65|  19.2k|json_status write_json(const protobuf_unittest::TestMap<hpp::proto::non_owning_traits> &msg, std::string &json_buffer) {
-   66|  19.2k|  return hpp::proto::write_json(msg, json_buffer);
-   67|  19.2k|}
+   65|  12.3k|json_status write_json(const protobuf_unittest::TestMap<hpp::proto::non_owning_traits> &msg, std::string &json_buffer) {
+   66|  12.3k|  return hpp::proto::write_json(msg, json_buffer);
+   67|  12.3k|}
 _ZN4util9read_jsonERN15proto2_unittest18TestWellKnownTypesIN3hpp5proto20basic_default_traitsINSt3__19allocatorEEEEENS5_17basic_string_viewIcNS5_11char_traitsIcEEEENS3_10alloc_fromINS5_3pmr25monotonic_buffer_resourceEEE:
-   70|  2.02k|                      hpp::proto::alloc_option_t) {
-   71|  2.02k|  return hpp::proto::read_json(msg, json_view, hpp::proto::use_factory{factory});
-   72|  2.02k|}
+   70|  1.05k|                      hpp::proto::alloc_option_t) {
+   71|  1.05k|  return hpp::proto::read_json(msg, json_view, hpp::proto::use_factory{factory});
+   72|  1.05k|}
 _ZN4util9read_jsonERN15proto2_unittest18TestWellKnownTypesIN3hpp5proto17non_owning_traitsEEENSt3__117basic_string_viewIcNS7_11char_traitsIcEEEENS3_10alloc_fromINS7_3pmr25monotonic_buffer_resourceEEE:
-   75|  2.02k|                      std::string_view json_view, hpp::proto::alloc_option_t option) {
-   76|  2.02k|  return hpp::proto::read_json(msg, json_view, option, hpp::proto::use_factory{factory});
-   77|  2.02k|}
+   75|  1.05k|                      std::string_view json_view, hpp::proto::alloc_option_t option) {
+   76|  1.05k|  return hpp::proto::read_json(msg, json_view, option, hpp::proto::use_factory{factory});
+   77|  1.05k|}
 _ZN4util10write_jsonERKN15proto2_unittest18TestWellKnownTypesIN3hpp5proto20basic_default_traitsINSt3__19allocatorEEEEERNS5_12basic_stringIcNS5_11char_traitsIcEENS6_IcEEEE:
-   80|  1.97k|                       std::string &json_buffer) {
-   81|  1.97k|  return hpp::proto::write_json(msg, json_buffer, hpp::proto::use_factory{factory});
-   82|  1.97k|}
+   80|  1.03k|                       std::string &json_buffer) {
+   81|  1.03k|  return hpp::proto::write_json(msg, json_buffer, hpp::proto::use_factory{factory});
+   82|  1.03k|}
 _ZN4util10write_jsonERKN15proto2_unittest18TestWellKnownTypesIN3hpp5proto17non_owning_traitsEEERNSt3__112basic_stringIcNS8_11char_traitsIcEENS8_9allocatorIcEEEE:
-   85|  1.97k|                       std::string &json_buffer) {
-   86|  1.97k|  return hpp::proto::write_json(msg, json_buffer, hpp::proto::use_factory{factory});
-   87|  1.97k|}
+   85|  1.03k|                       std::string &json_buffer) {
+   86|  1.03k|  return hpp::proto::write_json(msg, json_buffer, hpp::proto::use_factory{factory});
+   87|  1.03k|}
 _ZN4util9read_jsonERN3hpp5proto18message_value_mrefENSt3__117basic_string_viewIcNS4_11char_traitsIcEEEENS1_10alloc_fromINS4_3pmr25monotonic_buffer_resourceEEE:
-   89|  56.4k|json_status read_json(hpp::proto::message_value_mref &msg, std::string_view json_view, hpp::proto::alloc_option_t) {
-   90|  56.4k|  return hpp::proto::read_json(msg, json_view);
-   91|  56.4k|}
+   89|  35.1k|json_status read_json(hpp::proto::message_value_mref &msg, std::string_view json_view, hpp::proto::alloc_option_t) {
+   90|  35.1k|  return hpp::proto::read_json(msg, json_view);
+   91|  35.1k|}
 _ZN4util10write_jsonERKN3hpp5proto18message_value_mrefERNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEE:
-   93|  53.6k|json_status write_json(const hpp::proto::message_value_mref &msg, std::string &json_buffer) {
-   94|  53.6k|  return hpp::proto::write_json(msg, json_buffer);
-   95|  53.6k|}
+   93|  32.8k|json_status write_json(const hpp::proto::message_value_mref &msg, std::string &json_buffer) {
+   94|  32.8k|  return hpp::proto::write_json(msg, json_buffer);
+   95|  32.8k|}
 
 _ZN3hpp5proto11write_binpbITkNS0_8concepts8has_metaERKN6google8protobuf19FileDescriptorProtoINS0_17non_owning_traitsEEETkNS2_21contiguous_byte_rangeENSt3__16vectorISt4byteNSA_9allocatorISC_EEEETpTkNS2_14is_option_typeEJEEENS0_6statusEOT_RT0_DpOT1_:
    75|     12|status write_binpb(T &&msg, Buffer &buffer, concepts::is_option_type auto &&...option) {
@@ -20248,13 +20248,13 @@ _ZN3hpp5proto6varintImLNS0_15varint_encodingE0EEC2Em:
    61|    252|  constexpr varint(Type value) : value(value) {}
 
 _ZNK3hpp5proto15descriptor_poolINS0_30dynamic_message_factory_addonsEE22get_message_descriptorENSt3__117basic_string_viewIcNS4_11char_traitsIcEEEE:
-  458|  56.4k|  [[nodiscard]] const message_descriptor_t *get_message_descriptor(std::string_view name) const {
-  459|  56.4k|    auto itr = message_map_.find(name);
-  460|  56.4k|    return itr == message_map_.end() ? nullptr : itr->second;
+  458|  35.1k|  [[nodiscard]] const message_descriptor_t *get_message_descriptor(std::string_view name) const {
+  459|  35.1k|    auto itr = message_map_.find(name);
+  460|  35.1k|    return itr == message_map_.end() ? nullptr : itr->second;
   ------------------
-  |  Branch (460:12): [True: 0, False: 56.4k]
+  |  Branch (460:12): [True: 0, False: 35.1k]
   ------------------
-  461|  56.4k|  }
+  461|  35.1k|  }
 _ZN3hpp5proto15descriptor_poolINS0_30dynamic_message_factory_addonsEE4maskENS3_17field_option_maskE:
    57|  4.65k|  static constexpr uint8_t mask(field_option_mask value) { return static_cast<uint8_t>(value); }
 _ZN3hpp5proto15descriptor_poolINS0_30dynamic_message_factory_addonsEE8has_maskEhNS3_17field_option_maskE:
@@ -21070,27 +21070,27 @@ _ZN3hpp5proto15descriptor_poolINS0_30dynamic_message_factory_addonsEE22default_r
   696|      2|    ~default_resource_guard() { std::pmr::set_default_resource(prev_); }
 
 _ZN3hpp5proto21expected_message_mrefC2ENS0_18message_value_mrefE:
-   85|  56.4k|  explicit expected_message_mref(message_value_mref msg) : obj_(msg) {}
+   85|  35.1k|  explicit expected_message_mref(message_value_mref msg) : obj_(msg) {}
 _ZNK3hpp5proto21expected_message_mref5valueEv:
-  121|  56.4k|  [[nodiscard]] auto value() const noexcept { return obj_.value(); }
+  121|  35.1k|  [[nodiscard]] auto value() const noexcept { return obj_.value(); }
 
 _ZNK3hpp5proto23dynamic_message_factory11get_messageENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEERNS2_3pmr25monotonic_buffer_resourceE:
-  237|  56.4k|                                                                  std::pmr::monotonic_buffer_resource &mr) const {
-  238|  56.4k|  if (!initialized_) {
+  237|  35.1k|                                                                  std::pmr::monotonic_buffer_resource &mr) const {
+  238|  35.1k|  if (!initialized_) {
   ------------------
-  |  Branch (238:7): [True: 0, False: 56.4k]
+  |  Branch (238:7): [True: 0, False: 35.1k]
   ------------------
   239|      0|    return expected_message_mref{std::unexpected(dynamic_message_errc::unknown_message_name)};
   240|      0|  }
-  241|  56.4k|  const auto *desc = pool_.get_message_descriptor(name);
-  242|  56.4k|  if (desc != nullptr) {
+  241|  35.1k|  const auto *desc = pool_.get_message_descriptor(name);
+  242|  35.1k|  if (desc != nullptr) {
   ------------------
-  |  Branch (242:7): [True: 56.4k, False: 0]
+  |  Branch (242:7): [True: 35.1k, False: 0]
   ------------------
-  243|  56.4k|    return expected_message_mref{message_value_mref{*desc, mr}};
-  244|  56.4k|  }
+  243|  35.1k|    return expected_message_mref{message_value_mref{*desc, mr}};
+  244|  35.1k|  }
   245|      0|  return expected_message_mref{std::unexpected(dynamic_message_errc::unknown_message_name)};
-  246|  56.4k|}
+  246|  35.1k|}
 _ZN3hpp5proto23dynamic_message_factory4initEON6google8protobuf17FileDescriptorSetINS0_17non_owning_traitsEEE:
    81|      2|  void init(FileDescriptorSet &&fileset) {
    82|      2|    if (auto result = pool_.init(std::move(fileset), memory_resource_); !result.ok()) {
@@ -21791,76 +21791,76 @@ _ZN3hpp5proto30dynamic_message_factory_addons16field_descriptorINS0_15descriptor
   130|    214|    field_descriptor(Derived &self, [[maybe_unused]] const auto &inherited_options) { set_default_value(self.proto()); }
 
 _ZN3hpp5proto18message_value_mrefC2ERKNS0_15descriptor_poolINS0_30dynamic_message_factory_addonsEE20message_descriptor_tERNSt3__13pmr25monotonic_buffer_resourceE:
-  230|  56.4k|      : message_value_mref(descriptor,
-  231|  56.4k|                           static_cast<value_storage *>(memory_resource.allocate(
-  232|  56.4k|                               sizeof(value_storage) * descriptor.num_slots, alignof(value_storage))),
-  233|  56.4k|                           memory_resource) {
-  234|  56.4k|    reset();
-  235|  56.4k|  }
+  230|  35.1k|      : message_value_mref(descriptor,
+  231|  35.1k|                           static_cast<value_storage *>(memory_resource.allocate(
+  232|  35.1k|                               sizeof(value_storage) * descriptor.num_slots, alignof(value_storage))),
+  233|  35.1k|                           memory_resource) {
+  234|  35.1k|    reset();
+  235|  35.1k|  }
 _ZN3hpp5proto18message_value_mrefC2ERKNS0_15descriptor_poolINS0_30dynamic_message_factory_addonsEE20message_descriptor_tEPNS0_13value_storageERNSt3__13pmr25monotonic_buffer_resourceE:
-  227|  56.4k|      : descriptor_(&descriptor), storage_(storage), memory_resource_(&memory_resource) {}
+  227|  35.1k|      : descriptor_(&descriptor), storage_(storage), memory_resource_(&memory_resource) {}
 _ZNK3hpp5proto18message_value_mref5resetEv:
-  267|  56.4k|  void reset() const noexcept {
-  268|  56.4k|    using diff_t = std::iter_difference_t<value_storage *>;
-  269|  56.4k|    std::ranges::fill_n(storage_, static_cast<diff_t>(num_slots()), value_storage{});
-  270|  56.4k|  }
+  267|  35.1k|  void reset() const noexcept {
+  268|  35.1k|    using diff_t = std::iter_difference_t<value_storage *>;
+  269|  35.1k|    std::ranges::fill_n(storage_, static_cast<diff_t>(num_slots()), value_storage{});
+  270|  35.1k|  }
 _ZNK3hpp5proto18message_value_mref9num_slotsEv:
-  474|  56.4k|  [[nodiscard]] std::size_t num_slots() const noexcept { return descriptor_->num_slots; }
+  474|  35.1k|  [[nodiscard]] std::size_t num_slots() const noexcept { return descriptor_->num_slots; }
 
 _ZN3hpp5proto24equality_comparable_spanIKSt4byteEC2Ev:
-  374|  64.0k|  constexpr equality_comparable_span() noexcept = default;
+  374|  39.8k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKiEC2Ev:
-  374|   192k|  constexpr equality_comparable_span() noexcept = default;
+  374|   119k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKlEC2Ev:
-  374|   192k|  constexpr equality_comparable_span() noexcept = default;
+  374|   119k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKjEC2Ev:
-  374|   128k|  constexpr equality_comparable_span() noexcept = default;
+  374|  79.7k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKmEC2Ev:
-  374|   128k|  constexpr equality_comparable_span() noexcept = default;
+  374|  79.7k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKfEC2Ev:
-  374|  64.0k|  constexpr equality_comparable_span() noexcept = default;
+  374|  39.8k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKdEC2Ev:
-  374|  64.0k|  constexpr equality_comparable_span() noexcept = default;
+  374|  39.8k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKbEC2Ev:
-  374|  64.0k|  constexpr equality_comparable_span() noexcept = default;
+  374|  39.8k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKNSt3__117basic_string_viewIcNS2_11char_traitsIcEEEEEC2Ev:
-  374|   192k|  constexpr equality_comparable_span() noexcept = default;
+  374|   120k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKNS1_IKSt4byteEEEC2Ev:
-  374|  64.0k|  constexpr equality_comparable_span() noexcept = default;
+  374|  39.8k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKN15proto3_unittest13TestAllTypes_13NestedMessageINS0_17non_owning_traitsEEEEC2Ev:
-  374|  92.4k|  constexpr equality_comparable_span() noexcept = default;
+  374|  57.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKN15proto3_unittest14ForeignMessageINS0_17non_owning_traitsEEEEC2Ev:
-  374|  46.2k|  constexpr equality_comparable_span() noexcept = default;
+  374|  28.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKN24protobuf_unittest_import13ImportMessageINS0_17non_owning_traitsEEEEC2Ev:
-  374|  64.0k|  constexpr equality_comparable_span() noexcept = default;
+  374|  39.8k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKN15proto3_unittest13TestAllTypes_10NestedEnumEEC2Ev:
-  374|  46.2k|  constexpr equality_comparable_span() noexcept = default;
+  374|  28.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKN15proto3_unittest11ForeignEnumEEC2Ev:
-  374|  46.2k|  constexpr equality_comparable_span() noexcept = default;
+  374|  28.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto12message_nameIRN15proto3_unittest12TestAllTypesINS0_17non_owning_traitsEEEEEPKcOT_QrqXcl16message_type_urlfp_EE:
-  606|  8.84k|{
+  606|  5.57k|{
   607|       |  // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-pointer-arithmetic)
-  608|  8.84k|  return message_type_url(v).c_str() + std::size("type.googleapis.com");
-  609|  8.84k|}
+  608|  5.57k|  return message_type_url(v).c_str() + std::size("type.googleapis.com");
+  609|  5.57k|}
 _ZNK3hpp5proto14string_literalIXtlNS0_19compile_time_stringILm49EEEtlA49_cLc116ELc121ELc112ELc101ELc46ELc103ELc111ELc111ELc103ELc108ELc101ELc97ELc112ELc105ELc115ELc46ELc99ELc111ELc109ELc47ELc112ELc114ELc111ELc116ELc111ELc51ELc95ELc117ELc110ELc105ELc116ELc116ELc101ELc115ELc116ELc46ELc84ELc101ELc115ELc116ELc65ELc108ELc108ELc84ELc121ELc112ELc101ELc115EEEEE5c_strEv:
-  555|  8.84k|  [[nodiscard]] constexpr const char *c_str() const { return str.data(); }
+  555|  5.57k|  [[nodiscard]] constexpr const char *c_str() const { return str.data(); }
 _ZNK3hpp5proto19compile_time_stringILm49EE4dataEv:
-  493|  8.84k|  [[nodiscard]] constexpr const char *data() const { return &data_[0]; }
+  493|  5.57k|  [[nodiscard]] constexpr const char *data() const { return &data_[0]; }
 _ZN3hpp5proto12message_nameIRN17protobuf_unittest12TestAllTypesINS0_17non_owning_traitsEEEEEPKcOT_QrqXcl16message_type_urlfp_EE:
-  606|  9.35k|{
+  606|  5.82k|{
   607|       |  // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-pointer-arithmetic)
-  608|  9.35k|  return message_type_url(v).c_str() + std::size("type.googleapis.com");
-  609|  9.35k|}
+  608|  5.82k|  return message_type_url(v).c_str() + std::size("type.googleapis.com");
+  609|  5.82k|}
 _ZNK3hpp5proto14string_literalIXtlNS0_19compile_time_stringILm51EEEtlA51_cLc116ELc121ELc112ELc101ELc46ELc103ELc111ELc111ELc103ELc108ELc101ELc97ELc112ELc105ELc115ELc46ELc99ELc111ELc109ELc47ELc112ELc114ELc111ELc116ELc111ELc98ELc117ELc102ELc95ELc117ELc110ELc105ELc116ELc116ELc101ELc115ELc116ELc46ELc84ELc101ELc115ELc116ELc65ELc108ELc108ELc84ELc121ELc112ELc101ELc115EEEEE5c_strEv:
-  555|  9.35k|  [[nodiscard]] constexpr const char *c_str() const { return str.data(); }
+  555|  5.82k|  [[nodiscard]] constexpr const char *c_str() const { return str.data(); }
 _ZNK3hpp5proto19compile_time_stringILm51EE4dataEv:
-  493|  9.35k|  [[nodiscard]] constexpr const char *data() const { return &data_[0]; }
+  493|  5.82k|  [[nodiscard]] constexpr const char *data() const { return &data_[0]; }
 _ZN3hpp5proto8optionalIiXtlNSt3__19monostateEEEEC2Ev:
-  147|   109k|  constexpr optional() noexcept = default;
+  147|  68.2k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIiXtlNSt3__19monostateEEEE13default_valueEv:
-  127|   109k|  constexpr static T default_value() {
-  128|   109k|    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
-  129|   109k|      return T{};
+  127|  68.2k|  constexpr static T default_value() {
+  128|  68.2k|    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
+  129|  68.2k|      return T{};
   130|       |    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
   131|       |      return unwrap(Default);
   132|       |    } else {
@@ -21869,13 +21869,13 @@ _ZN3hpp5proto8optionalIiXtlNSt3__19monostateEEEE13default_valueEv:
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|   109k|  }
+  138|  68.2k|  }
 _ZN3hpp5proto8optionalIlXtlNSt3__19monostateEEEEC2Ev:
-  147|   106k|  constexpr optional() noexcept = default;
+  147|  65.5k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIlXtlNSt3__19monostateEEEE13default_valueEv:
-  127|   106k|  constexpr static T default_value() {
-  128|   106k|    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
-  129|   106k|      return T{};
+  127|  65.5k|  constexpr static T default_value() {
+  128|  65.5k|    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
+  129|  65.5k|      return T{};
   130|       |    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
   131|       |      return unwrap(Default);
   132|       |    } else {
@@ -21884,13 +21884,13 @@ _ZN3hpp5proto8optionalIlXtlNSt3__19monostateEEEE13default_valueEv:
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|   106k|  }
+  138|  65.5k|  }
 _ZN3hpp5proto8optionalIjXtlNSt3__19monostateEEEEC2Ev:
-  147|  71.2k|  constexpr optional() noexcept = default;
+  147|  43.6k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIjXtlNSt3__19monostateEEEE13default_valueEv:
-  127|  71.2k|  constexpr static T default_value() {
-  128|  71.2k|    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
-  129|  71.2k|      return T{};
+  127|  43.6k|  constexpr static T default_value() {
+  128|  43.6k|    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
+  129|  43.6k|      return T{};
   130|       |    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
   131|       |      return unwrap(Default);
   132|       |    } else {
@@ -21899,13 +21899,13 @@ _ZN3hpp5proto8optionalIjXtlNSt3__19monostateEEEE13default_valueEv:
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  71.2k|  }
+  138|  43.6k|  }
 _ZN3hpp5proto8optionalImXtlNSt3__19monostateEEEEC2Ev:
-  147|  71.2k|  constexpr optional() noexcept = default;
+  147|  43.6k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalImXtlNSt3__19monostateEEEE13default_valueEv:
-  127|  71.2k|  constexpr static T default_value() {
-  128|  71.2k|    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
-  129|  71.2k|      return T{};
+  127|  43.6k|  constexpr static T default_value() {
+  128|  43.6k|    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
+  129|  43.6k|      return T{};
   130|       |    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
   131|       |      return unwrap(Default);
   132|       |    } else {
@@ -21914,13 +21914,13 @@ _ZN3hpp5proto8optionalImXtlNSt3__19monostateEEEE13default_valueEv:
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  71.2k|  }
+  138|  43.6k|  }
 _ZN3hpp5proto8optionalIfXtlNSt3__19monostateEEEEC2Ev:
-  147|  35.6k|  constexpr optional() noexcept = default;
+  147|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIfXtlNSt3__19monostateEEEE13default_valueEv:
-  127|  35.6k|  constexpr static T default_value() {
-  128|  35.6k|    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
-  129|  35.6k|      return T{};
+  127|  21.8k|  constexpr static T default_value() {
+  128|  21.8k|    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
+  129|  21.8k|      return T{};
   130|       |    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
   131|       |      return unwrap(Default);
   132|       |    } else {
@@ -21929,13 +21929,13 @@ _ZN3hpp5proto8optionalIfXtlNSt3__19monostateEEEE13default_valueEv:
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  35.6k|  }
+  138|  21.8k|  }
 _ZN3hpp5proto8optionalIdXtlNSt3__19monostateEEEEC2Ev:
-  147|  35.6k|  constexpr optional() noexcept = default;
+  147|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIdXtlNSt3__19monostateEEEE13default_valueEv:
-  127|  35.6k|  constexpr static T default_value() {
-  128|  35.6k|    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
-  129|  35.6k|      return T{};
+  127|  21.8k|  constexpr static T default_value() {
+  128|  21.8k|    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
+  129|  21.8k|      return T{};
   130|       |    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
   131|       |      return unwrap(Default);
   132|       |    } else {
@@ -21944,15 +21944,15 @@ _ZN3hpp5proto8optionalIdXtlNSt3__19monostateEEEE13default_valueEv:
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  35.6k|  }
+  138|  21.8k|  }
 _ZN3hpp5proto8optionalIbXtlNSt3__19monostateEEEEC2Ev:
-  320|  38.2k|  constexpr optional() noexcept = default;
+  320|  24.4k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalINSt3__117basic_string_viewIcNS2_11char_traitsIcEEEEXtlNS2_9monostateEEEEC2Ev:
-  147|  53.4k|  constexpr optional() noexcept = default;
+  147|  32.7k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalINSt3__117basic_string_viewIcNS2_11char_traitsIcEEEEXtlNS2_9monostateEEEE13default_valueEv:
-  127|  53.4k|  constexpr static T default_value() {
-  128|  53.4k|    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
-  129|  53.4k|      return T{};
+  127|  32.7k|  constexpr static T default_value() {
+  128|  32.7k|    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
+  129|  32.7k|      return T{};
   130|       |    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
   131|       |      return unwrap(Default);
   132|       |    } else {
@@ -21961,13 +21961,13 @@ _ZN3hpp5proto8optionalINSt3__117basic_string_viewIcNS2_11char_traitsIcEEEEXtlNS2
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  53.4k|  }
+  138|  32.7k|  }
 _ZN3hpp5proto8optionalINS0_24equality_comparable_spanIKSt4byteEEXtlNSt3__19monostateEEEEC2Ev:
-  147|  17.8k|  constexpr optional() noexcept = default;
+  147|  10.9k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalINS0_24equality_comparable_spanIKSt4byteEEXtlNSt3__19monostateEEEE13default_valueEv:
-  127|  17.8k|  constexpr static T default_value() {
-  128|  17.8k|    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
-  129|  17.8k|      return T{};
+  127|  10.9k|  constexpr static T default_value() {
+  128|  10.9k|    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
+  129|  10.9k|      return T{};
   130|       |    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
   131|       |      return unwrap(Default);
   132|       |    } else {
@@ -21976,425 +21976,425 @@ _ZN3hpp5proto8optionalINS0_24equality_comparable_spanIKSt4byteEEXtlNSt3__19monos
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  17.8k|  }
+  138|  10.9k|  }
 _ZN3hpp5proto8optionalIN17protobuf_unittest13TestAllTypes_10NestedEnumELS4_1EEC2Ev:
-  147|  35.6k|  constexpr optional() noexcept = default;
+  147|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIN17protobuf_unittest13TestAllTypes_10NestedEnumELS4_1EE13default_valueEv:
-  127|  35.6k|  constexpr static T default_value() {
+  127|  21.8k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
-  130|  35.6k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
-  131|  35.6k|      return unwrap(Default);
+  130|  21.8k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
+  131|  21.8k|      return unwrap(Default);
   132|       |    } else {
   133|       |      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  35.6k|  }
+  138|  21.8k|  }
 fuzz_json.cpp:_ZN3hpp5protoL6unwrapIN17protobuf_unittest13TestAllTypes_10NestedEnumEEEDaT_:
-  106|  71.2k|static constexpr auto unwrap(T v) {
-  107|  71.2k|  return v;
-  108|  71.2k|}
+  106|  43.6k|static constexpr auto unwrap(T v) {
+  107|  43.6k|  return v;
+  108|  43.6k|}
 _ZN3hpp5proto8optionalIN17protobuf_unittest11ForeignEnumELS3_4EEC2Ev:
-  147|  35.6k|  constexpr optional() noexcept = default;
+  147|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIN17protobuf_unittest11ForeignEnumELS3_4EE13default_valueEv:
-  127|  35.6k|  constexpr static T default_value() {
+  127|  21.8k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
-  130|  35.6k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
-  131|  35.6k|      return unwrap(Default);
+  130|  21.8k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
+  131|  21.8k|      return unwrap(Default);
   132|       |    } else {
   133|       |      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  35.6k|  }
+  138|  21.8k|  }
 fuzz_json.cpp:_ZN3hpp5protoL6unwrapIN17protobuf_unittest11ForeignEnumEEEDaT_:
-  106|  71.2k|static constexpr auto unwrap(T v) {
-  107|  71.2k|  return v;
-  108|  71.2k|}
+  106|  43.6k|static constexpr auto unwrap(T v) {
+  107|  43.6k|  return v;
+  108|  43.6k|}
 _ZN3hpp5proto8optionalIN24protobuf_unittest_import10ImportEnumELS3_7EEC2Ev:
-  147|  35.6k|  constexpr optional() noexcept = default;
+  147|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIN24protobuf_unittest_import10ImportEnumELS3_7EE13default_valueEv:
-  127|  35.6k|  constexpr static T default_value() {
+  127|  21.8k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
-  130|  35.6k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
-  131|  35.6k|      return unwrap(Default);
+  130|  21.8k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
+  131|  21.8k|      return unwrap(Default);
   132|       |    } else {
   133|       |      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  35.6k|  }
+  138|  21.8k|  }
 fuzz_json.cpp:_ZN3hpp5protoL6unwrapIN24protobuf_unittest_import10ImportEnumEEEDaT_:
-  106|  71.2k|static constexpr auto unwrap(T v) {
-  107|  71.2k|  return v;
-  108|  71.2k|}
+  106|  43.6k|static constexpr auto unwrap(T v) {
+  107|  43.6k|  return v;
+  108|  43.6k|}
 _ZN3hpp5proto24equality_comparable_spanIKN17protobuf_unittest13TestAllTypes_13RepeatedGroupINS0_17non_owning_traitsEEEEC2Ev:
-  374|  17.8k|  constexpr equality_comparable_span() noexcept = default;
+  374|  10.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKN17protobuf_unittest13TestAllTypes_13NestedMessageINS0_17non_owning_traitsEEEEC2Ev:
-  374|  35.6k|  constexpr equality_comparable_span() noexcept = default;
+  374|  21.8k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKN17protobuf_unittest14ForeignMessageINS0_17non_owning_traitsEEEEC2Ev:
-  374|  17.8k|  constexpr equality_comparable_span() noexcept = default;
+  374|  10.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKN17protobuf_unittest13TestAllTypes_10NestedEnumEEC2Ev:
-  374|  17.8k|  constexpr equality_comparable_span() noexcept = default;
+  374|  10.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKN17protobuf_unittest11ForeignEnumEEC2Ev:
-  374|  17.8k|  constexpr equality_comparable_span() noexcept = default;
+  374|  10.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKN24protobuf_unittest_import10ImportEnumEEC2Ev:
-  374|  17.8k|  constexpr equality_comparable_span() noexcept = default;
+  374|  10.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto8optionalIiLi41EEC2Ev:
-  147|  35.6k|  constexpr optional() noexcept = default;
+  147|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIiLi41EE13default_valueEv:
-  127|  35.6k|  constexpr static T default_value() {
+  127|  21.8k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
-  130|  35.6k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
-  131|  35.6k|      return unwrap(Default);
+  130|  21.8k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
+  131|  21.8k|      return unwrap(Default);
   132|       |    } else {
   133|       |      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  35.6k|  }
+  138|  21.8k|  }
 fuzz_json.cpp:_ZN3hpp5protoL6unwrapIiEEDaT_:
-  106|   106k|static constexpr auto unwrap(T v) {
-  107|   106k|  return v;
-  108|   106k|}
+  106|  65.5k|static constexpr auto unwrap(T v) {
+  107|  65.5k|  return v;
+  108|  65.5k|}
 _ZN3hpp5proto8optionalIlLx42EEC2Ev:
-  147|  35.6k|  constexpr optional() noexcept = default;
+  147|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIlLx42EE13default_valueEv:
-  127|  35.6k|  constexpr static T default_value() {
+  127|  21.8k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
-  130|  35.6k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
-  131|  35.6k|      return unwrap(Default);
+  130|  21.8k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
+  131|  21.8k|      return unwrap(Default);
   132|       |    } else {
   133|       |      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  35.6k|  }
+  138|  21.8k|  }
 fuzz_json.cpp:_ZN3hpp5protoL6unwrapIxEEDaT_:
-  106|   106k|static constexpr auto unwrap(T v) {
-  107|   106k|  return v;
-  108|   106k|}
+  106|  65.5k|static constexpr auto unwrap(T v) {
+  107|  65.5k|  return v;
+  108|  65.5k|}
 _ZN3hpp5proto8optionalIjLj43EEC2Ev:
-  147|  35.6k|  constexpr optional() noexcept = default;
+  147|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIjLj43EE13default_valueEv:
-  127|  35.6k|  constexpr static T default_value() {
+  127|  21.8k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
-  130|  35.6k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
-  131|  35.6k|      return unwrap(Default);
+  130|  21.8k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
+  131|  21.8k|      return unwrap(Default);
   132|       |    } else {
   133|       |      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  35.6k|  }
+  138|  21.8k|  }
 fuzz_json.cpp:_ZN3hpp5protoL6unwrapIjEEDaT_:
-  106|  71.2k|static constexpr auto unwrap(T v) {
-  107|  71.2k|  return v;
-  108|  71.2k|}
+  106|  43.6k|static constexpr auto unwrap(T v) {
+  107|  43.6k|  return v;
+  108|  43.6k|}
 _ZN3hpp5proto8optionalImLy44EEC2Ev:
-  147|  35.6k|  constexpr optional() noexcept = default;
+  147|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalImLy44EE13default_valueEv:
-  127|  35.6k|  constexpr static T default_value() {
+  127|  21.8k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
-  130|  35.6k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
-  131|  35.6k|      return unwrap(Default);
+  130|  21.8k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
+  131|  21.8k|      return unwrap(Default);
   132|       |    } else {
   133|       |      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  35.6k|  }
+  138|  21.8k|  }
 fuzz_json.cpp:_ZN3hpp5protoL6unwrapIyEEDaT_:
-  106|  71.2k|static constexpr auto unwrap(T v) {
-  107|  71.2k|  return v;
-  108|  71.2k|}
+  106|  43.6k|static constexpr auto unwrap(T v) {
+  107|  43.6k|  return v;
+  108|  43.6k|}
 _ZN3hpp5proto8optionalIiLin45EEC2Ev:
-  147|  35.6k|  constexpr optional() noexcept = default;
+  147|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIiLin45EE13default_valueEv:
-  127|  35.6k|  constexpr static T default_value() {
+  127|  21.8k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
-  130|  35.6k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
-  131|  35.6k|      return unwrap(Default);
+  130|  21.8k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
+  131|  21.8k|      return unwrap(Default);
   132|       |    } else {
   133|       |      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  35.6k|  }
+  138|  21.8k|  }
 _ZN3hpp5proto8optionalIlLx46EEC2Ev:
-  147|  35.6k|  constexpr optional() noexcept = default;
+  147|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIlLx46EE13default_valueEv:
-  127|  35.6k|  constexpr static T default_value() {
+  127|  21.8k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
-  130|  35.6k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
-  131|  35.6k|      return unwrap(Default);
+  130|  21.8k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
+  131|  21.8k|      return unwrap(Default);
   132|       |    } else {
   133|       |      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  35.6k|  }
+  138|  21.8k|  }
 _ZN3hpp5proto8optionalIjLj47EEC2Ev:
-  147|  35.6k|  constexpr optional() noexcept = default;
+  147|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIjLj47EE13default_valueEv:
-  127|  35.6k|  constexpr static T default_value() {
+  127|  21.8k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
-  130|  35.6k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
-  131|  35.6k|      return unwrap(Default);
+  130|  21.8k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
+  131|  21.8k|      return unwrap(Default);
   132|       |    } else {
   133|       |      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  35.6k|  }
+  138|  21.8k|  }
 _ZN3hpp5proto8optionalImLy48EEC2Ev:
-  147|  35.6k|  constexpr optional() noexcept = default;
+  147|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalImLy48EE13default_valueEv:
-  127|  35.6k|  constexpr static T default_value() {
+  127|  21.8k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
-  130|  35.6k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
-  131|  35.6k|      return unwrap(Default);
+  130|  21.8k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
+  131|  21.8k|      return unwrap(Default);
   132|       |    } else {
   133|       |      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  35.6k|  }
+  138|  21.8k|  }
 _ZN3hpp5proto8optionalIiLi49EEC2Ev:
-  147|  35.6k|  constexpr optional() noexcept = default;
+  147|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIiLi49EE13default_valueEv:
-  127|  35.6k|  constexpr static T default_value() {
+  127|  21.8k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
-  130|  35.6k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
-  131|  35.6k|      return unwrap(Default);
+  130|  21.8k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
+  131|  21.8k|      return unwrap(Default);
   132|       |    } else {
   133|       |      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  35.6k|  }
+  138|  21.8k|  }
 _ZN3hpp5proto8optionalIlLxn50EEC2Ev:
-  147|  35.6k|  constexpr optional() noexcept = default;
+  147|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIlLxn50EE13default_valueEv:
-  127|  35.6k|  constexpr static T default_value() {
+  127|  21.8k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
-  130|  35.6k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
-  131|  35.6k|      return unwrap(Default);
+  130|  21.8k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
+  131|  21.8k|      return unwrap(Default);
   132|       |    } else {
   133|       |      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  35.6k|  }
+  138|  21.8k|  }
 _ZN3hpp5proto8optionalIfXtlNS0_13float_wrapperILi1112408064EEEEEEC2Ev:
-  147|  35.6k|  constexpr optional() noexcept = default;
+  147|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIfXtlNS0_13float_wrapperILi1112408064EEEEEE13default_valueEv:
-  127|  35.6k|  constexpr static T default_value() {
+  127|  21.8k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
-  130|  35.6k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
-  131|  35.6k|      return unwrap(Default);
+  130|  21.8k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
+  131|  21.8k|      return unwrap(Default);
   132|       |    } else {
   133|       |      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  35.6k|  }
+  138|  21.8k|  }
 fuzz_json.cpp:_ZN3hpp5protoL6unwrapILi1112408064EEEDaNS0_13float_wrapperIXT_EEE:
-  101|  35.6k|static constexpr auto unwrap(float_wrapper<x> /* unused */) {
-  102|  35.6k|  return std::bit_cast<float>(x);
-  103|  35.6k|}
+  101|  21.8k|static constexpr auto unwrap(float_wrapper<x> /* unused */) {
+  102|  21.8k|  return std::bit_cast<float>(x);
+  103|  21.8k|}
 _ZN3hpp5proto8optionalIdXtlNS0_14double_wrapperILl4677379639163748352EEEEEEC2Ev:
-  147|  35.6k|  constexpr optional() noexcept = default;
+  147|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIdXtlNS0_14double_wrapperILl4677379639163748352EEEEEE13default_valueEv:
-  127|  35.6k|  constexpr static T default_value() {
+  127|  21.8k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
-  130|  35.6k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
-  131|  35.6k|      return unwrap(Default);
+  130|  21.8k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
+  131|  21.8k|      return unwrap(Default);
   132|       |    } else {
   133|       |      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  35.6k|  }
+  138|  21.8k|  }
 fuzz_json.cpp:_ZN3hpp5protoL6unwrapILl4677379639163748352EEEDaNS0_14double_wrapperIXT_EEE:
-   96|  35.6k|static constexpr auto unwrap(double_wrapper<x> /* unused */) {
-   97|  35.6k|  return std::bit_cast<double>(x);
-   98|  35.6k|}
+   96|  21.8k|static constexpr auto unwrap(double_wrapper<x> /* unused */) {
+   97|  21.8k|  return std::bit_cast<double>(x);
+   98|  21.8k|}
 _ZN3hpp5proto8optionalIbLb1EEC2Ev:
-  320|  35.6k|  constexpr optional() noexcept = default;
+  320|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalINSt3__117basic_string_viewIcNS2_11char_traitsIcEEEEXtlNS0_14string_literalIXtlNS0_19compile_time_stringILm6EEEtlA6_cLc104ELc101ELc108ELc108ELc111EEEEEEEEEC2Ev:
-  147|  17.8k|  constexpr optional() noexcept = default;
+  147|  10.9k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalINSt3__117basic_string_viewIcNS2_11char_traitsIcEEEEXtlNS0_14string_literalIXtlNS0_19compile_time_stringILm6EEEtlA6_cLc104ELc101ELc108ELc108ELc111EEEEEEEEE13default_valueEv:
-  127|  17.8k|  constexpr static T default_value() {
+  127|  10.9k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
   130|       |    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
   131|       |      return unwrap(Default);
-  132|  17.8k|    } else {
-  133|  17.8k|      static_assert(sizeof(typename T::value_type) == 1);
+  132|  10.9k|    } else {
+  133|  10.9k|      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
-  135|  17.8k|      auto data = static_cast<const typename T::value_type *>(Default.data());
-  136|  17.8k|      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
-  137|  17.8k|    }
-  138|  17.8k|  }
+  135|  10.9k|      auto data = static_cast<const typename T::value_type *>(Default.data());
+  136|  10.9k|      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
+  137|  10.9k|    }
+  138|  10.9k|  }
 _ZNK3hpp5proto14string_literalIXtlNS0_19compile_time_stringILm6EEEtlA6_cLc104ELc101ELc108ELc108ELc111EEEEE4dataEv:
-  554|  35.6k|  [[nodiscard]] constexpr const char *data() const { return str.data(); }
+  554|  21.8k|  [[nodiscard]] constexpr const char *data() const { return str.data(); }
 _ZNK3hpp5proto19compile_time_stringILm6EE4dataEv:
-  493|  35.6k|  [[nodiscard]] constexpr const char *data() const { return &data_[0]; }
+  493|  21.8k|  [[nodiscard]] constexpr const char *data() const { return &data_[0]; }
 _ZNK3hpp5proto14string_literalIXtlNS0_19compile_time_stringILm6EEEtlA6_cLc104ELc101ELc108ELc108ELc111EEEEE4sizeEv:
-  553|  35.6k|  [[nodiscard]] constexpr size_t size() const { return str.size(); }
+  553|  21.8k|  [[nodiscard]] constexpr size_t size() const { return str.size(); }
 _ZNK3hpp5proto19compile_time_stringILm6EE4sizeEv:
-  491|  35.6k|  [[nodiscard]] constexpr std::size_t size() const { return Len - 1; }
+  491|  21.8k|  [[nodiscard]] constexpr std::size_t size() const { return Len - 1; }
 _ZN3hpp5proto8optionalINS0_24equality_comparable_spanIKSt4byteEEXtlNS0_13bytes_literalIXtlNS0_19compile_time_stringILm6EEEtlA6_cLc119ELc111ELc114ELc108ELc100EEEEEEEEEC2Ev:
-  147|  17.8k|  constexpr optional() noexcept = default;
+  147|  10.9k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalINS0_24equality_comparable_spanIKSt4byteEEXtlNS0_13bytes_literalIXtlNS0_19compile_time_stringILm6EEEtlA6_cLc119ELc111ELc114ELc108ELc100EEEEEEEEE13default_valueEv:
-  127|  17.8k|  constexpr static T default_value() {
+  127|  10.9k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
   130|       |    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
   131|       |      return unwrap(Default);
-  132|  17.8k|    } else {
-  133|  17.8k|      static_assert(sizeof(typename T::value_type) == 1);
+  132|  10.9k|    } else {
+  133|  10.9k|      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
-  135|  17.8k|      auto data = static_cast<const typename T::value_type *>(Default.data());
-  136|  17.8k|      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
-  137|  17.8k|    }
-  138|  17.8k|  }
+  135|  10.9k|      auto data = static_cast<const typename T::value_type *>(Default.data());
+  136|  10.9k|      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
+  137|  10.9k|    }
+  138|  10.9k|  }
 _ZNK3hpp5proto13bytes_literalIXtlNS0_19compile_time_stringILm6EEEtlA6_cLc119ELc111ELc114ELc108ELc100EEEEE4dataEv:
-  512|  35.6k|  [[nodiscard]] constexpr const std::byte *data() const { return bytes.data(); }
+  512|  21.8k|  [[nodiscard]] constexpr const std::byte *data() const { return bytes.data(); }
 _ZNK3hpp5proto18compile_time_bytesILm6EE4dataEv:
-  504|  35.6k|  [[nodiscard]] constexpr const std::byte *data() const { return &data_[0]; }
+  504|  21.8k|  [[nodiscard]] constexpr const std::byte *data() const { return &data_[0]; }
 _ZNK3hpp5proto13bytes_literalIXtlNS0_19compile_time_stringILm6EEEtlA6_cLc119ELc111ELc114ELc108ELc100EEEEE4sizeEv:
-  511|  35.6k|  [[nodiscard]] constexpr size_t size() const { return bytes.size(); }
+  511|  21.8k|  [[nodiscard]] constexpr size_t size() const { return bytes.size(); }
 _ZNK3hpp5proto18compile_time_bytesILm6EE4sizeEv:
-  500|  35.6k|  [[nodiscard]] constexpr std::size_t size() const { return Len - 1; }
+  500|  21.8k|  [[nodiscard]] constexpr std::size_t size() const { return Len - 1; }
 _ZN3hpp5proto24equality_comparable_spanIKSt4byteEC2ITkNSt3__119contiguous_iteratorEPS3_S7_Qsr3stdE18constructible_fromINS6_4spanIT_Lm18446744073709551615EEETL0__TL0_0_EEES9_T0_:
-  409|  17.8k|      : equality_comparable_span(std::span<T>(first, last)) {}
+  409|  10.9k|      : equality_comparable_span(std::span<T>(first, last)) {}
 _ZN3hpp5proto24equality_comparable_spanIKSt4byteEC2ENSt3__14spanIS3_Lm18446744073709551615EEE:
-  383|  17.8k|  constexpr equality_comparable_span(std::span<T> other) noexcept : _data(other.data()), _size(other.size()) {}
+  383|  10.9k|  constexpr equality_comparable_span(std::span<T> other) noexcept : _data(other.data()), _size(other.size()) {}
 _ZN3hpp5proto8optionalIN17protobuf_unittest13TestAllTypes_10NestedEnumELS4_2EEC2Ev:
-  147|  35.6k|  constexpr optional() noexcept = default;
+  147|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIN17protobuf_unittest13TestAllTypes_10NestedEnumELS4_2EE13default_valueEv:
-  127|  35.6k|  constexpr static T default_value() {
+  127|  21.8k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
-  130|  35.6k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
-  131|  35.6k|      return unwrap(Default);
+  130|  21.8k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
+  131|  21.8k|      return unwrap(Default);
   132|       |    } else {
   133|       |      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  35.6k|  }
+  138|  21.8k|  }
 _ZN3hpp5proto8optionalIN17protobuf_unittest11ForeignEnumELS3_5EEC2Ev:
-  147|  35.6k|  constexpr optional() noexcept = default;
+  147|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIN17protobuf_unittest11ForeignEnumELS3_5EE13default_valueEv:
-  127|  35.6k|  constexpr static T default_value() {
+  127|  21.8k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
-  130|  35.6k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
-  131|  35.6k|      return unwrap(Default);
+  130|  21.8k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
+  131|  21.8k|      return unwrap(Default);
   132|       |    } else {
   133|       |      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  35.6k|  }
+  138|  21.8k|  }
 _ZN3hpp5proto8optionalIN24protobuf_unittest_import10ImportEnumELS3_8EEC2Ev:
-  147|  35.6k|  constexpr optional() noexcept = default;
+  147|  21.8k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalIN24protobuf_unittest_import10ImportEnumELS3_8EE13default_valueEv:
-  127|  35.6k|  constexpr static T default_value() {
+  127|  21.8k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
-  130|  35.6k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
-  131|  35.6k|      return unwrap(Default);
+  130|  21.8k|    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
+  131|  21.8k|      return unwrap(Default);
   132|       |    } else {
   133|       |      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  35.6k|  }
+  138|  21.8k|  }
 _ZN3hpp5proto8optionalINSt3__117basic_string_viewIcNS2_11char_traitsIcEEEEXtlNS0_14string_literalIXtlNS0_19compile_time_stringILm4EEEtlA4_cLc97ELc98ELc99EEEEEEEEEC2Ev:
-  147|  17.8k|  constexpr optional() noexcept = default;
+  147|  10.9k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalINSt3__117basic_string_viewIcNS2_11char_traitsIcEEEEXtlNS0_14string_literalIXtlNS0_19compile_time_stringILm4EEEtlA4_cLc97ELc98ELc99EEEEEEEEE13default_valueEv:
-  127|  17.8k|  constexpr static T default_value() {
+  127|  10.9k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
   130|       |    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
   131|       |      return unwrap(Default);
-  132|  17.8k|    } else {
-  133|  17.8k|      static_assert(sizeof(typename T::value_type) == 1);
+  132|  10.9k|    } else {
+  133|  10.9k|      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
-  135|  17.8k|      auto data = static_cast<const typename T::value_type *>(Default.data());
-  136|  17.8k|      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
-  137|  17.8k|    }
-  138|  17.8k|  }
+  135|  10.9k|      auto data = static_cast<const typename T::value_type *>(Default.data());
+  136|  10.9k|      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
+  137|  10.9k|    }
+  138|  10.9k|  }
 _ZNK3hpp5proto14string_literalIXtlNS0_19compile_time_stringILm4EEEtlA4_cLc97ELc98ELc99EEEEE4dataEv:
-  554|  35.6k|  [[nodiscard]] constexpr const char *data() const { return str.data(); }
+  554|  21.8k|  [[nodiscard]] constexpr const char *data() const { return str.data(); }
 _ZNK3hpp5proto19compile_time_stringILm4EE4dataEv:
-  493|  71.2k|  [[nodiscard]] constexpr const char *data() const { return &data_[0]; }
+  493|  43.6k|  [[nodiscard]] constexpr const char *data() const { return &data_[0]; }
 _ZNK3hpp5proto14string_literalIXtlNS0_19compile_time_stringILm4EEEtlA4_cLc97ELc98ELc99EEEEE4sizeEv:
-  553|  35.6k|  [[nodiscard]] constexpr size_t size() const { return str.size(); }
+  553|  21.8k|  [[nodiscard]] constexpr size_t size() const { return str.size(); }
 _ZNK3hpp5proto19compile_time_stringILm4EE4sizeEv:
-  491|  71.2k|  [[nodiscard]] constexpr std::size_t size() const { return Len - 1; }
+  491|  43.6k|  [[nodiscard]] constexpr std::size_t size() const { return Len - 1; }
 _ZN3hpp5proto8optionalINSt3__117basic_string_viewIcNS2_11char_traitsIcEEEEXtlNS0_14string_literalIXtlNS0_19compile_time_stringILm4EEEtlA4_cLc49ELc50ELc51EEEEEEEEEC2Ev:
-  147|  17.8k|  constexpr optional() noexcept = default;
+  147|  10.9k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalINSt3__117basic_string_viewIcNS2_11char_traitsIcEEEEXtlNS0_14string_literalIXtlNS0_19compile_time_stringILm4EEEtlA4_cLc49ELc50ELc51EEEEEEEEE13default_valueEv:
-  127|  17.8k|  constexpr static T default_value() {
+  127|  10.9k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
   130|       |    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
   131|       |      return unwrap(Default);
-  132|  17.8k|    } else {
-  133|  17.8k|      static_assert(sizeof(typename T::value_type) == 1);
+  132|  10.9k|    } else {
+  133|  10.9k|      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
-  135|  17.8k|      auto data = static_cast<const typename T::value_type *>(Default.data());
-  136|  17.8k|      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
-  137|  17.8k|    }
-  138|  17.8k|  }
+  135|  10.9k|      auto data = static_cast<const typename T::value_type *>(Default.data());
+  136|  10.9k|      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
+  137|  10.9k|    }
+  138|  10.9k|  }
 _ZNK3hpp5proto14string_literalIXtlNS0_19compile_time_stringILm4EEEtlA4_cLc49ELc50ELc51EEEEE4dataEv:
-  554|  35.6k|  [[nodiscard]] constexpr const char *data() const { return str.data(); }
+  554|  21.8k|  [[nodiscard]] constexpr const char *data() const { return str.data(); }
 _ZNK3hpp5proto14string_literalIXtlNS0_19compile_time_stringILm4EEEtlA4_cLc49ELc50ELc51EEEEE4sizeEv:
-  553|  35.6k|  [[nodiscard]] constexpr size_t size() const { return str.size(); }
+  553|  21.8k|  [[nodiscard]] constexpr size_t size() const { return str.size(); }
 _ZN3hpp5proto8optionalINSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEXtlNS2_9monostateEEEEC2Ev:
-  147|  53.4k|  constexpr optional() noexcept = default;
+  147|  32.7k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalINSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEXtlNS2_9monostateEEEE13default_valueEv:
-  127|  53.4k|  constexpr static T default_value() {
-  128|  53.4k|    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
-  129|  53.4k|      return T{};
+  127|  32.7k|  constexpr static T default_value() {
+  128|  32.7k|    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
+  129|  32.7k|      return T{};
   130|       |    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
   131|       |      return unwrap(Default);
   132|       |    } else {
@@ -22403,13 +22403,13 @@ _ZN3hpp5proto8optionalINSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocato
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  53.4k|  }
+  138|  32.7k|  }
 _ZN3hpp5proto8optionalINSt3__16vectorISt4byteNS2_9allocatorIS4_EEEEXtlNS2_9monostateEEEEC2Ev:
-  147|  17.8k|  constexpr optional() noexcept = default;
+  147|  10.9k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalINSt3__16vectorISt4byteNS2_9allocatorIS4_EEEEXtlNS2_9monostateEEEE13default_valueEv:
-  127|  17.8k|  constexpr static T default_value() {
-  128|  17.8k|    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
-  129|  17.8k|      return T{};
+  127|  10.9k|  constexpr static T default_value() {
+  128|  10.9k|    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
+  129|  10.9k|      return T{};
   130|       |    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
   131|       |      return unwrap(Default);
   132|       |    } else {
@@ -22418,123 +22418,123 @@ _ZN3hpp5proto8optionalINSt3__16vectorISt4byteNS2_9allocatorIS4_EEEEXtlNS2_9monos
   135|       |      auto data = static_cast<const typename T::value_type *>(Default.data());
   136|       |      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
   137|       |    }
-  138|  17.8k|  }
+  138|  10.9k|  }
 _ZN3hpp5proto8optionalINSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEXtlNS0_14string_literalIXtlNS0_19compile_time_stringILm6EEEtlA6_cLc104ELc101ELc108ELc108ELc111EEEEEEEEEC2Ev:
-  147|  17.8k|  constexpr optional() noexcept = default;
+  147|  10.9k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalINSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEXtlNS0_14string_literalIXtlNS0_19compile_time_stringILm6EEEtlA6_cLc104ELc101ELc108ELc108ELc111EEEEEEEEE13default_valueEv:
-  127|  17.8k|  constexpr static T default_value() {
+  127|  10.9k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
   130|       |    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
   131|       |      return unwrap(Default);
-  132|  17.8k|    } else {
-  133|  17.8k|      static_assert(sizeof(typename T::value_type) == 1);
+  132|  10.9k|    } else {
+  133|  10.9k|      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
-  135|  17.8k|      auto data = static_cast<const typename T::value_type *>(Default.data());
-  136|  17.8k|      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
-  137|  17.8k|    }
-  138|  17.8k|  }
+  135|  10.9k|      auto data = static_cast<const typename T::value_type *>(Default.data());
+  136|  10.9k|      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
+  137|  10.9k|    }
+  138|  10.9k|  }
 _ZN3hpp5proto8optionalINSt3__16vectorISt4byteNS2_9allocatorIS4_EEEEXtlNS0_13bytes_literalIXtlNS0_19compile_time_stringILm6EEEtlA6_cLc119ELc111ELc114ELc108ELc100EEEEEEEEEC2Ev:
-  147|  17.8k|  constexpr optional() noexcept = default;
+  147|  10.9k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalINSt3__16vectorISt4byteNS2_9allocatorIS4_EEEEXtlNS0_13bytes_literalIXtlNS0_19compile_time_stringILm6EEEtlA6_cLc119ELc111ELc114ELc108ELc100EEEEEEEEE13default_valueEv:
-  127|  17.8k|  constexpr static T default_value() {
+  127|  10.9k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
   130|       |    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
   131|       |      return unwrap(Default);
-  132|  17.8k|    } else {
-  133|  17.8k|      static_assert(sizeof(typename T::value_type) == 1);
+  132|  10.9k|    } else {
+  133|  10.9k|      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
-  135|  17.8k|      auto data = static_cast<const typename T::value_type *>(Default.data());
-  136|  17.8k|      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
-  137|  17.8k|    }
-  138|  17.8k|  }
+  135|  10.9k|      auto data = static_cast<const typename T::value_type *>(Default.data());
+  136|  10.9k|      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
+  137|  10.9k|    }
+  138|  10.9k|  }
 _ZN3hpp5proto8optionalINSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEXtlNS0_14string_literalIXtlNS0_19compile_time_stringILm4EEEtlA4_cLc97ELc98ELc99EEEEEEEEEC2Ev:
-  147|  17.8k|  constexpr optional() noexcept = default;
+  147|  10.9k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalINSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEXtlNS0_14string_literalIXtlNS0_19compile_time_stringILm4EEEtlA4_cLc97ELc98ELc99EEEEEEEEE13default_valueEv:
-  127|  17.8k|  constexpr static T default_value() {
+  127|  10.9k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
   130|       |    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
   131|       |      return unwrap(Default);
-  132|  17.8k|    } else {
-  133|  17.8k|      static_assert(sizeof(typename T::value_type) == 1);
+  132|  10.9k|    } else {
+  133|  10.9k|      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
-  135|  17.8k|      auto data = static_cast<const typename T::value_type *>(Default.data());
-  136|  17.8k|      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
-  137|  17.8k|    }
-  138|  17.8k|  }
+  135|  10.9k|      auto data = static_cast<const typename T::value_type *>(Default.data());
+  136|  10.9k|      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
+  137|  10.9k|    }
+  138|  10.9k|  }
 _ZN3hpp5proto8optionalINSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEXtlNS0_14string_literalIXtlNS0_19compile_time_stringILm4EEEtlA4_cLc49ELc50ELc51EEEEEEEEEC2Ev:
-  147|  17.8k|  constexpr optional() noexcept = default;
+  147|  10.9k|  constexpr optional() noexcept = default;
 _ZN3hpp5proto8optionalINSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEXtlNS0_14string_literalIXtlNS0_19compile_time_stringILm4EEEtlA4_cLc49ELc50ELc51EEEEEEEEE13default_valueEv:
-  127|  17.8k|  constexpr static T default_value() {
+  127|  10.9k|  constexpr static T default_value() {
   128|       |    if constexpr (std::same_as<std::remove_cvref_t<decltype(Default)>, std::monostate>) {
   129|       |      return T{};
   130|       |    } else if constexpr (std::is_fundamental_v<T> || std::is_enum_v<T>) {
   131|       |      return unwrap(Default);
-  132|  17.8k|    } else {
-  133|  17.8k|      static_assert(sizeof(typename T::value_type) == 1);
+  132|  10.9k|    } else {
+  133|  10.9k|      static_assert(sizeof(typename T::value_type) == 1);
   134|       |      // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
-  135|  17.8k|      auto data = static_cast<const typename T::value_type *>(Default.data());
-  136|  17.8k|      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
-  137|  17.8k|    }
-  138|  17.8k|  }
+  135|  10.9k|      auto data = static_cast<const typename T::value_type *>(Default.data());
+  136|  10.9k|      return T{data, data + Default.size()}; // NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)
+  137|  10.9k|    }
+  138|  10.9k|  }
 _ZN3hpp5proto8optionalINSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEXtlNS0_14string_literalIXtlNS0_19compile_time_stringILm4EEEtlA4_cLc49ELc50ELc51EEEEEEEEED2Ev:
-  148|  35.6k|  constexpr ~optional() noexcept = default;
+  148|  21.8k|  constexpr ~optional() noexcept = default;
 _ZN3hpp5proto8optionalINSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEXtlNS0_14string_literalIXtlNS0_19compile_time_stringILm4EEEtlA4_cLc97ELc98ELc99EEEEEEEEED2Ev:
-  148|  35.6k|  constexpr ~optional() noexcept = default;
+  148|  21.8k|  constexpr ~optional() noexcept = default;
 _ZN3hpp5proto8optionalINSt3__16vectorISt4byteNS2_9allocatorIS4_EEEEXtlNS0_13bytes_literalIXtlNS0_19compile_time_stringILm6EEEtlA6_cLc119ELc111ELc114ELc108ELc100EEEEEEEEED2Ev:
-  148|  35.6k|  constexpr ~optional() noexcept = default;
+  148|  21.8k|  constexpr ~optional() noexcept = default;
 _ZN3hpp5proto8optionalINSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEXtlNS0_14string_literalIXtlNS0_19compile_time_stringILm6EEEtlA6_cLc104ELc101ELc108ELc108ELc111EEEEEEEEED2Ev:
-  148|  35.6k|  constexpr ~optional() noexcept = default;
+  148|  21.8k|  constexpr ~optional() noexcept = default;
 _ZN3hpp5proto8optionalINSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEXtlNS2_9monostateEEEED2Ev:
-  148|   106k|  constexpr ~optional() noexcept = default;
+  148|  65.5k|  constexpr ~optional() noexcept = default;
 _ZN3hpp5proto8optionalINSt3__16vectorISt4byteNS2_9allocatorIS4_EEEEXtlNS2_9monostateEEEED2Ev:
-  148|  35.6k|  constexpr ~optional() noexcept = default;
+  148|  21.8k|  constexpr ~optional() noexcept = default;
 _ZN3hpp5proto12message_nameIRN17protobuf_unittest7TestMapINS0_17non_owning_traitsEEEEEPKcOT_QrqXcl16message_type_urlfp_EE:
-  606|  10.3k|{
+  606|  6.79k|{
   607|       |  // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-pointer-arithmetic)
-  608|  10.3k|  return message_type_url(v).c_str() + std::size("type.googleapis.com");
-  609|  10.3k|}
+  608|  6.79k|  return message_type_url(v).c_str() + std::size("type.googleapis.com");
+  609|  6.79k|}
 _ZNK3hpp5proto14string_literalIXtlNS0_19compile_time_stringILm46EEEtlA46_cLc116ELc121ELc112ELc101ELc46ELc103ELc111ELc111ELc103ELc108ELc101ELc97ELc112ELc105ELc115ELc46ELc99ELc111ELc109ELc47ELc112ELc114ELc111ELc116ELc111ELc98ELc117ELc102ELc95ELc117ELc110ELc105ELc116ELc116ELc101ELc115ELc116ELc46ELc84ELc101ELc115ELc116ELc77ELc97ELc112EEEEE5c_strEv:
-  555|  10.3k|  [[nodiscard]] constexpr const char *c_str() const { return str.data(); }
+  555|  6.79k|  [[nodiscard]] constexpr const char *c_str() const { return str.data(); }
 _ZNK3hpp5proto19compile_time_stringILm46EE4dataEv:
-  493|  10.3k|  [[nodiscard]] constexpr const char *data() const { return &data_[0]; }
+  493|  6.79k|  [[nodiscard]] constexpr const char *data() const { return &data_[0]; }
 _ZN3hpp5proto24equality_comparable_spanIKNSt3__14pairIiiEEEC2Ev:
-  374|  60.0k|  constexpr equality_comparable_span() noexcept = default;
+  374|  38.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKNSt3__14pairIllEEEC2Ev:
-  374|  60.0k|  constexpr equality_comparable_span() noexcept = default;
+  374|  38.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKNSt3__14pairIjjEEEC2Ev:
-  374|  40.0k|  constexpr equality_comparable_span() noexcept = default;
+  374|  25.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKNSt3__14pairImmEEEC2Ev:
-  374|  40.0k|  constexpr equality_comparable_span() noexcept = default;
+  374|  25.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKNSt3__14pairIifEEEC2Ev:
-  374|  20.0k|  constexpr equality_comparable_span() noexcept = default;
+  374|  12.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKNSt3__14pairIidEEEC2Ev:
-  374|  20.0k|  constexpr equality_comparable_span() noexcept = default;
+  374|  12.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKNSt3__14pairIbbEEEC2Ev:
-  374|  20.0k|  constexpr equality_comparable_span() noexcept = default;
+  374|  12.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKNSt3__14pairINS2_17basic_string_viewIcNS2_11char_traitsIcEEEES7_EEEC2Ev:
-  374|  20.0k|  constexpr equality_comparable_span() noexcept = default;
+  374|  12.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKNSt3__14pairIiNS1_IKSt4byteEEEEEC2Ev:
-  374|  20.0k|  constexpr equality_comparable_span() noexcept = default;
+  374|  12.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKNSt3__14pairIiN17protobuf_unittest7MapEnumEEEEC2Ev:
-  374|  20.0k|  constexpr equality_comparable_span() noexcept = default;
+  374|  12.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKNSt3__14pairIiN17protobuf_unittest14ForeignMessageINS0_17non_owning_traitsEEEEEEC2Ev:
-  374|  20.0k|  constexpr equality_comparable_span() noexcept = default;
+  374|  12.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKNSt3__14pairINS2_17basic_string_viewIcNS2_11char_traitsIcEEEEN17protobuf_unittest14ForeignMessageINS0_17non_owning_traitsEEEEEEC2Ev:
-  374|  20.0k|  constexpr equality_comparable_span() noexcept = default;
+  374|  12.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto24equality_comparable_spanIKNSt3__14pairIiN17protobuf_unittest12TestAllTypesINS0_17non_owning_traitsEEEEEEC2Ev:
-  374|  20.0k|  constexpr equality_comparable_span() noexcept = default;
+  374|  12.9k|  constexpr equality_comparable_span() noexcept = default;
 _ZN3hpp5proto12message_nameIRN15proto2_unittest18TestWellKnownTypesINS0_17non_owning_traitsEEEEEPKcOT_QrqXcl16message_type_urlfp_EE:
-  606|  1.04k|{
+  606|    540|{
   607|       |  // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-pointer-arithmetic)
-  608|  1.04k|  return message_type_url(v).c_str() + std::size("type.googleapis.com");
-  609|  1.04k|}
+  608|    540|  return message_type_url(v).c_str() + std::size("type.googleapis.com");
+  609|    540|}
 _ZNK3hpp5proto14string_literalIXtlNS0_19compile_time_stringILm55EEEtlA55_cLc116ELc121ELc112ELc101ELc46ELc103ELc111ELc111ELc103ELc108ELc101ELc97ELc112ELc105ELc115ELc46ELc99ELc111ELc109ELc47ELc112ELc114ELc111ELc116ELc111ELc50ELc95ELc117ELc110ELc105ELc116ELc116ELc101ELc115ELc116ELc46ELc84ELc101ELc115ELc116ELc87ELc101ELc108ELc108ELc75ELc110ELc111ELc119ELc110ELc84ELc121ELc112ELc101ELc115EEEEE5c_strEv:
-  555|  1.04k|  [[nodiscard]] constexpr const char *c_str() const { return str.data(); }
+  555|    540|  [[nodiscard]] constexpr const char *c_str() const { return str.data(); }
 _ZNK3hpp5proto19compile_time_stringILm55EE4dataEv:
-  493|  1.04k|  [[nodiscard]] constexpr const char *data() const { return &data_[0]; }
+  493|    540|  [[nodiscard]] constexpr const char *data() const { return &data_[0]; }
 _ZN3hpp5proto10bool_proxyC2ERh:
   288|    226|  bool_proxy(uint8_t &v) : impl(&v) {}
 _ZN3hpp5proto10bool_proxyaSEb:
@@ -23176,10 +23176,10 @@ _ZNK3hpp5proto8optionalIiXtlNSt3__19monostateEEEEeqERKS4_:
   281|    374|  constexpr bool operator==(const optional &other) const = default;
 
 _ZNK3hpp5proto11json_status2okEv:
-  441|   499k|  [[nodiscard]] bool ok() const { return !static_cast<bool>(ctx); }
+  441|   309k|  [[nodiscard]] bool ok() const { return !static_cast<bool>(ctx); }
 
 _ZN3hpp5proto10alloc_fromINSt3__13pmr25monotonic_buffer_resourceEEC2ERS4_:
-   82|   169k|  explicit alloc_from(T &m) : mr(&m) {}
+   82|   105k|  explicit alloc_from(T &m) : mr(&m) {}
 _ZNK3hpp5proto10alloc_fromINSt3__13pmr25monotonic_buffer_resourceEE15memory_resourceEv:
    88|  8.29k|  [[nodiscard]] T &memory_resource() const { return *mr; }
 _ZN3hpp5proto6detail13as_modifiableINSt3__16vectorISt4byteNS3_9allocatorIS5_EEEENS0_10pb_contextIJEEEQntsr8conceptsE18dynamic_sized_viewIT_EEERSB_RKT0_SC_:
@@ -23242,31 +23242,31 @@ _ZN3hpp5proto6detail12arena_vectorINSt3__117basic_string_viewIcNS3_11char_traits
 _ZNK3hpp5proto6detail12arena_vectorINSt3__117basic_string_viewIcNS3_11char_traitsIcEEEENS3_3pmr25monotonic_buffer_resourceEE4sizeEv:
   255|  14.1k|  [[nodiscard]] constexpr std::size_t size() const { return view_.size(); }
 _ZN3hpp5proto6detail12arena_vectorINSt3__117basic_string_viewIcNS3_11char_traitsIcEEEENS3_3pmr25monotonic_buffer_resourceEE6resizeEm:
-  231|  22.6k|  constexpr void resize(std::size_t n) {
-  232|  22.6k|    if (capacity_ < n) [[likely]] {
+  231|  14.5k|  constexpr void resize(std::size_t n) {
+  232|  14.5k|    if (capacity_ < n) [[likely]] {
   ------------------
-  |  Branch (232:9): [True: 7.80k, False: 14.8k]
+  |  Branch (232:9): [True: 3.76k, False: 10.8k]
   ------------------
-  233|  7.80k|      auto new_data = static_cast<value_type *>(mr.allocate(n * sizeof(value_type), alignof(value_type)));
-  234|  7.80k|      if (view_.size() < n) [[likely]] {
+  233|  3.76k|      auto new_data = static_cast<value_type *>(mr.allocate(n * sizeof(value_type), alignof(value_type)));
+  234|  3.76k|      if (view_.size() < n) [[likely]] {
   ------------------
-  |  Branch (234:11): [True: 7.79k, False: 19]
+  |  Branch (234:11): [True: 3.75k, False: 12]
   ------------------
-  235|  7.79k|        std::uninitialized_copy(view_.begin(), view_.end(), new_data);
-  236|  7.79k|        std::uninitialized_default_construct(new_data + view_.size(), new_data + n);
-  237|  7.79k|      } else {
-  238|     19|        std::uninitialized_copy(view_.begin(), view_.begin() + static_cast<std::ptrdiff_t>(n), new_data);
-  239|     19|      }
-  240|  7.80k|      data_ = new_data;
-  241|  7.80k|      capacity_ = n;
-  242|  14.8k|    } else if (n > view_.size()) {
+  235|  3.75k|        std::uninitialized_copy(view_.begin(), view_.end(), new_data);
+  236|  3.75k|        std::uninitialized_default_construct(new_data + view_.size(), new_data + n);
+  237|  3.75k|      } else {
+  238|     12|        std::uninitialized_copy(view_.begin(), view_.begin() + static_cast<std::ptrdiff_t>(n), new_data);
+  239|     12|      }
+  240|  3.76k|      data_ = new_data;
+  241|  3.76k|      capacity_ = n;
+  242|  10.8k|    } else if (n > view_.size()) {
   ------------------
-  |  Branch (242:16): [True: 0, False: 14.8k]
+  |  Branch (242:16): [True: 0, False: 10.8k]
   ------------------
   243|      0|      std::uninitialized_default_construct(data_ + view_.size(), data_ + n);
   244|      0|    }
-  245|  22.6k|    view_ = View(data_, n);
-  246|  22.6k|  }
+  245|  14.5k|    view_ = View(data_, n);
+  246|  14.5k|  }
 _ZN3hpp5proto6detail12arena_vectorINSt3__117basic_string_viewIcNS3_11char_traitsIcEEEENS3_3pmr25monotonic_buffer_resourceEE7reserveEm:
   308|  7.05k|  constexpr void reserve(std::size_t n) {
   309|  7.05k|    if (capacity_ < n) {
