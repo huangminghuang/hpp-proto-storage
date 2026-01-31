@@ -1,0 +1,2 @@
+{"optionalString":"ÿÿÿÿptiona","optionalLazyMessage":{"bb":45},"repeatedInt32":[100],"repeatedString":["f"],"repeatedNestedMessage":[{"bb":46}],"repeatedForeignMessage":[{"c":23
+}],"repeatedNestedEnum":["BAZ"],"repeatedStringPiece":["FORE"],"repeatedBytes":["amtsOw=="],"repeatedNestedMessage":[{"bb":45}],"repeatedForeignMessage":[{"c":52}],"repeatedNestedEnum":["BAZ"],"repeatedStringPiece":["FOREIGBAZ"],"repeatedLazyMessage": [{"bb":49}],"oneofString":"teÿÿÿÿÿÿÿÿÿÿñt"}1
