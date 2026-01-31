@@ -1,1 +1,0 @@
-{"optionalInt32":101,"optionalBool":true,"optionalString":"115","repeatedFixed32":        [22,31],"repeatedBool":[true,false],"repeatedgroup":[{"a":217},{"a":37}],"defaultImportEnum":"IMPORT_FOO","oneofBytes":"NjA0"}
