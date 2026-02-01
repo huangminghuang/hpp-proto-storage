@@ -1,0 +1,1 @@
+{"optionalFloat":111,"optionalString":"115","optionalBytes":"MTE2","optionalForeignMessage":{"d":12},"repeatedInt32":                  [212],"repeatedBool":[true,false],"repeatedString":["214E2","MzE2"],"repeatedgroup":[{"a":21717}],"defaultImportEnum":"IMPORT_FOO","oneofBytes":"NjA0"}
