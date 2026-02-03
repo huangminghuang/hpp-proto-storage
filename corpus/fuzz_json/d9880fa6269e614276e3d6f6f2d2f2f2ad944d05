@@ -1,0 +1,3 @@
+{"optionalInt32":101,"optionalSint64":"1062","defaultNestedEnum":"FOO","defaultForeignEnum":"FOREIGN_FOO","defaultFloat":411,"defaultDouble":412,"defaultBool":false,"defaultString"      
+
+:"39ÿÿÿÿÿÿÿ6ÿÿÿÿÿÿ","defaultBytes":"NDE2","defaultNestedEnum":2,"defaultBool":false,"defaultString":"41/","defaultBytes":"NDE2","defaultNestedEnum":"FOO","defaultForeignEnum":"FOREIGN_FOO","defaultImportEnum":"IMPORT_FOO","oneofBytes":"NjA0"}
