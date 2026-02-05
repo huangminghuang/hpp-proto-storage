@@ -1,0 +1,1 @@
+{"optionalFloat":111,"optionalForeignMessage":{"d":23},"repeatedInt32":                  [212],"repeatedBool":[true,false],"repeatedString":["2"],"repeatedgroup":[{"a":21717}],"defaultImportEnum":"IMPORT_FOO","oneofBytes":"NjA0"}
