@@ -1,2 +1,0 @@
-{"optionalString":"ÿÿlSint03BAZ","optionalLazyMessage":{"bb":45},"repeatedInt32":[100],"repeatedString":["f"],"repeatedNestedMessage":[{"bb":46}],"repeatedForeignMessage":[{"c":52
-}],"repeatedNestedEnum":["BAZ"],"repeatedStringPiece":["FORGN_BAZ"],"repeatedStringPiece":["FOZ"],"repeatedStringPiece":["FOREIGN_BAZBAZ"],"repeatedLazyMessage": [{"bb":49}],"oneofString":"ÿÿt"}0
