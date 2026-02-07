@@ -1,0 +1,2 @@
+{"optionalInt32":101,"optionalLazyMessage":{"bb":12},"repeatedForeignMessage":[{"d"
+:2218},{"c":638}],"repeatedImportMessage":[{"d":220},{"d":320}],"repeatedNestedEnum":["BAR","BAZ"],"repeatedForeignMessage":[],"repeatedImportMessage":[{"d":2229}],"repeatedImportMessage":[{"d":220320}],"repeatedNestedEnum":["BAR","BAZ"],"repeatedForeignEnum":["FOREIGN_BAZ"],"oneofBytes":"NjA0"}
