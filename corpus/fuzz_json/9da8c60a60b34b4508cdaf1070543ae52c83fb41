@@ -1,1 +1,0 @@
-{"optionalInt32":10,"repeatedImportMessage":[{"d":30}],"repeatedNestedEnum":["BAR"],"repeatedForeignEnum":["FOREIGN_BAR" ,"FOREIGN_BAZ"],"repeatedImportEnum":["IMPORT_BAR","IMPORT_BAZ"],"repeatedLazyMessage":[{"bb":227},{"bb":327}],"defaultInt32":4,"defaultImportEnum":"IMPORT_BAR","oneofBytes":"NjA0"}
