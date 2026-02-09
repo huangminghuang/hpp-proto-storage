@@ -1,0 +1,4 @@
+{"optionalInt32":101,"optionalLazyMessage":{"bb":12},"repeatedForeignMessage":[{"d"
+:218},{"c":3119}],"repeatedImportMessage":[{"d":2220}],"repeatedForeignMessage":[{"d"
+:9}],"repeatedImportMessage":[{"d":220319}],"repeatedImportMessage":[{"d":220}],"repeatedForeignMessage":[{"d"
+:218},{"c":319}],"repeatedImportMessage":[{"d":220},{"d":320}],"repeatedNestedEnum":["BAR","BAZ"],"repeatedForeignEnum":["FOREIGN_BAZ","FOREIGN_BAZ"],"oneofBytes":"NjA0"}
