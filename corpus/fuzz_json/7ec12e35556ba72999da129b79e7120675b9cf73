@@ -1,0 +1,1 @@
+{"optionalInt32":1,"repeatedBool":[true,false],"repeatedgroup":[{"a":2177}],"optionalBool":true,"optionalString":"115","repeatedBool":[true,false],"repeatedgroup":[{"a":2177}],"defaultImportEnum":"IMPORT_FOO","oneofBytes":"NjA0"}
