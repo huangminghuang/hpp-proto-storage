@@ -1,29 +1,29 @@
 INFO: Running with entropic power schedule (0xFF, 100).
-INFO: Seed: 3058484055
-MERGE-OUTER: 20670 files, 0 in the initial corpus, 0 processed earlier
+INFO: Seed: 2978835302
+MERGE-OUTER: 16686 files, 0 in the initial corpus, 0 processed earlier
 MERGE-OUTER: attempt 1
 INFO: Running with entropic power schedule (0xFF, 100).
-INFO: Seed: 3058601296
+INFO: Seed: 2978933152
 INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
-MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge187.txt'
-MERGE-INNER: 20670 total files; 0 processed earlier; will process 20670 files now
-#1	pulse  exec/s: 0 rss: 36Mb
-#2	pulse  exec/s: 0 rss: 36Mb
-#4	pulse  exec/s: 0 rss: 37Mb
-#8	pulse  exec/s: 0 rss: 37Mb
-#16	pulse  exec/s: 0 rss: 37Mb
-#32	pulse  exec/s: 0 rss: 37Mb
-#64	pulse  exec/s: 0 rss: 37Mb
-#128	pulse  exec/s: 0 rss: 37Mb
-#256	pulse  exec/s: 0 rss: 37Mb
-#512	pulse  exec/s: 0 rss: 37Mb
-#1024	pulse  exec/s: 0 rss: 37Mb
-#2048	pulse  exec/s: 0 rss: 37Mb
-#4096	pulse  exec/s: 0 rss: 37Mb
-#8192	pulse  exec/s: 0 rss: 37Mb
-#16384	pulse  exec/s: 0 rss: 37Mb
-#20670	DONE   exec/s: 20670 rss: 38Mb
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge188.txt'
+MERGE-INNER: 16686 total files; 0 processed earlier; will process 16686 files now
+#1	pulse  exec/s: 0 rss: 34Mb
+#2	pulse  exec/s: 0 rss: 34Mb
+#4	pulse  exec/s: 0 rss: 34Mb
+#8	pulse  exec/s: 0 rss: 34Mb
+#16	pulse  exec/s: 0 rss: 34Mb
+#32	pulse  exec/s: 0 rss: 34Mb
+#64	pulse  exec/s: 0 rss: 35Mb
+#128	pulse  exec/s: 0 rss: 35Mb
+#256	pulse  exec/s: 0 rss: 35Mb
+#512	pulse  exec/s: 0 rss: 35Mb
+#1024	pulse  exec/s: 0 rss: 35Mb
+#2048	pulse  exec/s: 0 rss: 35Mb
+#4096	pulse  exec/s: 0 rss: 35Mb
+#8192	pulse  exec/s: 0 rss: 35Mb
+#16384	pulse  exec/s: 16384 rss: 35Mb
+#16686	DONE   exec/s: 16686 rss: 35Mb
 MERGE-OUTER: successful in 1 attempt(s)
-MERGE-OUTER: the control file has 2440419 bytes
+MERGE-OUTER: the control file has 1961889 bytes
 MERGE-OUTER: consumed 1Mb (37Mb rss) to parse the control file
 MERGE-OUTER: 0 new files with 0 new features added; 0 new coverage edges
