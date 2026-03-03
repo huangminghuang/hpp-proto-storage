@@ -1,0 +1,3 @@
+{"anyField":{"@type":"type.googleapis.com/google.protobuf.FieldMask","value":"/use%/usr/local/shasssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssre"},"apiField":{"name":"test_api"},"durationField":"1001.100s","emptyField":{},"fieldMaskField":"/usr/she,/usr/localare,/usr/local/share","sourceContextField":{},"structField":{"abc":0},"timestampField":"0985-01-01T00:33:20.200Z","typeField":{"name":"test_type"},"doubleField":3.14,"floatField":
+
+2.718,"int64Field":"40","uint64Field":"41","int32Field":42,"uint32Field":43,"boolField":true,"stringField":"\bc","bytesField":"ZGVm","valueField":"xyz"}

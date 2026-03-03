@@ -1,0 +1,1 @@
+{"optionalInt32":100,"optionalString":"a11111111111sdf","optionalBytes":"amtsOw==","optionalNestedMessage":{"bb"                                                     :42},"optionalForeignMessage":{"c":41},"optionalNestedEnum":"BAR","optionalForeignEnum":"FOREIGN_BAZ","optionalLazyMessage":{"bb":45},"optionalString":"a111111111111111111111111111111test"}A

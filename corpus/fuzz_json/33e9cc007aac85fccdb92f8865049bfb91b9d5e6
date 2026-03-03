@@ -1,0 +1,1 @@
+{"anyField":{"@type":"type.googleapis.m/google.protobuf.FieldMask","value":"/usr/shshare"},"apiField":{"name":"tetest_type"},"doubleField":4.14,"floatField":0.781577777777777777777777777777777777777,"int64Field":"40","uint64Field":"41","boolField":true,"stringField":"\bc______________________________xyz"}

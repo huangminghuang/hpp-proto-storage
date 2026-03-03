@@ -1,0 +1,1 @@
+{"anyField":{"@type":"tcOm/google.protobuf.FieldMask","value":},"doubleField":3.14,"floatField":2.718,"int64Field":"40","uint64Field":"41","stringField":"\bz"}

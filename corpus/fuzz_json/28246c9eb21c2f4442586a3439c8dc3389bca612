@@ -1,0 +1,1 @@
+{"anyField":{"@type":"type.googleapis.com/google.protobuf.FieldMask","value":"/uusr/local/she"},"apiField":{},"doubleField":3.14,"floatField":2.718,"int64Field":"41","uint64Field":"20","int32Field":-42,"uint32Field":43,"boolField":true,"stringField":"abc","bytesField":"ZGVm","valueField":"xyz"}

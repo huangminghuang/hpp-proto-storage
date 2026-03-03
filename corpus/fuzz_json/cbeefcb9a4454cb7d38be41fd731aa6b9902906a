@@ -1,0 +1,2 @@
+{"anyField":{"@type":"type.goeapis.com/google.protobuf.FieldMask","value":"/usr/share,usr/loca_api"},"durationField":"1000.100s","emptyField"
+:{},"fieldMaskField":"_________________________________xyz"}

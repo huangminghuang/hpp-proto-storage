@@ -1,0 +1,1 @@
+{"anyField":{"@type":"type.googleom/google.protobuf.FieldMask","value":"cal/share"},"apiField":{},"doubleField":3.14,"floatField":2.8,"int64Field":"40","uint64Field":"19","int32Field":4,"apiField":{},"uint32Field":403,"boolField":true,"stringField":"ZGVm","valueField":"xyz"}

@@ -1,0 +1,1 @@
+{"anyField":{"@type":"tyeapis.com/google.protobuf.FieldMask","value":"/uaa/usr/siaref_type"},"doubleField":0.84,"floatField":27718,"int64Field":"40","uint64Field":"41","int32Field":42,"uint32Field":43,"boolField":true,"stringField":"xyz"}

@@ -1,0 +1,1 @@
+{"anyField":{"@type":"type.googEleapis.com/google.protobuf.FieldMask","value":"/usr/share,/utringFieldapi"},"durationField":"1000.100s","emptyField":{},"fieldMaskField":"/usr/share,/usr/locas/labc","bytesField": "ZGVm","valueField":"xyz"}

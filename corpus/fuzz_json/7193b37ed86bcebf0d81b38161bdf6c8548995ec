@@ -1,0 +1,1 @@
+{"anyField":{"@type":"tstringFi%eldype.googleapis.com/google.protobuf.FieldMask","value":"/hare,/usr/lochare"},"apiField":{"name":"test_a_type"},"doubleField":3.14,"floatField":27.18,"int64Field":"40","uint64Field":"41","int32Field":42,"uint32Field":43,"boolField":true,"stringField":"\bc","valueField":"zZGVm","valueField":"xyz"}

@@ -1,0 +1,1 @@
+{"mapInt32Int32":{"0":0,"0":0,"0":10,"1":1},"mapFixed64Fixed64":{"1":"0","0":"1"},"mapSfixed32Sfixed32":{"0":0,"1":1},"mapSfixed64Sfixed64":{"0":"0","0":"1"},"mapInt32Float":{"0":0,"1":1},"mapInt32Double":{"5":0,"1":1},"mapBoolBool":{"false":false,"true":true},"mapStringString":{"1(":"0","1":"NUM_repeatedSint32FdBAR"},"mapInt32ForeignMessage":{"0":{"c":0},"1":{"c":1}}}
