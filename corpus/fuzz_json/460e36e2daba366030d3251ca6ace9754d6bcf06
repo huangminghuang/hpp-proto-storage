@@ -1,0 +1,1 @@
+{"anyField":{"@type":"typgoogleapis.com/google.protobuf.FieldMask","value":"/usr/share,/usr/local/share"},"apiField":{"name":"test_stringFieldapi"},"durationField":"1000.100s","emptyField":{},"fieldMaskField":"/usr/shsr//share","sourceContextField":{},"structField":{"abc":1},"bytesField":"ZGVm","valueField":"xyz"}

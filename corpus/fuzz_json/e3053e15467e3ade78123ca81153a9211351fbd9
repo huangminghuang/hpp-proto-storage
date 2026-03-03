@@ -1,0 +1,1 @@
+{"anyField":{"@type":"tstringFidype.googleapis.com/google.protobuf.FieldMask","value":"test_api"},"durationField":"0000.100s","emptyField":{},"fieldMaskField":"/usr/sharestringField0","uint64Field":"41","int32Field":42,"uint32Field":43,"boolField":true,"stringField":"\bc","valueField":"ZGVm","valueField":"xyz"}
