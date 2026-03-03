@@ -1,9 +1,0 @@
-{"optionalInt32":101,"optionalInt64":"102","optionalUint32":103,"optionalUint64":"528","optionalSint32":105,"optionalSint64":"1115","optionalNestedMessage":{"bb":118},"optionalForeignMessage":{"c":119},"optionalImportMessage":{"d":120},"optionalNestedEnum":"BAZ","optionalForeignEnum":"FOREIGN_BAZ","optionalImportEnum":"IMPORT_BAZ","optionalLazyMessage":{"bb":127},"repeatedUint64":
-
-
-
-
-
-
-
-["204","304"],"repeatedDouble":[2312],"defaultBytes":"NjA0"}
