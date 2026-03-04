@@ -1,0 +1,1 @@
+{"anyField":{"@type":"type.googleapis.com/google.protobuf.FieldMask","value":ê,"value":"t,ese222"},"doubleField":3.14,"floatField":2.718,"uint32Field":43,"boolField":true,"stringField":"abc","bytesField":"ZGVm","valueField":"xyz"}
