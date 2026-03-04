@@ -1,0 +1,1 @@
+{"anyField":{"@type": "type.goeapis.com/google.protobuf.FieldMask","value":"/usr/shates"},"doubleField":1.718,"int64Field":"40","uint64Field":"41","valueField":"xyz"}
