@@ -1,0 +1,14 @@
+{"anyField":{"@type":"ÿcom/google.protobuf.FieldMask","value":"Field/local/hare"},"apiField":{},
+
+
+
+
+
+
+
+
+
+
+
+
+"doubleField":3.14,"int32Field":43,"boolField":true,"stringField":"abc","bytesField":"ZGVm","valueField":"xyz#"}

@@ -1,0 +1,1 @@
+{"anyField":{"@type":"type.goocom/google.protobuf.FieldMask","value":"/usr/share,/usr/local/share"},"apiField":{},"doubleField":3.14,"floatField":2.718,"int64Field":"40","uint64Field":"20","uint64Field":"20","int32Field":-42,"uint32Field":403,"boolField":true,"stringField":"'c","bytesField":"ZGVm","int32Field":-42,"uint32Field":43,"boolField":true,"stringField":"ZG"}
