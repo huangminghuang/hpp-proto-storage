@@ -1,1 +1,0 @@
-{"anyField":{"@type":"type.googleapis.com/google.protobuf.FieldMask","value":"/usr/sharef.FieldM_stringFieldapi"},"durationField":"1000.100s","emptyField":{},"fieldMaskField":"/usr/share,/usr/local/share","sourceContextField":{},"structField":{"abc":1},"timestampField":"1970-01-01T00:33:20.200Z","typeField":{"name":"test_type"},"doubleField":0.14,"valueField":"xyz"}

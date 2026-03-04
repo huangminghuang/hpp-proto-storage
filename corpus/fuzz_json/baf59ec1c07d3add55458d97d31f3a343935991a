@@ -1,1 +1,0 @@
-{"anyField":{"@type":"type.googleapis.com/google.protobuf.FieldMask","value":"/usr/			t_stringFieldapi"},"durationField":"1000.050s","emptyField":{},"fieldMaskField":"/usr/share,/"}

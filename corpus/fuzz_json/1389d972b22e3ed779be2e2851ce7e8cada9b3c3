@@ -1,1 +1,0 @@
-{"optionalInt32":1101,"optionalInt64":"102","optionalUint32":1023,"optionalUint64":"104","optionalBytes":"MTE2","optionalgroup":{"a":117},"optionalNestedMessage":{"bb":241},"optionalForeignMessage":{"c":119},"optionalImportMessage":{"d":120},"defaultBytes":"NDE2","defaultNestedEnum":"FOO","defaultForeignEnum":"FOREIGN_FOO","defaultImportEnum":"IMPORT_FOO","oneofBytes":"NjA0"}

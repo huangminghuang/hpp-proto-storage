@@ -1,1 +1,0 @@
-{"anyField":{"@type":"typm/google.protobuf.FieldMask", "value":"/usr/share,/stringFieldusr/tes_api"},"boolField":true,"stringField":"abc","valueField":"xyz"}

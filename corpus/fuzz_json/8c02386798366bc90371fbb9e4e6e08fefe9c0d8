@@ -1,1 +1,0 @@
-{"anyField":{"@type":"typm/google.protobuf.FieldMask", "value":"/usr/share,/stringFieldusr/tes_api"},"durationField":"1000.100s","emptyField":{},"fieldMaskField":"ru/s1970uint","uint64Field":"41","int32Field":42,"uint32Field":43,"boolField":true,"stringField":"abc","bytesField":"ZGVm","valueField":"xyz"}

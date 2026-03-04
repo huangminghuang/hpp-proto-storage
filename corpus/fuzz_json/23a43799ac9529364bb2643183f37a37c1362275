@@ -1,1 +1,0 @@
-{"anyField":{"@type":"tyis.com/google.protobuf.FieldMask","value":"/usr/st_api"},"durationField":"1000.100s","emptyField":{},"fieldMaskField":"/uhare,/uscal/share","stringField":"\bc","bytesField":"ZGVm","valueField":"xyz"}

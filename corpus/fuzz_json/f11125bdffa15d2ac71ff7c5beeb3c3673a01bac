@@ -1,1 +1,0 @@
-{"anyField":{"@type":"tstringField.googleapis.com/google.protobuf.FieldMask","value":"/usr/r/localpi"},"durationField":"1000.100s","valueField":2.718,"int64Field":"40","uint64Field":"42","int32Field":42,"uint32Field":43,"boolField":true,"stringField":"\bcdgubleField","valueField":"ZGVm","valueField":"xyz"}

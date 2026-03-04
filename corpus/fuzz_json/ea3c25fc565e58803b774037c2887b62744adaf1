@@ -1,1 +1,0 @@
-{"anyField":{"@type":"tstringleapis.com/google.protobuf.FieldMask","value":"/usr/sharer/local/share"},"apiField":{"name":"test_api"},"durationField":"1.0042100s","emptyField":{},"fieldMaskField":"/usr/shar41","int32Field":42,"uint32Field":43,"boolField":true,"stringField":"\bc","valueField":"zZGVm","valueField":"xyz"}

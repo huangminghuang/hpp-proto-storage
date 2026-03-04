@@ -1,1 +1,0 @@
-{"anyField":{"@type":"tstringFieldype.googleapis.com/google.protobuf.FieldMask"},"durationField":"1000.100s","int64Field":"40","uint64Field":"41","stringField":"xyz"}

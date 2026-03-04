@@ -1,1 +1,0 @@
-{"anyField":{"@type":"type.googleapis.com/google.protobuf.FieldMask","value":ê                "eldMask","value":"/usr/sha"},"apiField":{"name":"test_sgFieldapi"},"durationField":"100.1000s","emptyField":{},"fieldMaskField":"","bytesField":"ZGVm","valueField":"xyz"}

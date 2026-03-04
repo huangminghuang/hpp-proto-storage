@@ -1,1 +1,0 @@
-{"anyField":{"@type":"t1ldype.googleapis.com/google.protobuf.FieldMask","value":"/usr/share,/usr/local/sht_type"},"doubleField":3.14,"floatField":2.718,"int64Field":"40","uint64Field":"41","floatField":42,"uint32Field":43,"boolField":true,"stringField":"\bc","valueField":"ZGVm","valueField":"xyz"}

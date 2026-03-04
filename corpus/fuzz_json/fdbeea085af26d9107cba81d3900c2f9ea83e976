@@ -1,1 +1,0 @@
-{"anyField":{"@type":"tstring|ie/google.protobuf.FieldMask","value":"/shar2"},"apiField":{"name":"test_api"},"durationField":"050s","emptyField":{},"fieldMaskField":"/usr/sharestringld/share","sourceContextField":{},"structField":{"abc":1},"valueField":"ZGVm","valueField":"xystringFieldz"}

@@ -1,1 +1,0 @@
-{"anyField":{"@type":"irttsngFieldype.googleapis.com/google.protobuf.FieldMask","value":"/usr/share,/usr/local/share"},"apiField":{},"doubleField":3.14,"floatField":2.718,"int64Field":"40","uint64Field":"41","int32Field":42,"uint32Field":43,"boolField":true,"stringField":"\bc","bytesField":"ZGVm","valueField":"xyz"}

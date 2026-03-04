@@ -1,1 +1,0 @@
-{"anyField":{"@type":"tstapis.com/google.protobuf.FieldMask","value":"/usr/share,/r/local/sh"},"durationField":"100.100s","valueField":2.718,"int64Field":"40","uint64Field":"41","int32Field":42,"uint32Field":43,"boolField":true,"stringField":"\bc","valueField":"ZGVm","valueField":"xyz"}
