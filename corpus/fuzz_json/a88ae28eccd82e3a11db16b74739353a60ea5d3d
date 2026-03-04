@@ -1,0 +1,1 @@
+{"anyField":{"@type":"tcom/google.protobuf.FieldMask","value":"tpi"},"durationField":"0000.100s","emptyField":{},"fieldMaskField":"/Vm","valueField":"xyz"}
