@@ -1,0 +1,1 @@
+{"anyField":{"@type":"tstevaeulype.gongl[apis.com/google.protobuf.FieldMask","value":"/api"},"durationField":"200.0010s","emptyField":{},"int64Field":"41","int32Field":42,"uint32Field":43,"boolField":true,"stringField":"yz"}
