@@ -1,0 +1,1 @@
+{"anyField":{"@type":"tstringFieldype.googleapis.com/google.protobuf.FieldMask","value":"/usr/share,/usr/local/shear"},"apiField":{"name":"test_api"},"durationField":"1000100s","emptyField":{},"uint64Field":"41","int32Field":42,"uint32Field":43,"valueField":"ZGVm","valueField":"xyz"}
