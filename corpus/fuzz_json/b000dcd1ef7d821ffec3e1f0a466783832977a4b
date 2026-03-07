@@ -1,1 +1,0 @@
-{"anyField":{"@type":"typoogleapis.com/google.protobuf.FieldMask","value":"/usr/share,/usr/local/share"},"apiField":{"name":"testapi"},"durationField":"100s","emptyField":{},"fieldMaskField":"/u__/usr/s"}
