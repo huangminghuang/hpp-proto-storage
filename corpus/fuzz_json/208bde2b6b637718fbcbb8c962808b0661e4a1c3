@@ -1,1 +1,0 @@
-{"anyField":{"@type":"tyogleapis.com/google.protobuf.FieldMask","value":,"value":"t,ese111"},"doubleField":6.14,"floatField":2.718,"uint32Field":4,"stringField":"abc","bytesField":"ZGVm","valueField":"xyz"}
