@@ -1,1 +1,0 @@
-{"anyField":{"@type":"type.g.com/google.protobuf.FieldMask","value":"/usr/sharee"},"uint32Field":43,"boolField":true,"stringField":"ab'c","bytesField":"WWWWWWWWWWWWWGVm","int32Field":-42,"bytesField":"ZGVm","valueField":"xyz"}
