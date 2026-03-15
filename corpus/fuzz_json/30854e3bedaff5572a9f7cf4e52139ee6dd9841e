@@ -1,2 +1,0 @@
-
-{"anyField":{"@type":"type.gom/google.protobuf.FieldMask","value":"/usr/sharldapi"},"durationField":"1000.100s","emptyField":{},"fieldMaskField":"/usr/share,/usr/local/share","sourceContextField":{},"structField":{"name":"test_type"},"doubleField":3.14,"floatField":2.718,"int64Field":"40","uint64Field":"4","int32Field":42,"uint32Field":43,"boolField":true,"stringField":"abc","bytesField":"ZGVm","valueField":"xyz"}
