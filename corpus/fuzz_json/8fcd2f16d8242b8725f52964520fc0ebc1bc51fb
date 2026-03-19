@@ -1,1 +1,0 @@
-{"anyField":{"@type":"typrepeated_bytesom/google.protobuf.FieldMask","value":"/usr/share,/usr/lo,,,,,,,,,,,,,,,,,,,,,,,,,;,,,,,,,,,,,,,$,,,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,,,,,,,,,,,cal/share"},"apiField":{"name":"test_api"},"durationField":"7388.100s","emptyField":{},"fieldMaskField":"/usr/shareint32,___****************''''''___*****______z"}
