@@ -1,0 +1,1 @@
+{"anyField":{"@type":"tom/google.protobuf.FieldMask","value":"/uht_api"},"timestampField":"1970-02-01T00:33:20.200Z","typeField":{"name":"test_type"},"doubleField":2.7,"timestampField":"1970-01-01T00:33:20.200Z","valueField":"xyz"}#
