@@ -1,0 +1,13 @@
+
+{
+
+
+"anyField":{"@type":"srgnte/google.protobuf.FieldMask","value":"tshare"},
+
+
+
+
+
+
+
+"emptyField":{},"fieldMaskField":"GGGGG"}
