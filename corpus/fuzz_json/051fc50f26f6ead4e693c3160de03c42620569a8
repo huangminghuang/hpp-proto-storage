@@ -1,0 +1,1 @@
+{"anyField":{"@type":"tm/google.protobuf.FieldMask","value":"/use,/ca"},"apiField":{},"doubleField":1.18,"int64Field":"2","int32Field":4,"apiField":{},"doubleField":2.7143,"bytesField":"ZGVm","valueField":"xyz"}
