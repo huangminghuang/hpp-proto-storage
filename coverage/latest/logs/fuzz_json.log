@@ -1,29 +1,29 @@
 INFO: Running with entropic power schedule (0xFF, 100).
-INFO: Seed: 612599480
-MERGE-OUTER: 22200 files, 0 in the initial corpus, 0 processed earlier
+INFO: Seed: 2210649476
+MERGE-OUTER: 22324 files, 0 in the initial corpus, 0 processed earlier
 MERGE-OUTER: attempt 1
 INFO: Running with entropic power schedule (0xFF, 100).
-INFO: Seed: 612675211
+INFO: Seed: 2210770431
 INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
 MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge187.txt'
-MERGE-INNER: 22200 total files; 0 processed earlier; will process 22200 files now
-#1	pulse  exec/s: 0 rss: 37Mb
-#2	pulse  exec/s: 0 rss: 37Mb
-#4	pulse  exec/s: 0 rss: 37Mb
-#8	pulse  exec/s: 0 rss: 37Mb
-#16	pulse  exec/s: 0 rss: 37Mb
-#32	pulse  exec/s: 0 rss: 37Mb
-#64	pulse  exec/s: 0 rss: 37Mb
-#128	pulse  exec/s: 0 rss: 38Mb
-#256	pulse  exec/s: 0 rss: 38Mb
-#512	pulse  exec/s: 0 rss: 38Mb
-#1024	pulse  exec/s: 0 rss: 38Mb
-#2048	pulse  exec/s: 0 rss: 38Mb
-#4096	pulse  exec/s: 0 rss: 38Mb
-#8192	pulse  exec/s: 0 rss: 38Mb
-#16384	pulse  exec/s: 0 rss: 38Mb
-#22200	DONE   exec/s: 0 rss: 39Mb
+MERGE-INNER: 22324 total files; 0 processed earlier; will process 22324 files now
+#1	pulse  exec/s: 0 rss: 35Mb
+#2	pulse  exec/s: 0 rss: 35Mb
+#4	pulse  exec/s: 0 rss: 35Mb
+#8	pulse  exec/s: 0 rss: 35Mb
+#16	pulse  exec/s: 0 rss: 35Mb
+#32	pulse  exec/s: 0 rss: 35Mb
+#64	pulse  exec/s: 0 rss: 35Mb
+#128	pulse  exec/s: 0 rss: 36Mb
+#256	pulse  exec/s: 0 rss: 36Mb
+#512	pulse  exec/s: 0 rss: 36Mb
+#1024	pulse  exec/s: 0 rss: 36Mb
+#2048	pulse  exec/s: 0 rss: 36Mb
+#4096	pulse  exec/s: 0 rss: 36Mb
+#8192	pulse  exec/s: 0 rss: 36Mb
+#16384	pulse  exec/s: 0 rss: 36Mb
+#22324	DONE   exec/s: 22324 rss: 37Mb
 MERGE-OUTER: successful in 1 attempt(s)
-MERGE-OUTER: the control file has 2619400 bytes
+MERGE-OUTER: the control file has 2634291 bytes
 MERGE-OUTER: consumed 1Mb (37Mb rss) to parse the control file
 MERGE-OUTER: 0 new files with 0 new features added; 0 new coverage edges
