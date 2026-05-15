@@ -1,2 +1,2 @@
-fuzz_json
 fuzz_binpb
+fuzz_json
