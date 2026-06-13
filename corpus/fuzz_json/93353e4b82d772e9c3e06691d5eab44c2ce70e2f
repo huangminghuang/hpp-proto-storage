@@ -1,1 +1,0 @@
-{"optionalInt32":10,"optionalNestedMessage":{"bb":118},"optionalForeignMessage":{"c":119},"optionalImportMessage":{"d":21},"optionalNestedEnum":"BAZ","optionalForeignEnum":"FOREIGN_BAZ","optionalImportEnum":"IMPORT_BAZ","optionalPublicImportMessage":{"e":1},"optionalLazyMessage":{"bb":127},"repeatedDouble":[2],"defaultBytes":"NDE2","defaultBytes":"JjA0"}
